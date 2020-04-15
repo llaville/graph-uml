@@ -1,0 +1,67 @@
+graph {
+  "redis" [shape="none" label=<
+<table cellspacing="0" border="0" cellborder="1">
+    <tr><td bgcolor="#eeeeee"><b>«extension»<br/>redis</b></td></tr>
+
+    <tr><td></td></tr>
+</table>>]
+  "hash" [shape="none" label=<
+<table cellspacing="0" border="0" cellborder="1">
+    <tr><td bgcolor="#eeeeee"><b>«extension»<br/>hash</b></td></tr>
+    <tr><td align="left">+ «static» HASH_HMAC : int = 1 {readOnly}</td></tr>
+<tr><td align="left">+ «static» MHASH_CRC32 : int = 0 {readOnly}</td></tr>
+<tr><td align="left">+ «static» MHASH_MD5 : int = 1 {readOnly}</td></tr>
+<tr><td align="left">+ «static» MHASH_SHA1 : int = 2 {readOnly}</td></tr>
+<tr><td align="left">+ «static» MHASH_HAVAL256 : int = 3 {readOnly}</td></tr>
+<tr><td align="left">+ «static» MHASH_RIPEMD160 : int = 5 {readOnly}</td></tr>
+<tr><td align="left">+ «static» MHASH_TIGER : int = 7 {readOnly}</td></tr>
+<tr><td align="left">+ «static» MHASH_GOST : int = 8 {readOnly}</td></tr>
+<tr><td align="left">+ «static» MHASH_CRC32B : int = 9 {readOnly}</td></tr>
+<tr><td align="left">+ «static» MHASH_HAVAL224 : int = 10 {readOnly}</td></tr>
+<tr><td align="left">+ «static» MHASH_HAVAL192 : int = 11 {readOnly}</td></tr>
+<tr><td align="left">+ «static» MHASH_HAVAL160 : int = 12 {readOnly}</td></tr>
+<tr><td align="left">+ «static» MHASH_HAVAL128 : int = 13 {readOnly}</td></tr>
+<tr><td align="left">+ «static» MHASH_TIGER128 : int = 14 {readOnly}</td></tr>
+<tr><td align="left">+ «static» MHASH_TIGER160 : int = 15 {readOnly}</td></tr>
+<tr><td align="left">+ «static» MHASH_MD4 : int = 16 {readOnly}</td></tr>
+<tr><td align="left">+ «static» MHASH_SHA256 : int = 17 {readOnly}</td></tr>
+<tr><td align="left">+ «static» MHASH_ADLER32 : int = 18 {readOnly}</td></tr>
+<tr><td align="left">+ «static» MHASH_SHA224 : int = 19 {readOnly}</td></tr>
+<tr><td align="left">+ «static» MHASH_SHA512 : int = 20 {readOnly}</td></tr>
+<tr><td align="left">+ «static» MHASH_SHA384 : int = 21 {readOnly}</td></tr>
+<tr><td align="left">+ «static» MHASH_WHIRLPOOL : int = 22 {readOnly}</td></tr>
+<tr><td align="left">+ «static» MHASH_RIPEMD128 : int = 23 {readOnly}</td></tr>
+<tr><td align="left">+ «static» MHASH_RIPEMD256 : int = 24 {readOnly}</td></tr>
+<tr><td align="left">+ «static» MHASH_RIPEMD320 : int = 25 {readOnly}</td></tr>
+<tr><td align="left">+ «static» MHASH_SNEFRU256 : int = 27 {readOnly}</td></tr>
+<tr><td align="left">+ «static» MHASH_MD2 : int = 28 {readOnly}</td></tr>
+<tr><td align="left">+ «static» MHASH_FNV132 : int = 29 {readOnly}</td></tr>
+<tr><td align="left">+ «static» MHASH_FNV1A32 : int = 30 {readOnly}</td></tr>
+<tr><td align="left">+ «static» MHASH_FNV164 : int = 31 {readOnly}</td></tr>
+<tr><td align="left">+ «static» MHASH_FNV1A64 : int = 32 {readOnly}</td></tr>
+<tr><td align="left">+ «static» MHASH_JOAAT : int = 33 {readOnly}</td></tr>
+
+    <tr><td><table border="0" cellspacing="0" cellpadding="2">
+<tr><td align="left">+  hash(algo, data, raw_output = «unknown»)</td></tr>
+<tr><td align="left">+  hash_file(algo, filename, raw_output = «unknown»)</td></tr>
+<tr><td align="left">+  hash_hmac(algo, data, key, raw_output = «unknown»)</td></tr>
+<tr><td align="left">+  hash_hmac_file(algo, filename, key, raw_output = «unknown»)</td></tr>
+<tr><td align="left">+  hash_init(algo, options = «unknown», key = «unknown»)</td></tr>
+<tr><td align="left">+  hash_update(context, data)</td></tr>
+<tr><td align="left">+  hash_update_stream(context, handle, length = «unknown»)</td></tr>
+<tr><td align="left">+  hash_update_file(context, filename, stream_context = «unknown»)</td></tr>
+<tr><td align="left">+  hash_final(context, raw_output = «unknown»)</td></tr>
+<tr><td align="left">+  hash_copy(context)</td></tr>
+<tr><td align="left">+  hash_algos()</td></tr>
+<tr><td align="left">+  hash_hmac_algos()</td></tr>
+<tr><td align="left">+  hash_pbkdf2(algo, password, salt, iterations, length = «unknown», raw_output = «unknown»)</td></tr>
+<tr><td align="left">+  hash_equals(known_string, user_string)</td></tr>
+<tr><td align="left">+  hash_hkdf(ikm, algo, length = «unknown», string = «unknown», salt = «unknown»)</td></tr>
+<tr><td align="left">+  mhash_keygen_s2k(hash, input_password, salt, bytes)</td></tr>
+<tr><td align="left">+  mhash_get_block_size(hash)</td></tr>
+<tr><td align="left">+  mhash_get_hash_name(hash)</td></tr>
+<tr><td align="left">+  mhash_count()</td></tr>
+<tr><td align="left">+  mhash(hash, data, key = «unknown»)</td></tr>
+</table></td></tr>
+</table>>]
+}

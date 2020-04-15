@@ -1,0 +1,28 @@
+{
+    "name": "bartlett/graph-uml",
+    "description": "PHP library which helps you build UML diagrams.",
+    "type": "library",
+    "license": "BSD-3-Clause",
+    "authors": [
+        {
+            "name": "Laurent Laville",
+            "email": "laurent.laville@gmail.com"
+        }
+    ],
+    "require": {
+        "php": "^7.1.3",
+        "graphp/graph": "dev-master as 1.0.0",
+        "graphp/graphviz": "dev-master as 1.0.0"
+    },
+    "config": {
+        "preferred-install": {
+            "*": "dist"
+        },
+        "sort-packages": true
+    },
+    "autoload": {
+        "psr-4": {
+            "Bartlett\\GraphUml\\": "src/"
+        }
+    }
+}

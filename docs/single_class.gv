@@ -1,0 +1,31 @@
+digraph {
+  "Bartlett\\GraphUml\\ClassDiagramBuilder" [shape="none" label=<
+<table cellspacing="0" border="0" cellborder="1">
+    <tr><td bgcolor="#eeeeee"><b><br/>ClassDiagramBuilder</b></td></tr>
+    <tr><td align="left">+ «static» OPTIONS_DEFAULTS : array = […] {readOnly}</td></tr>
+
+    <tr><td><table border="0" cellspacing="0" cellpadding="2">
+<tr><td align="left">– graph : Graph</td></tr>
+<tr><td align="left">– options : array</td></tr>
+<tr><td align="left">– formatterFactory : FormatterFactory</td></tr>
+</table></td></tr>
+    <tr><td><table border="0" cellspacing="0" cellpadding="2">
+<tr><td align="left">+ __construct(graph : Graphp\\Graph\\Graph, options : array = )</td></tr>
+<tr><td align="left">+ createVertexClass(class : mixed) : Vertex</td></tr>
+<tr><td align="left">+ createVertexExtension(extension : mixed) : Vertex</td></tr>
+<tr><td align="left">– getInterfaces(reflection : ReflectionClass)</td></tr>
+</table></td></tr>
+</table>>]
+  "Bartlett\\GraphUml\\ClassDiagramBuilderInterface" [shape="none" label=<
+<table cellspacing="0" border="0" cellborder="1">
+    <tr><td bgcolor="#eeeeee"><b>«interface»<br/>ClassDiagramBuilderInterface</b></td></tr>
+    <tr><td align="left">+ «static» OPTIONS_DEFAULTS : array = […] {readOnly}</td></tr>
+
+    <tr><td></td></tr>
+    <tr><td><table border="0" cellspacing="0" cellpadding="2">
+<tr><td align="left">+ «abstract» createVertexClass(class)</td></tr>
+<tr><td align="left">+ «abstract» createVertexExtension(extension)</td></tr>
+</table></td></tr>
+</table>>]
+  "Bartlett\\GraphUml\\ClassDiagramBuilder" -> "Bartlett\\GraphUml\\ClassDiagramBuilderInterface" [arrowhead="empty" style="dashed"]
+}
