@@ -6,6 +6,12 @@ using the [Keep a CHANGELOG](http://keepachangelog.com) principles.
 
 ## [Unreleased]
 
+## [0.2.0] - 2020-04-17
+
+* use native PHP API [ReflectionType](https://www.php.net/manual/en/class.reflectiontype.php) instead of docblock annotations.
+
+## [0.1.0] - 2020-04-15
+
 preview release features include : 
 
 * build UML [Class diagram](https://en.wikipedia.org/wiki/Class_diagram)

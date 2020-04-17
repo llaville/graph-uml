@@ -196,9 +196,12 @@ class HtmlFormatter extends AbstractFormatter implements FormatterInterface
             }
             $label .= ')';
 
-            $type = $this->getDocBlockReturn($method);
-            if ($type !== null) {
-                $label .= ' : ' . $this->escape($type);
+            $returnType = $method->getReturnType();
+            if ($returnType) {
+                $type = (string) $returnType;
+                if ($type !== null) {
+                    $label .= ' : ' . ($returnType->allowsNull() ? '?' : '') . $this->escape($type);
+                }
             }
 
             $tbody .= sprintf($this->options['row-format'], $label);

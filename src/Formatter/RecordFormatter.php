@@ -202,9 +202,12 @@ class RecordFormatter extends AbstractFormatter implements FormatterInterface
             }
             $label .= ')';
 
-            $type = $this->getDocBlockReturn($method);
-            if ($type !== null) {
-                $label .= ' : ' . $this->escape($type);
+            $returnType = $method->getReturnType();
+            if ($returnType) {
+                $type = (string) $returnType;
+                if ($type !== null) {
+                    $label .= ' : ' . ($returnType->allowsNull() ? '?' : '') . $this->escape($type);
+                }
             }
 
             // align this line to the left

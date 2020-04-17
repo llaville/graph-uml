@@ -55,11 +55,6 @@ abstract class AbstractFormatter
         return $this->getType($this->getDocBlockSingle($ref, 'var'));
     }
 
-    protected function getDocBlockReturn($ref)
-    {
-        return $this->getType($this->getDocBlockSingle($ref, 'return'));
-    }
-
     protected function getParameterType(ReflectionParameter $parameter)
     {
         $class = null;
