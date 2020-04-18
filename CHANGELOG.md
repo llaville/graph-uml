@@ -6,6 +6,8 @@ using the [Keep a CHANGELOG](http://keepachangelog.com) principles.
 
 ## [Unreleased]
 
+* introduces first series of unit tests about `createVertexExtension`
+
 ## [0.2.0] - 2020-04-17
 
 * use native PHP API [ReflectionType](https://www.php.net/manual/en/class.reflectiontype.php) instead of docblock annotations.
