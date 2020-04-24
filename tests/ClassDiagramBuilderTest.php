@@ -1,6 +1,7 @@
 <?php
 
 use Bartlett\GraphUml\ClassDiagramBuilder;
+use Bartlett\GraphUml\Generator\GraphVizGenerator;
 
 use Graphp\Graph\Graph;
 use Graphp\Graph\Vertex;
@@ -11,8 +12,9 @@ class ClassDiagramBuilderTest extends TestCase
 
     public function setup()
     {
+        $generator = new GraphVizGenerator();
         $graph = new Graph();
-        $this->builder = new ClassDiagramBuilder($graph);
+        $this->builder = new ClassDiagramBuilder($generator, $graph);
     }
 
     /**
