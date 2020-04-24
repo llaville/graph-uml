@@ -9,7 +9,9 @@ use Graphp\Graph\Vertex;
 interface ClassDiagramBuilderInterface
 {
     public const OPTIONS_DEFAULTS = [
-        // whether to use html or record formatted labels
+        // string to indent graph statement parts
+        'indent-string' => '  ',
+        // whether to use html or record formatted labels (graphviz specific feature)
         'label-format' => 'record',
         // whether to only show methods/properties that are actually defined in this class (and not those merely inherited from base)
         'only-self' => true,

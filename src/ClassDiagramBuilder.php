@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Bartlett\GraphUml;
 
-use Bartlett\GraphUml\Formatter\FormatterFactory;
+use Bartlett\GraphUml\Generator\GeneratorInterface;
 
 use Graphp\Graph\Graph;
 use Graphp\Graph\Vertex;
@@ -31,21 +31,23 @@ final class ClassDiagramBuilder implements ClassDiagramBuilderInterface
     /** @var array  */
     private $options;
 
-    /** @var FormatterFactory  */
-    private $formatterFactory;
+    /** @var GeneratorInterface  */
+    private $generator;
 
     /**
      * ClassDiagramBuilder constructor.
      *
+     * @param GeneratorInterface $generator
      * @param Graph $graph
      * @param array $options
      * @see ClassDiagramBuilderInterface::OPTIONS_DEFAULTS for available options
      */
-    public function __construct(Graph $graph, array $options = [])
+    public function __construct(GeneratorInterface $generator, Graph $graph, array $options = [])
     {
         $this->graph = $graph;
         $this->options = array_merge(ClassDiagramBuilderInterface::OPTIONS_DEFAULTS, $options);
-        $this->formatterFactory = new FormatterFactory($this->options);
+        $this->generator = $generator;
+        $this->generator->setOptions($this->options);
     }
 
     /**
@@ -63,25 +65,39 @@ final class ClassDiagramBuilder implements ClassDiagramBuilderInterface
             $class = ltrim($class, '\\');
             $reflection = new ReflectionClass($class);
         }
+
+        $generatorPrefix = $this->generator->getName() . '.';
+
         $vertex = $this->graph->createVertex(['id' => $class]);
+
         if ($this->options['add-parents']) {
             $parent = $reflection->getParentClass();
             if ($parent) {
                 $parentVertex = $this->createVertexClass($parent);
-                $this->graph->createEdgeDirected($vertex, $parentVertex)->setAttribute('graphviz.arrowhead', 'empty');
+                $this->graph->createEdgeDirected($vertex, $parentVertex)
+                    ->setAttribute($generatorPrefix . 'arrowhead', 'empty')
+                ;
             }
 
             foreach ($this->getInterfaces($reflection) as $interface) {
                 $parentVertex = $this->createVertexClass($interface);
-                $this->graph->createEdgeDirected($vertex, $parentVertex)->setAttribute('graphviz.arrowhead', 'empty')->setAttribute('graphviz.style', 'dashed');
+                $this->graph->createEdgeDirected($vertex, $parentVertex)
+                    ->setAttribute($generatorPrefix . 'arrowhead', 'empty')
+                    ->setAttribute($generatorPrefix . 'style', 'dashed')
+                ;
             }
         }
 
-        $formatter = $this->formatterFactory->getFormatter();
-        $formatterType = $this->formatterFactory->getType();
+        $formatterType = $this->generator->getFormatter()->getFormat();
 
-        $vertex->setAttribute('graphviz.shape', ($formatterType === 'html' ? 'none' : 'record'));
-        $vertex->setAttribute('graphviz.label_' . $formatterType, $formatter->getLabelClass($reflection));
+        $vertex->setAttribute(
+            $generatorPrefix . 'shape',
+            ($formatterType === 'html' ? 'none' : 'record')
+        );
+        $vertex->setAttribute(
+            $generatorPrefix . 'label_' . $formatterType,
+            $this->generator->getLabel($reflection)
+        );
 
         if ($reflection->inNamespace()) {
             $vertex->setAttribute('group', $reflection->getNamespaceName());
@@ -104,13 +120,19 @@ final class ClassDiagramBuilder implements ClassDiagramBuilderInterface
             $reflection = new ReflectionExtension($extension);
         }
 
-        $formatter = $this->formatterFactory->getFormatter();
-        $formatterType = $this->formatterFactory->getType();
-
         $vertex = $this->graph->createVertex(['id' => $extension]);
 
-        $vertex->setAttribute('graphviz.shape', ($formatterType === 'html' ? 'none' : 'record'));
-        $vertex->setAttribute('graphviz.label_' . $this->formatterFactory->getType(), $formatter->getLabelExtension($reflection));
+        $formatterType = $this->generator->getFormatter()->getFormat();
+        $generatorPrefix = $this->generator->getName() . '.';
+
+        $vertex->setAttribute(
+            $generatorPrefix . 'shape',
+            ($formatterType === 'html' ? 'none' : 'record')
+        );
+        $vertex->setAttribute(
+            $generatorPrefix . 'label_' . $formatterType,
+            $this->generator->getExtension($reflection)
+        );
         $vertex->setAttribute('group', 'PHP Extensions');
 
         return $vertex;

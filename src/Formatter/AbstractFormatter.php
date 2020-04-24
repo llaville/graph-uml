@@ -20,6 +20,11 @@ abstract class AbstractFormatter
         $this->options = $options;
     }
 
+    public function getFormat(): string
+    {
+        return $this->options['label-format'];
+    }
+
     protected function getStereotype(ReflectionClass $reflection): string
     {
         if ($reflection->isInterface()) {
