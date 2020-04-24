@@ -37,14 +37,17 @@ diagram for your existing classes:
 ```php
 <?php
 use Bartlett\GraphUml\ClassDiagramBuilder;
+use Bartlett\GraphUml\Generator\GraphVizGenerator;
 
 use Graphp\Graph\Graph;
-use Graphp\GraphViz\GraphViz;
 
-// initialize an empty graph// 
+// use GraphViz as back-end generator
+$generator = new GraphVizGenerator();
+// initialize an empty graph
 $graph = new Graph();
 // and the UML class diagram builder
 $builder = new ClassDiagramBuilder(
+    $generator,
     $graph,
     [
         'label-format' => 'html',
@@ -54,11 +57,10 @@ $builder = new ClassDiagramBuilder(
 // identify what class(es) you want to draw. One `createVertexClass()` operation by class.
 $builder->createVertexClass(ClassDiagramBuilder::class);
 
-$graphviz = new GraphViz();
 // show UML diagram statements
-echo $graphviz->createScript($graph);
+echo $generator->createScript($graph);
 // default format is PNG
-echo $graphviz->createImageFile($graph) . ' file generated' . PHP_EOL;
+echo $generator->createImageFile($graph) . ' file generated' . PHP_EOL;
 ```
 
 ## Documentation
