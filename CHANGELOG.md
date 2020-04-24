@@ -6,7 +6,10 @@ using the [Keep a CHANGELOG](http://keepachangelog.com) principles.
 
 ## [Unreleased]
 
+## [0.3.0] - 2020-04-24
+
 * introduces first series of unit tests about `createVertexExtension`
+* introduces Graph Generator feature to allow more back-end than just GraphViz in future releases
 
 ## [0.2.0] - 2020-04-17
 
