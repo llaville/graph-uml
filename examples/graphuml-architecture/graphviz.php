@@ -13,13 +13,16 @@ $builder = new GraphUml\ClassDiagramBuilder(
     $graph,
     [
         'label-format' => 'html',
+        'show-constants' => false,
+        'show-private' => false,
+        'show-protected' => false
     ]
 );
 
 $builder->createVertexClass(GraphUml\Formatter\AbstractFormatter::class);
 $builder->createVertexClass(GraphUml\Formatter\HtmlFormatter::class);
 $builder->createVertexClass(GraphUml\Formatter\RecordFormatter::class);
-$builder->createVertexClass(GraphUml\FormatterInterface::class);
+$builder->createVertexClass(GraphUml\Formatter\FormatterInterface::class);
 $builder->createVertexClass(GraphUml\Generator\AbstractGeneratorTrait::class);
 $builder->createVertexClass(GraphUml\Generator\GeneratorInterface::class);
 $builder->createVertexClass(GraphUml\Generator\GraphVizGenerator::class);

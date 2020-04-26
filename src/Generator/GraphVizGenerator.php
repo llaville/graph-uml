@@ -3,9 +3,9 @@ declare(strict_types=1);
 
 namespace Bartlett\GraphUml\Generator;
 
+use Bartlett\GraphUml\Formatter\FormatterInterface;
 use Bartlett\GraphUml\Formatter\HtmlFormatter;
 use Bartlett\GraphUml\Formatter\RecordFormatter;
-use Bartlett\GraphUml\FormatterInterface;
 
 use Graphp\Graph\Graph;
 use Graphp\GraphViz\GraphViz;

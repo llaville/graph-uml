@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Bartlett\GraphUml\Generator;
 
-use Bartlett\GraphUml\FormatterInterface;
+use Bartlett\GraphUml\Formatter\FormatterInterface;
 
 use Graphp\Graph\Graph;
 

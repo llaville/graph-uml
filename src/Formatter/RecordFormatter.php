@@ -4,8 +4,6 @@ declare(strict_types=1);
 
 namespace Bartlett\GraphUml\Formatter;
 
-use Bartlett\GraphUml\FormatterInterface;
-
 use Exception;
 use ReflectionClass;
 use ReflectionExtension;

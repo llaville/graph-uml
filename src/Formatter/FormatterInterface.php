@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Bartlett\GraphUml;
+namespace Bartlett\GraphUml\Formatter;
 
 use ReflectionClass;
 use ReflectionExtension;

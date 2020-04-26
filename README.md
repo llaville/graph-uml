@@ -13,7 +13,7 @@ The main features provided by this library are:
 
 ## Install
 
-The recommended way to install this library is [through composer](http://getcomposer.org). 
+The recommended way to install this library is [through composer](http://getcomposer.org).
 If you don't know yet what is composer, have a look [on introduction](http://getcomposer.org/doc/00-intro.md).
 
 ```bash
@@ -65,7 +65,7 @@ echo $generator->createImageFile($graph) . ' file generated' . PHP_EOL;
 
 ## Documentation
 
-
+Full documentation is written in MarkDown format, and HTML export is possible with [Daux.io](https://github.com/dauxio/daux.io)
 
 ## Credits
 

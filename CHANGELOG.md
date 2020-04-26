@@ -6,6 +6,11 @@ using the [Keep a CHANGELOG](http://keepachangelog.com) principles.
 
 ## [Unreleased]
 
+## [0.4.0] - 2020-04-26
+
+* introduces full documentation in markdown format (see `docs/` folder).
+* changed namespace of `FormatterInterface`.
+
 ## [0.3.0] - 2020-04-24
 
 * introduces first series of unit tests about `createVertexExtension`
@@ -17,7 +22,7 @@ using the [Keep a CHANGELOG](http://keepachangelog.com) principles.
 
 ## [0.1.0] - 2020-04-15
 
-preview release features include : 
+preview release features include :
 
 * build UML [Class diagram](https://en.wikipedia.org/wiki/Class_diagram)
 * two formatters are provided by default: `record`, and `html`
