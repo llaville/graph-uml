@@ -1,0 +1,36 @@
+graph {
+  "mongodb" [shape="none" label=<
+<table cellspacing="0" border="0" cellborder="1">
+    <tr><td bgcolor="#eeeeee"><b>«extension»<br/>mongodb</b></td></tr>
+    <tr><td align="left">+ «static» MONGODB_VERSION : string = "1.7.4" {readOnly}</td></tr>
+<tr><td align="left">+ «static» MONGODB_STABILITY : string = "stable" {readOnly}</td></tr>
+
+    <tr><td><table border="0" cellspacing="0" cellpadding="2">
+<tr><td align="left">+  MongoDB\\BSON\\fromPHP(value)</td></tr>
+<tr><td align="left">+  MongoDB\\BSON\\toPHP(bson, typemap = «unknown»)</td></tr>
+<tr><td align="left">+  MongoDB\\BSON\\toJSON(bson)</td></tr>
+<tr><td align="left">+  MongoDB\\BSON\\toCanonicalExtendedJSON(bson)</td></tr>
+<tr><td align="left">+  MongoDB\\BSON\\toRelaxedExtendedJSON(bson)</td></tr>
+<tr><td align="left">+  MongoDB\\BSON\\fromJSON(json)</td></tr>
+<tr><td align="left">+  MongoDB\\Driver\\Monitoring\\addSubscriber(subscriber : MongoDB\\Driver\\Monitoring\\Subscriber)</td></tr>
+<tr><td align="left">+  MongoDB\\Driver\\Monitoring\\removeSubscriber(subscriber : MongoDB\\Driver\\Monitoring\\Subscriber)</td></tr>
+</table></td></tr>
+</table>>]
+  "gettext" [shape="none" label=<
+<table cellspacing="0" border="0" cellborder="1">
+    <tr><td bgcolor="#eeeeee"><b>«extension»<br/>gettext</b></td></tr>
+
+    <tr><td><table border="0" cellspacing="0" cellpadding="2">
+<tr><td align="left">+  textdomain(domain)</td></tr>
+<tr><td align="left">+  gettext(msgid)</td></tr>
+<tr><td align="left">+  _(msgid)</td></tr>
+<tr><td align="left">+  dgettext(domain_name, msgid)</td></tr>
+<tr><td align="left">+  dcgettext(domain_name, msgid, category)</td></tr>
+<tr><td align="left">+  bindtextdomain(domain_name, dir)</td></tr>
+<tr><td align="left">+  ngettext(msgid1, msgid2, count)</td></tr>
+<tr><td align="left">+  dngettext(domain, msgid1, msgid2, count)</td></tr>
+<tr><td align="left">+  dcngettext(domain, msgid1, msgid2, count, category)</td></tr>
+<tr><td align="left">+  bind_textdomain_codeset(domain, codeset)</td></tr>
+</table></td></tr>
+</table>>]
+}
