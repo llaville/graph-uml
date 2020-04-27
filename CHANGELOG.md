@@ -6,6 +6,18 @@ using the [Keep a CHANGELOG](http://keepachangelog.com) principles.
 
 ## [Unreleased]
 
+## [0.5.0] - 2020-04-27
+
+### Added
+
+* add UML `stereotype` (https://www.uml-diagrams.org/stereotype.html) as attribute of each vertex
+* add `getFormat()` method in Formatter contract
+
+### Fixed
+
+* be sure to have always a `style` attribute for each edges
+* fix all examples by following Generator contract and use `render()` instead of `createScript()`
+
 ## [0.4.0] - 2020-04-26
 
 * introduces full documentation in markdown format (see `docs/` folder).
