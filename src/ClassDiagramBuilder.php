@@ -104,6 +104,8 @@ final class ClassDiagramBuilder implements ClassDiagramBuilderInterface
             $vertex->setAttribute('group', $reflection->getNamespaceName());
         }
 
+        $vertex->setAttribute('stereotype', $reflection->isInterface() ? 'interface': 'class');
+
         return $vertex;
     }
 
