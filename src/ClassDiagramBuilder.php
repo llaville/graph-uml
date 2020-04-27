@@ -76,6 +76,7 @@ final class ClassDiagramBuilder implements ClassDiagramBuilderInterface
                 $parentVertex = $this->createVertexClass($parent);
                 $this->graph->createEdgeDirected($vertex, $parentVertex)
                     ->setAttribute($generatorPrefix . 'arrowhead', 'empty')
+                    ->setAttribute($generatorPrefix . 'style', 'filled')
                 ;
             }
 
