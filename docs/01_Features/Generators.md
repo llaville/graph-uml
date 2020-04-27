@@ -1,7 +1,7 @@
 GraPHP UML used at least two components :
 
 - the mathematical graph/network [GraPHP](https://github.com/graphp/graph) library to draw UML diagrams.
-- any generator that implement the following contract. 
+- any generator that implement the following contract.
 GraPHP UML uses [GraphVizGenerator](https://github.com/llaville/graph-uml/blob/master/src/Generator/GraphVizGenerator.php) as default, but allow others that may be registered later at runtime.
 
 ### Contract
@@ -11,7 +11,7 @@ Each generator used to build graph statements should implement following interfa
 ```php
 namespace Bartlett\GraphUml\Generator;
 
-use Bartlett\GraphUml\FormatterInterface;
+use Bartlett\GraphUml\Formatter\FormatterInterface;
 
 use Graphp\Graph\Graph;
 
