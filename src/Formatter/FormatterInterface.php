@@ -12,6 +12,13 @@ use ReflectionMethod;
 interface FormatterInterface
 {
     /**
+     * Returns format provided
+     *
+     * @return string
+     */
+    public function getFormat(): string;
+
+    /**
      * Get label for the given reflection extension module
      *
      * @param ReflectionExtension $reflection
