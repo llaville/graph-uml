@@ -58,7 +58,7 @@ $builder = new ClassDiagramBuilder(
 $builder->createVertexClass(ClassDiagramBuilder::class);
 
 // show UML diagram statements
-echo $generator->createScript($graph);
+echo $generator->render($graph);
 // default format is PNG
 echo $generator->createImageFile($graph) . ' file generated' . PHP_EOL;
 ```
@@ -66,6 +66,10 @@ echo $generator->createImageFile($graph) . ' file generated' . PHP_EOL;
 ## Documentation
 
 Full documentation is written in MarkDown format, and HTML export is possible with [Daux.io](https://github.com/dauxio/daux.io)
+
+## Resources
+
+* https://github.com/llaville/graph-plantuml-generator to draw UML diagrams in [PlantUML](https://plantuml.com/) format.
 
 ## Credits
 
