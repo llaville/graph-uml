@@ -34,6 +34,9 @@ final class ClassDiagramBuilder implements ClassDiagramBuilderInterface
     /** @var GeneratorInterface  */
     private $generator;
 
+    /** @var array */
+    private $entities;
+
     /**
      * ClassDiagramBuilder constructor.
      *
@@ -48,6 +51,7 @@ final class ClassDiagramBuilder implements ClassDiagramBuilderInterface
         $this->options = array_merge(ClassDiagramBuilderInterface::OPTIONS_DEFAULTS, $options);
         $this->generator = $generator;
         $this->generator->setOptions($this->options);
+        $this->entities = [];
     }
 
     /**
@@ -66,9 +70,14 @@ final class ClassDiagramBuilder implements ClassDiagramBuilderInterface
             $reflection = new ReflectionClass($class);
         }
 
+        if (isset($this->entities[$class])) {
+            return $this->entities[$class];
+        }
+
         $generatorPrefix = $this->generator->getName() . '.';
 
         $vertex = $this->graph->createVertex(['id' => $class]);
+        $this->entities[$class] = $vertex;
 
         if ($this->options['add-parents']) {
             $parent = $reflection->getParentClass();
