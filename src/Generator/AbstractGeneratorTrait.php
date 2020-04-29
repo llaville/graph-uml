@@ -7,8 +7,6 @@ use Bartlett\GraphUml\Formatter\FormatterInterface;
 
 use ReflectionClass;
 use ReflectionExtension;
-use ReflectionMethod;
-use ReflectionProperty;
 
 trait AbstractGeneratorTrait
 {
@@ -29,34 +27,5 @@ trait AbstractGeneratorTrait
     public function getExtension(ReflectionExtension $reflection): string
     {
         return $this->getFormatter()->getLabelExtension($reflection);
-    }
-
-    protected function getVisibilityChar($reflection): string
-    {
-        if ($reflection->isPrivate()) {
-            return '-';
-        }
-        if ($reflection->isProtected()) {
-            return '#';
-        }
-        return '+';
-    }
-
-    protected function getModifierChar($reflection): string
-    {
-        if ($reflection instanceof ReflectionProperty) {
-            if ($reflection->isStatic()) {
-                return '<u>%s</u>';
-            }
-        } elseif ($reflection instanceof ReflectionMethod) {
-            if ($reflection->isStatic()) {
-                return '<u>%s()</u>';
-            }
-            if ($reflection->isAbstract()) {
-                return '<i>%s()</i>';
-            }
-            return '%s()';
-        }
-        return '%s';
     }
 }
