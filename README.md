@@ -40,9 +40,10 @@ use Bartlett\GraphUml\ClassDiagramBuilder;
 use Bartlett\GraphUml\Generator\GraphVizGenerator;
 
 use Graphp\Graph\Graph;
+use Graphp\GraphViz\GraphViz;
 
 // use GraphViz as back-end generator
-$generator = new GraphVizGenerator();
+$generator = new GraphVizGenerator(new GraphViz());
 // initialize an empty graph
 $graph = new Graph();
 // and the UML class diagram builder
