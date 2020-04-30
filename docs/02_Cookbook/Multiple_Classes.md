@@ -3,8 +3,9 @@
 use Bartlett\GraphUml;
 
 use Graphp\Graph\Graph;
+use Graphp\GraphViz\GraphViz;
 
-$generator = new GraphUml\Generator\GraphVizGenerator();
+$generator = new GraphUml\Generator\GraphVizGenerator(new GraphViz()););
 $graph = new Graph();
 $builder = new GraphUml\ClassDiagramBuilder(
     $generator,
@@ -21,7 +22,7 @@ $builder->createVertexClass(GraphUml\ClassDiagramBuilder::class);
 $builder->createVertexClass(GraphUml\ClassDiagramBuilderInterface::class);
 
 // show UML diagram statements
-echo $generator->render($graph);
+echo $generator->createScript($graph);
 // default format is PNG
 echo $generator->createImageFile($graph) . ' file generated' . PHP_EOL;
 ```
