@@ -58,7 +58,7 @@ $builder = new ClassDiagramBuilder(
 $builder->createVertexClass(ClassDiagramBuilder::class);
 
 // show UML diagram statements
-echo $generator->render($graph);
+echo $generator->createScript($graph);
 // default format is PNG
 echo $generator->createImageFile($graph) . ' file generated' . PHP_EOL;
 ```
@@ -70,6 +70,9 @@ Full documentation is written in MarkDown format, and HTML export is possible wi
 ## Resources
 
 * https://github.com/llaville/graph-plantuml-generator to draw UML diagrams in [PlantUML](https://plantuml.com/) format.
+* http://www.graphviz.org/
+* Let's Graphviz it Online https://github.com/dreampuf/GraphvizOnline
+* [The Top 55 Graphviz Open Source Projects](https://awesomeopensource.com/projects/graphviz)
 
 ## Credits
 

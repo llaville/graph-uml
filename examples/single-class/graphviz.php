@@ -6,8 +6,9 @@ use Bartlett\GraphUml\ClassDiagramBuilder;
 use Bartlett\GraphUml\Generator\GraphVizGenerator;
 
 use Graphp\Graph\Graph;
+use Graphp\GraphViz\GraphViz;
 
-$generator = new GraphVizGenerator();
+$generator = new GraphVizGenerator(new GraphViz());
 $graph = new Graph();
 $builder = new ClassDiagramBuilder(
     $generator,

@@ -106,7 +106,7 @@ final class ClassDiagramBuilder implements ClassDiagramBuilderInterface
         );
         $vertex->setAttribute(
             $generatorPrefix . 'label_' . $formatterType,
-            $this->generator->getLabel($reflection)
+            $this->generator->getLabelClass($reflection)
         );
 
         if ($reflection->inNamespace()) {
@@ -143,7 +143,7 @@ final class ClassDiagramBuilder implements ClassDiagramBuilderInterface
         );
         $vertex->setAttribute(
             $generatorPrefix . 'label_' . $formatterType,
-            $this->generator->getExtension($reflection)
+            $this->generator->getLabelExtension($reflection)
         );
         $vertex->setAttribute('group', 'PHP Extensions');
 

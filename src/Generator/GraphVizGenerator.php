@@ -11,11 +11,34 @@ use Graphp\Graph\Graph;
 use Graphp\GraphViz\GraphViz;
 
 /**
- * The concrete GraphViz generator
+ * The concrete GraphViz generator built by composition rather than inheritance.
+ * Common functions to all generators are provided by AbstractGenerator class
  */
-class GraphVizGenerator extends GraphViz implements GeneratorInterface
+class GraphVizGenerator extends AbstractGenerator implements GeneratorInterface
 {
-    use AbstractGeneratorTrait;
+    /** @var GraphViz  */
+    private $graphViz;
+
+    public function __construct(GraphViz $graphViz)
+    {
+        $this->graphViz = $graphViz;
+
+        /**
+         * Usually, your graphviz executables should be located in your $PATH
+         * environment variable and invoking a mere `dot` is sufficient. If you
+         * have no access to your $PATH variable, use this method to set the path
+         * to your graphviz dot executable.
+         *
+         * This should contain '.exe' on windows.
+         * - /full/path/to/bin/dot
+         * - neato
+         * - dot.exe
+         * - c:\path\to\bin\dot.exe
+         */
+        $this->setExecutable('dot');
+        // (invoke dot -? for details on available formats)
+        $this->setFormat('png');
+    }
 
     public function getFormatter(): FormatterInterface
     {
@@ -30,8 +53,24 @@ class GraphVizGenerator extends GraphViz implements GeneratorInterface
         return 'graphviz';
     }
 
-    public function render(Graph $graph): string
+    public function createScript(Graph $graph): string
     {
-        return parent::createScript($graph);
+        return $this->graphViz->createScript($graph);
+    }
+
+    public function createImageFile(Graph $graph, string $cmdFormat = ''): string
+    {
+        if (empty($cmdFormat)) {
+            // default command format, when none provided
+            $cmdFormat = sprintf(
+                '%s -T%s %s -o %s',
+                self::CMD_EXECUTABLE,
+                self::CMD_FORMAT,
+                self::CMD_TEMP_FILE,
+                self::CMD_OUTPUT_FILE
+            );
+        }
+
+        return parent::createImageFile($graph, $cmdFormat);
     }
 }

@@ -6,8 +6,9 @@ use Bartlett\GraphUml\ClassDiagramBuilder;
 use Bartlett\GraphUml\Generator\GraphVizGenerator;
 
 use Graphp\Graph\Graph;
+use Graphp\GraphViz\GraphViz;
 
-$generator = new GraphVizGenerator();
+$generator = new GraphVizGenerator(new GraphViz());
 $graph = new Graph();
 $builder = new ClassDiagramBuilder(
     $generator,
@@ -28,6 +29,6 @@ foreach ($extensions as $extension) {
 }
 
 // show UML diagram statements
-echo $generator->render($graph);
+echo $generator->createScript($graph);
 // default format is PNG
 echo $generator->createImageFile($graph) . ' file generated' . PHP_EOL;

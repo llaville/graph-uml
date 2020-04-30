@@ -6,11 +6,16 @@ using the [Keep a CHANGELOG](http://keepachangelog.com) principles.
 
 ## [Unreleased]
 
+### Changed
+
+* `GeneratorInterface` contract as evolved to make image file, and script.
+* `AbstractGenerator` class replaced the `AbstractGeneratorTrait` for generator composition rather than inheritance.
+
 ## [0.5.1] - 2020-04-28
 
 ### Fixed
 
-* avoids dupplicated entities in a graph.
+* avoids duplicated entities in a graph.
 
 ## [0.5.0] - 2020-04-27
 
