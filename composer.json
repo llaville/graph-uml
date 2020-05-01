@@ -12,8 +12,14 @@
     "require": {
         "php": "^7.1.3",
         "graphp/graph": "dev-master as 1.0.0",
-        "graphp/graphviz": "dev-master as 1.0.0"
+        "graphp/graphviz": "dev-subgraph_cluster_attributes as 1.0.0"
     },
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/llaville/graphviz"
+        }
+    ],
     "config": {
         "preferred-install": {
             "*": "dist"

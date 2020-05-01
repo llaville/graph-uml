@@ -34,6 +34,13 @@ $builder->createVertexClass(GraphUml\ClassDiagramBuilderInterface::class);
 // https://graphviz.gitlab.io/_pages/doc/info/attrs.html#d:rankdir
 $graph->setAttribute($generator->getName() . '.graph.rankdir', 'LR');
 
+$graph->setAttribute($generator->getName() . '.graph.bgcolor', 'transparent');
+$graph->setAttribute($generator->getName() . '.node.fillcolor', 'lightgrey');
+$graph->setAttribute($generator->getName() . '.node.style', 'filled');
+
+// To use this feature, use my fork of graphp/graphviz project (see composer.json)
+$graph->setAttribute($generator->getName() . '.subgraph.cluster_2.graph.bgcolor', 'lightblue');
+
 // show UML diagram statements
 echo $generator->createScript($graph);
 // default format is PNG
