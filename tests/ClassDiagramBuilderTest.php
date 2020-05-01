@@ -5,6 +5,7 @@ use Bartlett\GraphUml\Generator\GraphVizGenerator;
 
 use Graphp\Graph\Graph;
 use Graphp\Graph\Vertex;
+use Graphp\GraphViz\GraphViz;
 
 class ClassDiagramBuilderTest extends TestCase
 {
@@ -12,7 +13,7 @@ class ClassDiagramBuilderTest extends TestCase
 
     public function setup()
     {
-        $generator = new GraphVizGenerator();
+        $generator = new GraphVizGenerator(new GraphViz());
         $graph = new Graph();
         $this->builder = new ClassDiagramBuilder($generator, $graph);
     }
