@@ -6,6 +6,12 @@ using the [Keep a CHANGELOG](http://keepachangelog.com) principles.
 
 ## [Unreleased]
 
+## [0.6.0] - 2020-05-01
+
+### Added
+
+* ability to personalize subgraph cluster attributes of GraphViz (namespace elements)
+
 ### Changed
 
 * `GeneratorInterface` contract as evolved to make image file, and script.
