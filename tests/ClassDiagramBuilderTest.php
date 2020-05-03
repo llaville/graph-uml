@@ -11,7 +11,7 @@ class ClassDiagramBuilderTest extends TestCase
 {
     private $builder;
 
-    public function setup()
+    public function setup(): void
     {
         $generator = new GraphVizGenerator(new GraphViz());
         $graph = new Graph();
@@ -20,11 +20,10 @@ class ClassDiagramBuilderTest extends TestCase
 
     /**
      * Test that the ReflectionExtension class does not reports information about invalid extension.
-     *
-     * @expectedException  ReflectionException
      */
     public function testExtensionFail()
     {
+        $this->expectException(\ReflectionException::class);
         $this->builder->createVertexExtension('unknown');
     }
 
