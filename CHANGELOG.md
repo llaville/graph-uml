@@ -6,6 +6,12 @@ using the [Keep a CHANGELOG](http://keepachangelog.com) principles.
 
 ## [Unreleased]
 
+## [0.6.1] - 2020-05-09
+
+### Fixed
+
+* escape special character in `AbstractFormatter` when casting default value (function parameters, constants)
+
 ## [0.6.0] - 2020-05-01
 
 ### Added

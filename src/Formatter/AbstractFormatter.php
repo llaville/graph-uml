@@ -140,7 +140,7 @@ abstract class AbstractFormatter
         if ($value === null) {
             return 'NULL';
         } elseif (is_string($value)) {
-            return $quoted . htmlentities($value) . $quoted;
+            return $quoted . htmlentities($this->escape($value)) . $quoted;
         } elseif (is_bool($value)) {
             return $value ? 'true' : 'false';
         } elseif (is_int($value) || is_float($value)) {
