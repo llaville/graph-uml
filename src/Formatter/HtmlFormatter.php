@@ -13,7 +13,7 @@ use function str_repeat;
 
 class HtmlFormatter extends AbstractFormatter implements FormatterInterface
 {
-    private const DEFAULT_ROW_FORMAT = '<tr><td align="left">%s</td></tr>';
+    private const DEFAULT_ROW_FORMAT = '    <tr><td align="left">%s</td></tr>';
 
     public function __construct(array $options)
     {
@@ -48,8 +48,7 @@ class HtmlFormatter extends AbstractFormatter implements FormatterInterface
 ';
 
         if (!empty($constants)) {
-            $indent = str_repeat($this->options['indent-string'], 2);
-            $label .= $indent . $constants;
+            $label .= $constants;
         }
 
         $label .= '    <tr><td>' . $fields . '</td></tr>
