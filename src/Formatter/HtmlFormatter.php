@@ -48,7 +48,7 @@ class HtmlFormatter extends AbstractFormatter implements FormatterInterface
 ';
 
         if (!empty($constants)) {
-            $label .= $constants;
+            $label .= '    <tr><td>' . $constants . '</td></tr>' . self::EOL;
         }
 
         $label .= '    <tr><td>' . $fields . '</td></tr>
@@ -64,28 +64,35 @@ class HtmlFormatter extends AbstractFormatter implements FormatterInterface
             return '';
         }
 
-        $label = '';
         $parent = ($reflection instanceof ReflectionClass) ? $reflection->getParentClass() : false;
+        $tbody = '';
 
         foreach ($reflection->getConstants() as $name => $value) {
             if ($this->options['only-self'] && $parent && $parent->getConstant($name) === $value) {
                 continue;
             }
 
-            $label .= sprintf(
-                $this->options['row-format'],
-                '+ «static» '
+            $label = '+ «static» '
                 . $this->escape($name)
                 . ' : '
                 . $this->escape($this->getType(gettype($value)))
                 . ' = '
                 . $this->getCasted($value)
                 . ' {readOnly}'
-            );
-            $label .= self::EOL;
+            ;
+            $tbody .= sprintf($this->options['row-format'], $label);
+            $tbody .= self::EOL;
         }
 
-        return $label;
+        if (empty($tbody)) {
+            return '';
+        }
+
+        $constants = '<table border="0" cellspacing="0" cellpadding="2">' . PHP_EOL;
+        $constants .= $tbody;
+        $constants .= '</table>';
+
+        return $constants;
     }
 
     public function getLabelProperties(ReflectionClass $reflection): string

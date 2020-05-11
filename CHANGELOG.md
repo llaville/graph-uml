@@ -9,6 +9,7 @@ using the [Keep a CHANGELOG](http://keepachangelog.com) principles.
 ### Changed
 
 * avoid blank line for when there are no entity constants in Html formatter of Graphviz generator
+* fixed Html formatter of Graphviz generator to display nicely constants of each Entity
 
 ## [0.6.1] - 2020-05-09
 
