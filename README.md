@@ -1,3 +1,6 @@
+[![Latest Stable Version](https://img.shields.io/packagist/v/bartlett/graph-uml.svg?style=flat-square)](https://packagist.org/packages/bartlett/graph-uml)
+[![Minimum PHP Version](https://img.shields.io/badge/php-%3E%3D%207.1-8892BF.svg?style=flat-square)](https://php.net/)
+
 # bartlett/graph-uml
 
 Generate UML diagrams by reflection for your PHP projects
@@ -74,6 +77,10 @@ Full documentation is written in MarkDown format, and HTML export is possible wi
 * http://www.graphviz.org/
 * Let's Graphviz it Online https://github.com/dreampuf/GraphvizOnline
 * [The Top 55 Graphviz Open Source Projects](https://awesomeopensource.com/projects/graphviz)
+
+## Contributors
+
+* Laurent Laville (Lead Developer)
 
 ## Credits
 
