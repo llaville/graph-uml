@@ -6,6 +6,10 @@ using the [Keep a CHANGELOG](http://keepachangelog.com) principles.
 
 ## [Unreleased]
 
+### Changed
+
+* avoid blank line for when there are no entity constants in Html formatter of Graphviz generator
+
 ## [0.6.1] - 2020-05-09
 
 ### Fixed

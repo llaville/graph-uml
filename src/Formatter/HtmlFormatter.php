@@ -9,6 +9,7 @@ use ReflectionClass;
 use ReflectionExtension;
 use ReflectionMethod;
 use ReflectionParameter;
+use function str_repeat;
 
 class HtmlFormatter extends AbstractFormatter implements FormatterInterface
 {
@@ -41,13 +42,21 @@ class HtmlFormatter extends AbstractFormatter implements FormatterInterface
         $fields = $this->getLabelProperties($reflection);
         $operations = $this->getLabelFunctions($reflection->getMethods(), $reflection->getName());
 
-        return '
+        $label = '
 <table cellspacing="0" border="0" cellborder="1">
     <tr><td bgcolor="#eeeeee"><b>' . $this->getStereotype($reflection) . '<br/>' . $this->escape($reflection->getShortName()) . '</b></td></tr>
-    ' . $constants . '
-    <tr><td>' . $fields . '</td></tr>
+';
+
+        if (!empty($constants)) {
+            $indent = str_repeat($this->options['indent-string'], 2);
+            $label .= $indent . $constants;
+        }
+
+        $label .= '    <tr><td>' . $fields . '</td></tr>
     <tr><td>' . $operations . '</td></tr>
 </table>';
+
+        return $label;
     }
 
     public function getLabelConstants($reflection): string
