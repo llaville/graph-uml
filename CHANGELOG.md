@@ -6,6 +6,11 @@ using the [Keep a CHANGELOG](http://keepachangelog.com) principles.
 
 ## [Unreleased]
 
+### Fixed
+
+* all examples
+* Html Record formatter
+
 ## [0.6.2] - 2020-05-11
 
 ### Changed

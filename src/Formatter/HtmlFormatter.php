@@ -28,12 +28,18 @@ class HtmlFormatter extends AbstractFormatter implements FormatterInterface
         $constants = $this->getLabelConstants($reflection);
         $operations = $this->getLabelFunctions($reflection->getFunctions());
 
-        return '
+        $label = '
 <table cellspacing="0" border="0" cellborder="1">
     <tr><td bgcolor="#eeeeee"><b>«extension»<br/>' . $reflection->getName() . '</b></td></tr>
-    ' . $constants . '
-    <tr><td>' . $operations . '</td></tr>
+';
+        if (!empty($constants)) {
+            $label .= '    <tr><td>' . $constants . '</td></tr>' . self::EOL;
+        }
+
+        $label .= '    <tr><td>' . $operations . '</td></tr>
 </table>';
+
+        return $label;
     }
 
     public function getLabelClass(ReflectionClass $reflection): string
