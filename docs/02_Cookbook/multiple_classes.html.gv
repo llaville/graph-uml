@@ -1,144 +1,97 @@
 digraph {
   subgraph cluster_0 {
     label = "Bartlett\\GraphUml\\Generator"
-    "Bartlett\\GraphUml\\Generator\\AbstractGeneratorTrait" [shape="none" label=<
-<table cellspacing="0" border="0" cellborder="1">
-    <tr><td bgcolor="#eeeeee"><b>«abstract»<br/>AbstractGeneratorTrait</b></td></tr>
-
-    <tr><td><table border="0" cellspacing="0" cellpadding="2">
-<tr><td align="left"># options</td></tr>
-</table></td></tr>
-    <tr><td><table border="0" cellspacing="0" cellpadding="2">
-<tr><td align="left">+ «abstract» getFormatter() : Bartlett\\GraphUml\\FormatterInterface</td></tr>
-<tr><td align="left">+ setOptions(values) : void</td></tr>
-<tr><td align="left">+ getLabel(reflection : ReflectionClass) : string</td></tr>
-<tr><td align="left">+ getExtension(reflection : ReflectionExtension) : string</td></tr>
-<tr><td align="left"># getVisibilityChar(reflection) : string</td></tr>
-<tr><td align="left"># getModifierChar(reflection) : string</td></tr>
-</table></td></tr>
-</table>>]
-    "Bartlett\\GraphUml\\Generator\\GeneratorInterface" [shape="none" label=<
-<table cellspacing="0" border="0" cellborder="1">
-    <tr><td bgcolor="#eeeeee"><b>«interface»<br/>GeneratorInterface</b></td></tr>
-
-    <tr><td></td></tr>
-    <tr><td><table border="0" cellspacing="0" cellpadding="2">
-<tr><td align="left">+ «abstract» getFormatter() : Bartlett\\GraphUml\\FormatterInterface</td></tr>
-<tr><td align="left">+ «abstract» getName() : string</td></tr>
-<tr><td align="left">+ «abstract» render(graph : Graphp\\Graph\\Graph) : string</td></tr>
-</table></td></tr>
-</table>>]
     "Bartlett\\GraphUml\\Generator\\GraphVizGenerator" [shape="none" label=<
 <table cellspacing="0" border="0" cellborder="1">
     <tr><td bgcolor="#eeeeee"><b><br/>GraphVizGenerator</b></td></tr>
-
     <tr><td><table border="0" cellspacing="0" cellpadding="2">
-<tr><td align="left"># options</td></tr>
+    <tr><td align="left">– graphViz : GraphViz</td></tr>
 </table></td></tr>
     <tr><td><table border="0" cellspacing="0" cellpadding="2">
-<tr><td align="left">+ getFormatter() : Bartlett\\GraphUml\\FormatterInterface</td></tr>
-<tr><td align="left">+ getName() : string</td></tr>
-<tr><td align="left">+ render(graph : Graphp\\Graph\\Graph) : string</td></tr>
-<tr><td align="left">+ setOptions(values) : void</td></tr>
-<tr><td align="left">+ getLabel(reflection : ReflectionClass) : string</td></tr>
-<tr><td align="left">+ getExtension(reflection : ReflectionExtension) : string</td></tr>
-<tr><td align="left"># getVisibilityChar(reflection) : string</td></tr>
-<tr><td align="left"># getModifierChar(reflection) : string</td></tr>
+    <tr><td align="left">+ __construct(graphViz : Graphp\\GraphViz\\GraphViz)</td></tr>
+    <tr><td align="left">+ getFormatter() : Bartlett\\GraphUml\\Formatter\\FormatterInterface</td></tr>
+    <tr><td align="left">+ getName() : string</td></tr>
+    <tr><td align="left">+ createScript(graph : Graphp\\Graph\\Graph) : string</td></tr>
+    <tr><td align="left">+ createImageFile(graph : Graphp\\Graph\\Graph, cmdFormat = ) : string</td></tr>
+</table></td></tr>
+</table>>]
+    "Bartlett\\GraphUml\\Generator\\AbstractGenerator" [shape="none" label=<
+<table cellspacing="0" border="0" cellborder="1">
+    <tr><td bgcolor="#eeeeee"><b>«abstract»<br/>AbstractGenerator</b></td></tr>
+    <tr><td><table border="0" cellspacing="0" cellpadding="2">
+    <tr><td align="left">+ «static» CMD_EXECUTABLE : string = "\%E" {readOnly}</td></tr>
+    <tr><td align="left">+ «static» CMD_FORMAT : string = "\%F" {readOnly}</td></tr>
+    <tr><td align="left">+ «static» CMD_OUTPUT_FILE : string = "\%o" {readOnly}</td></tr>
+    <tr><td align="left">+ «static» CMD_TEMP_FILE : string = "\%t" {readOnly}</td></tr>
+</table></td></tr>
+    <tr><td><table border="0" cellspacing="0" cellpadding="2">
+    <tr><td align="left">– executable : string</td></tr>
+    <tr><td align="left">– format : string</td></tr>
+    <tr><td align="left"># options : array</td></tr>
+</table></td></tr>
+    <tr><td><table border="0" cellspacing="0" cellpadding="2">
+    <tr><td align="left">+ setOptions(values) : void</td></tr>
+    <tr><td align="left">+ «abstract» getFormatter() : Bartlett\\GraphUml\\Formatter\\FormatterInterface</td></tr>
+    <tr><td align="left">+ getLabelClass(reflection : ReflectionClass) : string</td></tr>
+    <tr><td align="left">+ getLabelExtension(reflection : ReflectionExtension) : string</td></tr>
+    <tr><td align="left">+ setExecutable(executable : string) : void</td></tr>
+    <tr><td align="left">+ setFormat(format : string) : void</td></tr>
+    <tr><td align="left">+ «abstract» createScript(graph : Graphp\\Graph\\Graph) : string</td></tr>
+    <tr><td align="left">+ createImageFile(graph : Graphp\\Graph\\Graph, cmdFormat) : string</td></tr>
 </table></td></tr>
 </table>>]
     "Bartlett\\GraphUml\\Generator\\GeneratorInterface" [shape="none" label=<
 <table cellspacing="0" border="0" cellborder="1">
     <tr><td bgcolor="#eeeeee"><b>«interface»<br/>GeneratorInterface</b></td></tr>
-
     <tr><td></td></tr>
     <tr><td><table border="0" cellspacing="0" cellpadding="2">
-<tr><td align="left">+ «abstract» getFormatter() : Bartlett\\GraphUml\\FormatterInterface</td></tr>
-<tr><td align="left">+ «abstract» getName() : string</td></tr>
-<tr><td align="left">+ «abstract» render(graph : Graphp\\Graph\\Graph) : string</td></tr>
+    <tr><td align="left">+ «abstract» setOptions(values) : void</td></tr>
+    <tr><td align="left">+ «abstract» getFormatter() : Bartlett\\GraphUml\\Formatter\\FormatterInterface</td></tr>
+    <tr><td align="left">+ «abstract» getName() : string</td></tr>
+    <tr><td align="left">+ «abstract» getLabelClass(reflection : ReflectionClass) : string</td></tr>
+    <tr><td align="left">+ «abstract» getLabelExtension(reflection : ReflectionExtension) : string</td></tr>
+    <tr><td align="left">+ «abstract» setExecutable(executable) : void</td></tr>
+    <tr><td align="left">+ «abstract» setFormat(format) : void</td></tr>
+    <tr><td align="left">+ «abstract» createScript(graph : Graphp\\Graph\\Graph) : string</td></tr>
+    <tr><td align="left">+ «abstract» createImageFile(graph : Graphp\\Graph\\Graph, cmdFormat) : string</td></tr>
 </table></td></tr>
 </table>>]
   }
   subgraph cluster_1 {
-    label = "Graphp\\GraphViz"
-    "Graphp\\GraphViz\\GraphViz" [shape="none" label=<
-<table cellspacing="0" border="0" cellborder="1">
-    <tr><td bgcolor="#eeeeee"><b><br/>GraphViz</b></td></tr>
-    <tr><td align="left">+ «static» DELAY_OPEN : float = 2 {readOnly}</td></tr>
-<tr><td align="left">+ «static» EOL : string = "
-" {readOnly}</td></tr>
-
-    <tr><td><table border="0" cellspacing="0" cellpadding="2">
-<tr><td align="left">– format : string = "png"</td></tr>
-<tr><td align="left">– executable : string = "dot"</td></tr>
-<tr><td align="left">– formatIndent : string = "  "</td></tr>
-<tr><td align="left">– attributeFlow = "flow"</td></tr>
-<tr><td align="left">– attributeCapacity = "capacity"</td></tr>
-<tr><td align="left">– attributeWeight = "weight"</td></tr>
-<tr><td align="left">– attributeGroup = "group"</td></tr>
-<tr><td align="left">– attributeBalance = "balance"</td></tr>
-</table></td></tr>
-    <tr><td><table border="0" cellspacing="0" cellpadding="2">
-<tr><td align="left">+ __construct()</td></tr>
-<tr><td align="left">+ setExecutable(executable : string)</td></tr>
-<tr><td align="left">+ getExecutable()</td></tr>
-<tr><td align="left">+ setFormat(format)</td></tr>
-<tr><td align="left">+ display(graph : Graphp\\Graph\\Graph)</td></tr>
-<tr><td align="left">+ createImageData(graph : Graphp\\Graph\\Graph)</td></tr>
-<tr><td align="left">+ createImageSrc(graph : Graphp\\Graph\\Graph)</td></tr>
-<tr><td align="left">+ createImageHtml(graph : Graphp\\Graph\\Graph)</td></tr>
-<tr><td align="left">+ createImageFile(graph : Graphp\\Graph\\Graph)</td></tr>
-<tr><td align="left">+ createScript(graph : Graphp\\Graph\\Graph)</td></tr>
-<tr><td align="left">– escape(id)</td></tr>
-<tr><td align="left">– escapeAttributes(attrs)</td></tr>
-<tr><td align="left">– getLayoutVertex(vertex : Graphp\\Graph\\Vertex, vid)</td></tr>
-<tr><td align="left"># getLayoutEdge(edge : Graphp\\Graph\\Edge)</td></tr>
-<tr><td align="left">– getAttributesPrefixed(entity : Graphp\\Graph\\Entity, prefix : string)</td></tr>
-</table></td></tr>
-</table>>]
-  }
-  subgraph cluster_2 {
     label = "Bartlett\\GraphUml"
     "Bartlett\\GraphUml\\ClassDiagramBuilder" [shape="none" label=<
 <table cellspacing="0" border="0" cellborder="1">
     <tr><td bgcolor="#eeeeee"><b><br/>ClassDiagramBuilder</b></td></tr>
-    <tr><td align="left">+ «static» OPTIONS_DEFAULTS : array = […] {readOnly}</td></tr>
-
     <tr><td><table border="0" cellspacing="0" cellpadding="2">
-<tr><td align="left">– graph : Graph</td></tr>
-<tr><td align="left">– options : array</td></tr>
-<tr><td align="left">– generator : GeneratorInterface</td></tr>
+    <tr><td align="left">+ «static» OPTIONS_DEFAULTS : array = […] {readOnly}</td></tr>
 </table></td></tr>
     <tr><td><table border="0" cellspacing="0" cellpadding="2">
-<tr><td align="left">+ __construct(generator : Bartlett\\GraphUml\\Generator\\GeneratorInterface, graph : Graphp\\Graph\\Graph, options : array = )</td></tr>
-<tr><td align="left">+ createVertexClass(class : mixed) : Graphp\\Graph\\Vertex</td></tr>
-<tr><td align="left">+ createVertexExtension(extension : mixed) : Graphp\\Graph\\Vertex</td></tr>
-<tr><td align="left">– getInterfaces(reflection : ReflectionClass) : array</td></tr>
+    <tr><td align="left">– graph : Graph</td></tr>
+    <tr><td align="left">– options : array</td></tr>
+    <tr><td align="left">– generator : GeneratorInterface</td></tr>
+    <tr><td align="left">– entities : array</td></tr>
 </table></td></tr>
-</table>>]
-    "Bartlett\\GraphUml\\ClassDiagramBuilderInterface" [shape="none" label=<
-<table cellspacing="0" border="0" cellborder="1">
-    <tr><td bgcolor="#eeeeee"><b>«interface»<br/>ClassDiagramBuilderInterface</b></td></tr>
-    <tr><td align="left">+ «static» OPTIONS_DEFAULTS : array = […] {readOnly}</td></tr>
-
-    <tr><td></td></tr>
     <tr><td><table border="0" cellspacing="0" cellpadding="2">
-<tr><td align="left">+ «abstract» createVertexClass(class) : Graphp\\Graph\\Vertex</td></tr>
-<tr><td align="left">+ «abstract» createVertexExtension(extension) : Graphp\\Graph\\Vertex</td></tr>
+    <tr><td align="left">+ __construct(generator : Bartlett\\GraphUml\\Generator\\GeneratorInterface, graph : Graphp\\Graph\\Graph, options : array = )</td></tr>
+    <tr><td align="left">+ createVertexClass(class : mixed) : Graphp\\Graph\\Vertex</td></tr>
+    <tr><td align="left">+ createVertexExtension(extension : mixed) : Graphp\\Graph\\Vertex</td></tr>
+    <tr><td align="left">– getInterfaces(reflection : ReflectionClass) : array</td></tr>
 </table></td></tr>
 </table>>]
     "Bartlett\\GraphUml\\ClassDiagramBuilderInterface" [shape="none" label=<
 <table cellspacing="0" border="0" cellborder="1">
     <tr><td bgcolor="#eeeeee"><b>«interface»<br/>ClassDiagramBuilderInterface</b></td></tr>
+    <tr><td><table border="0" cellspacing="0" cellpadding="2">
     <tr><td align="left">+ «static» OPTIONS_DEFAULTS : array = […] {readOnly}</td></tr>
-
+</table></td></tr>
     <tr><td></td></tr>
     <tr><td><table border="0" cellspacing="0" cellpadding="2">
-<tr><td align="left">+ «abstract» createVertexClass(class) : Graphp\\Graph\\Vertex</td></tr>
-<tr><td align="left">+ «abstract» createVertexExtension(extension) : Graphp\\Graph\\Vertex</td></tr>
+    <tr><td align="left">+ «abstract» createVertexClass(class) : Graphp\\Graph\\Vertex</td></tr>
+    <tr><td align="left">+ «abstract» createVertexExtension(extension) : Graphp\\Graph\\Vertex</td></tr>
 </table></td></tr>
 </table>>]
   }
-  "Bartlett\\GraphUml\\Generator\\GraphVizGenerator" -> "Graphp\\GraphViz\\GraphViz" [arrowhead="empty"]
+  "Bartlett\\GraphUml\\Generator\\GraphVizGenerator" -> "Bartlett\\GraphUml\\Generator\\AbstractGenerator" [arrowhead="empty" style="filled"]
   "Bartlett\\GraphUml\\Generator\\GraphVizGenerator" -> "Bartlett\\GraphUml\\Generator\\GeneratorInterface" [arrowhead="empty" style="dashed"]
   "Bartlett\\GraphUml\\ClassDiagramBuilder" -> "Bartlett\\GraphUml\\ClassDiagramBuilderInterface" [arrowhead="empty" style="dashed"]
 }

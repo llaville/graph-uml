@@ -21,6 +21,6 @@ $builder = new ClassDiagramBuilder(
 $builder->createVertexClass(ClassDiagramBuilder::class);
 
 // show UML diagram statements
-echo $generator->render($graph);
+echo $generator->createScript($graph);
 // default format is PNG
 echo $generator->createImageFile($graph) . ' file generated' . PHP_EOL;
