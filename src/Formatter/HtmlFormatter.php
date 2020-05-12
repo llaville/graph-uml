@@ -102,6 +102,10 @@ class HtmlFormatter extends AbstractFormatter implements FormatterInterface
 
     public function getLabelProperties(ReflectionClass $reflection): string
     {
+        if (!$this->options['show-properties']) {
+            return '';
+        }
+
         $properties = $reflection->getProperties();
 
         if (count($properties) === 0) {
@@ -152,6 +156,10 @@ class HtmlFormatter extends AbstractFormatter implements FormatterInterface
 
     public function getLabelFunctions(array $functions, string $class = null): string
     {
+        if ($class && !$this->options['show-methods']) {
+            return '';
+        }
+
         $tbody = '';
 
         foreach ($functions as $method) {

@@ -41,35 +41,7 @@ class RecordFormatter extends AbstractFormatter implements FormatterInterface
 
         $label .= $this->getLabelConstants($reflection);
 
-        $defaults = $reflection->getDefaultProperties();
-        foreach ($reflection->getProperties() as $property) {
-            if ($this->options['only-self'] && $property->getDeclaringClass()->getName() !== $class) {
-                continue;
-            }
-
-            if (!$this->isVisible($property)) {
-                continue;
-            }
-
-            $label .= $this->visibility($property);
-            if ($property->isStatic()) {
-                $label .= ' «static»';
-            }
-            $label .= ' ' . $this->escape($property->getName());
-
-            $type = $this->getDocBlockVar($property);
-            if ($type !== null) {
-                $label .= ' : ' . $this->escape($type);
-            }
-
-            // only show non-NULL values
-            if (isset($defaults[$property->getName()])) {
-                $label .= ' = ' . $this->getCasted($defaults[$property->getName()]);
-            }
-
-            // align this line to the left
-            $label .= '\\l';
-        }
+        $label .= $this->getLabelProperties($reflection);
 
         // new cell
         $label .= '|';
@@ -109,6 +81,10 @@ class RecordFormatter extends AbstractFormatter implements FormatterInterface
 
     public function getLabelProperties(ReflectionClass $reflection): string
     {
+        if (!$this->options['show-properties']) {
+            return '';
+        }
+
         $defaults = $reflection->getDefaultProperties();
         $label = '';
 
@@ -142,6 +118,10 @@ class RecordFormatter extends AbstractFormatter implements FormatterInterface
 
     public function getLabelFunctions(array $functions, string $class = null): string
     {
+        if ($class && !$this->options['show-methods']) {
+            return '';
+        }
+
         $label = '';
 
         foreach ($functions as $method) {

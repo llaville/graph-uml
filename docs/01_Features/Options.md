@@ -2,6 +2,8 @@
 | Option          | Value    | Default | Description                                                                                                                |
 |-----------------|----------|---------|----------------------------------------------------------------------------------------------------------------------------|
 | show-constants  | boolean  | true    | whether to show class constants as readonly static variables (or just omit them completely)                                |
+| show-properties | boolean  | true    | whether to show class properties                                                                                           |
+| show-methods    | boolean  | true    | whether to show class or interface methods                                                                                 |
 | show-private    | boolean  | true    | whether to also show private methods/properties                                                                            |
 | show-protected  | boolean  | true    | whether to also show protected methods/properties                                                                          |
 | add-parents     | boolean  | true    | whether to show add parent classes or interfaces                                                                           |

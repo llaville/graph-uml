@@ -21,6 +21,10 @@ interface ClassDiagramBuilderInterface
         'show-protected' => true,
         // whether to show class constants as readonly static variables (or just omit them completely)
         'show-constants' => true,
+        // whether to show class properties
+        'show-properties' => true,
+        // whether to show class or interface methods
+        'show-methods' => true,
         // whether to show add parent classes or interfaces
         'add-parents' => true,
     ];
