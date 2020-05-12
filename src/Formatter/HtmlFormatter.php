@@ -9,7 +9,6 @@ use ReflectionClass;
 use ReflectionExtension;
 use ReflectionMethod;
 use ReflectionParameter;
-use function str_repeat;
 
 class HtmlFormatter extends AbstractFormatter implements FormatterInterface
 {
