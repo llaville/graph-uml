@@ -82,6 +82,15 @@ Full documentation is written in MarkDown format, and HTML export is possible wi
 
 * Laurent Laville (Lead Developer)
 
+[![](https://sourcerer.io/fame/llaville/llaville/graph-uml/images/0)](https://sourcerer.io/fame/llaville/llaville/graph-uml/links/0)
+[![](https://sourcerer.io/fame/llaville/llaville/graph-uml/images/1)](https://sourcerer.io/fame/llaville/llaville/graph-uml/links/1)
+[![](https://sourcerer.io/fame/llaville/llaville/graph-uml/images/2)](https://sourcerer.io/fame/llaville/llaville/graph-uml/links/2)
+[![](https://sourcerer.io/fame/llaville/llaville/graph-uml/images/3)](https://sourcerer.io/fame/llaville/llaville/graph-uml/links/3)
+[![](https://sourcerer.io/fame/llaville/llaville/graph-uml/images/4)](https://sourcerer.io/fame/llaville/llaville/graph-uml/links/4)
+[![](https://sourcerer.io/fame/llaville/llaville/graph-uml/images/5)](https://sourcerer.io/fame/llaville/llaville/graph-uml/links/5)
+[![](https://sourcerer.io/fame/llaville/llaville/graph-uml/images/6)](https://sourcerer.io/fame/llaville/llaville/graph-uml/links/6)
+[![](https://sourcerer.io/fame/llaville/llaville/graph-uml/images/7)](https://sourcerer.io/fame/llaville/llaville/graph-uml/links/7)
+
 ## Credits
 
 This code is a refactored version of [clue/graph-uml](https://github.com/clue/graph-uml) project, licensed under MIT.
