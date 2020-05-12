@@ -6,6 +6,12 @@ using the [Keep a CHANGELOG](http://keepachangelog.com) principles.
 
 ## [Unreleased]
 
+## [0.7.0] - 2020-05-12
+
+### Added
+
+* introduces `show-properties` and `show-methods` options implemented in both html and record formatters
+
 ### Fixed
 
 * all examples
