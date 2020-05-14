@@ -20,15 +20,10 @@ $builder = new GraphUml\ClassDiagramBuilder(
     ]
 );
 
-$builder->createVertexClass(GraphUml\Formatter\AbstractFormatter::class);
 $builder->createVertexClass(GraphUml\Formatter\HtmlFormatter::class);
 $builder->createVertexClass(GraphUml\Formatter\RecordFormatter::class);
-$builder->createVertexClass(GraphUml\Formatter\FormatterInterface::class);
-$builder->createVertexClass(GraphUml\Generator\AbstractGenerator::class);
-$builder->createVertexClass(GraphUml\Generator\GeneratorInterface::class);
 $builder->createVertexClass(GraphUml\Generator\GraphVizGenerator::class);
 $builder->createVertexClass(GraphUml\ClassDiagramBuilder::class);
-$builder->createVertexClass(GraphUml\ClassDiagramBuilderInterface::class);
 
 // For large graph, orientation is recommended
 // https://graphviz.gitlab.io/_pages/doc/info/attrs.html#d:rankdir

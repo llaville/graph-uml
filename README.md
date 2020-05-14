@@ -39,33 +39,59 @@ diagram for your existing classes:
 
 ```php
 <?php
-use Bartlett\GraphUml\ClassDiagramBuilder;
-use Bartlett\GraphUml\Generator\GraphVizGenerator;
+use Bartlett\GraphUml;
 
 use Graphp\Graph\Graph;
 use Graphp\GraphViz\GraphViz;
 
-// use GraphViz as back-end generator
-$generator = new GraphVizGenerator(new GraphViz());
-// initialize an empty graph
+$generator = new GraphUml\Generator\GraphVizGenerator(new GraphViz());
 $graph = new Graph();
-// and the UML class diagram builder
-$builder = new ClassDiagramBuilder(
+$builder = new GraphUml\ClassDiagramBuilder(
     $generator,
     $graph,
     [
         'label-format' => 'html',
+        'show-constants' => false,
+        'show-private' => false,
+        'show-protected' => false
     ]
 );
 
-// identify what class(es) you want to draw. One `createVertexClass()` operation by class.
-$builder->createVertexClass(ClassDiagramBuilder::class);
+$builder->createVertexClass(GraphUml\Formatter\HtmlFormatter::class);
+$builder->createVertexClass(GraphUml\Formatter\RecordFormatter::class);
+$builder->createVertexClass(GraphUml\Generator\GraphVizGenerator::class);
+$builder->createVertexClass(GraphUml\ClassDiagramBuilder::class);
+
+// For large graph, orientation is recommended
+// https://graphviz.gitlab.io/_pages/doc/info/attrs.html#d:rankdir
+$graph->setAttribute($generator->getName() . '.graph.rankdir', 'LR');
+// https://graphviz.gitlab.io/_pages/doc/info/attrs.html#d:bgcolor
+$graph->setAttribute($generator->getName() . '.graph.bgcolor', 'transparent');
+// https://graphviz.gitlab.io/_pages/doc/info/attrs.html#d:fillcolor
+$graph->setAttribute($generator->getName() . '.node.fillcolor', 'lightgrey');
+// https://graphviz.gitlab.io/_pages/doc/info/attrs.html#d:style
+$graph->setAttribute($generator->getName() . '.node.style', 'filled');
+
+// To use this feature, use my fork of graphp/graphviz project (see composer.json)
+$graph->setAttribute($generator->getName() . '.cluster.2.graph.bgcolor', 'lightblue');
+// Either numeric or class namespace is allowed (2 = Bartlett\GraphUml)
+// https://graphviz.gitlab.io/_pages/doc/info/attrs.html#k:colorList
+$graph->setAttribute($generator->getName() . '.cluster.Bartlett\\GraphUml\\Generator.graph.style', 'filled');
+$graph->setAttribute($generator->getName() . '.cluster.Bartlett\\GraphUml\\Generator.graph.fillcolor', 'yellow:blue');
+$graph->setAttribute($generator->getName() . '.cluster.Bartlett\\GraphUml\\Generator.graph.gradientangle', 45);
+$graph->setAttribute($generator->getName() . '.cluster.Bartlett\\GraphUml\\Formatter.graph.style', 'radial');
+$graph->setAttribute($generator->getName() . '.cluster.Bartlett\\GraphUml\\Formatter.graph.fillcolor', 'yellow:blue');
+$graph->setAttribute($generator->getName() . '.cluster.Bartlett\\GraphUml\\Formatter.graph.gradientangle', 180);
 
 // show UML diagram statements
 echo $generator->createScript($graph);
 // default format is PNG
 echo $generator->createImageFile($graph) . ' file generated' . PHP_EOL;
 ```
+
+That should give such output:
+
+![GraPHP UML Application](./docs/app2.png)
 
 ## Documentation
 
