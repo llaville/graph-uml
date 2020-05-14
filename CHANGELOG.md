@@ -6,6 +6,14 @@ using the [Keep a CHANGELOG](http://keepachangelog.com) principles.
 
 ## [Unreleased]
 
+## [0.8.0] - 2020-05-14
+
+### Changed
+
+* better support to subgraph cluster attributes
+  - see commit [a4b6b57](https://github.com/llaville/graphviz/commit/a4b6b5747375ade8e21dbce5773cfdc0326b5b32) of **llaville/graphviz**
+  - see also `examples/graphuml-architecture/graphviz.php` to learn how to use
+
 ## [0.7.0] - 2020-05-12
 
 ### Added
