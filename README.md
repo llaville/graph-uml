@@ -12,7 +12,7 @@ Generate UML diagrams by reflection for your PHP projects
 The main features provided by this library are:
 
 * build UML statements of a class diagram
-* draw png/svg image formats
+* build image in one of the [supported formats](https://graphviz.gitlab.io/_pages/doc/info/output.html) with local `dot` executable (when **GraphVizGenerator** is used)
 
 ## Install
 
@@ -27,6 +27,7 @@ Additionally, you'll have to install GraphViz (`dot` executable).
 Users of Debian/Ubuntu-based distributions may simply invoke:
 
 ```bash
+$ sudo apt update
 $ sudo apt-get install graphviz
 ```
 
@@ -34,8 +35,7 @@ while remaining users should install from [GraphViz Download](http://www.graphvi
 
 ## Quick Start
 
-Once [installed](#install), you can use the following code to draw an UML class
-diagram for your existing classes:
+Once [installed](#install), you can use the following code to build UML class diagram for your existing classes:
 
 ```php
 <?php
@@ -95,7 +95,20 @@ That should give such output:
 
 ## Documentation
 
-Full documentation is written in MarkDown format, and HTML export is possible with [Daux.io](https://github.com/dauxio/daux.io)
+Full documentation is written in MarkDown format, and HTML export is possible with [Daux.io](https://github.com/dauxio/daux.io).
+See output results at http://bartlett.laurent-laville.org/graph-uml/ or raw `*.md` files in `docs` folder.
+
+**Table of Contents**
+
+* **Features**
+  - [Formatters](docs/01_Features/Formatters.md)
+  - [Generators](docs/01_Features/Generators.md)
+  - [Options](docs/01_Features/Options.md)
+
+* **Cookbook**
+  - [Single Class](docs/02_Cookbook/Single_Class.md)
+  - [Multiple Classes](docs/02_Cookbook/Multiple_Classes.md)
+  - [PHP Extensions](docs/02_Cookbook/Php_Extensions.md)
 
 ## Resources
 
