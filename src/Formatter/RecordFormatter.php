@@ -89,7 +89,11 @@ class RecordFormatter extends AbstractFormatter implements FormatterInterface
         $label = '';
 
         foreach ($reflection->getProperties() as $property) {
-            if($this->options['only-self'] && $property->getDeclaringClass()->getName() !== $class) continue;
+            if ($this->options['only-self']
+                && $property->getDeclaringClass()->getName() !== $reflection->getName()
+            ) {
+                continue;
+            }
 
             if (!$this->isVisible($property)) continue;
 

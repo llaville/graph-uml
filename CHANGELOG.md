@@ -6,6 +6,10 @@ using the [Keep a CHANGELOG](http://keepachangelog.com) principles.
 
 ## [Unreleased]
 
+### Fixed
+
+* undefined `$class` variable  in `RecordFormatter::getLabelProperties()`
+
 ## [0.8.0] - 2020-05-14
 
 ### Changed

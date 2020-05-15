@@ -36,4 +36,24 @@ class ClassDiagramBuilderTest extends TestCase
 
         $this->assertInstanceOf(Vertex::class, $vertex);
     }
+
+    /**
+     * Test that the ReflectionClass class does not reports information about invalid class.
+     */
+    public function testClassFail()
+    {
+        $this->expectException(\ReflectionException::class);
+        $this->builder->createVertexClass('unknown');
+    }
+
+    /**
+     * Test that the ReflectionClass class reports class information about loaded class instance.
+     */
+    public function testClassSuccess()
+    {
+        $vertex = $this->builder->createVertexClass(ClassDiagramBuilder::class);
+
+        $this->assertInstanceOf(Vertex::class, $vertex);
+    }
+
 }
