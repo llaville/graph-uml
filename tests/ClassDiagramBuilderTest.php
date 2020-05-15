@@ -1,6 +1,7 @@
 <?php
 
 use Bartlett\GraphUml\ClassDiagramBuilder;
+use Bartlett\GraphUml\ClassDiagramBuilderInterface;
 use Bartlett\GraphUml\Generator\GraphVizGenerator;
 
 use Graphp\Graph\Graph;
@@ -10,12 +11,13 @@ use Graphp\GraphViz\GraphViz;
 class ClassDiagramBuilderTest extends TestCase
 {
     private $builder;
+    private $graph;
 
     public function setup(): void
     {
         $generator = new GraphVizGenerator(new GraphViz());
-        $graph = new Graph();
-        $this->builder = new ClassDiagramBuilder($generator, $graph);
+        $this->graph = new Graph();
+        $this->builder = new ClassDiagramBuilder($generator, $this->graph);
     }
 
     /**
@@ -56,4 +58,96 @@ class ClassDiagramBuilderTest extends TestCase
         $this->assertInstanceOf(Vertex::class, $vertex);
     }
 
+    /**
+     * Test that the graph will include all class parents
+     *
+     * @depends testClassSuccess
+     */
+    public function testInheritanceSuccess()
+    {
+        $this->builder->createVertexClass(ClassDiagramBuilder::class);
+
+        $this->assertCount(2, $this->graph->getVertices());
+    }
+
+    /**
+     * Test that the graph will not include class parents
+     *
+     * @depends testClassSuccess
+     */
+    public function testInheritanceWithoutParent()
+    {
+        $generator = new GraphVizGenerator(new GraphViz());
+        $graph = new Graph();
+        $builder = new ClassDiagramBuilder($generator, $graph, ['add-parents' => false]);
+
+        $builder->createVertexClass(ClassDiagramBuilder::class);
+
+        $this->assertCount(1, $graph->getVertices());
+    }
+
+    /**
+     * Test that a class in namespace has a group attribute attached to its corresponding vertex
+     *
+     * @depends testClassSuccess
+     */
+    public function testClassInGroup()
+    {
+        $vertex = $this->builder->createVertexClass(ClassDiagramBuilder::class);
+
+        $reflection = new ReflectionClass(ClassDiagramBuilder::class);
+
+        $this->assertSame($reflection->getNamespaceName(), $vertex->getAttribute('group'));
+    }
+
+    /**
+     * Test that a class has a stereotype attribute attached to its corresponding vertex
+     *
+     * @depends testClassSuccess
+     */
+    public function testClassHasGoodStereotype()
+    {
+        $vertex = $this->builder->createVertexClass(ClassDiagramBuilder::class);
+
+        $this->assertSame('class', $vertex->getAttribute('stereotype'));
+    }
+
+    /**
+     * Test that an interface has a stereotype attribute attached to its corresponding vertex
+     *
+     * @depends testClassSuccess
+     */
+    public function testInterfaceHasGoodStereotype()
+    {
+        $vertex = $this->builder->createVertexClass(ClassDiagramBuilderInterface::class);
+
+        $this->assertSame('interface', $vertex->getAttribute('stereotype'));
+    }
+
+    /**
+     * Test that the graph has edges
+     *
+     * @depends testClassSuccess
+     */
+    public function testGraphHasEdges()
+    {
+        $this->builder->createVertexClass(ClassDiagramBuilder::class);
+
+        $this->assertCount(1, $this->graph->getEdges());
+    }
+
+    /**
+     * Test that the graph include edges corresponding to vertices connections (class -> interface)
+     *
+     * @depends testGraphHasEdges
+     */
+    public function testGraphHasEdgesConnection()
+    {
+        $vertex = $this->builder->createVertexClass(ClassDiagramBuilder::class);
+        $parent = $this->graph->getVertices()->getVertexLast();
+        $edges = $this->graph->getEdges();
+
+        $this->assertTrue($edges->getEdgeFirst()->hasVertexStart($vertex));
+        $this->assertTrue($edges->getEdgeFirst()->hasVertexTarget($parent));
+    }
 }
