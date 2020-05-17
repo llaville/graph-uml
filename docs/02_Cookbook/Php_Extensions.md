@@ -12,7 +12,7 @@ $builder = new ClassDiagramBuilder(
     $generator,
     $graph,
     [
-        'label-format' => 'html',
+        'label_format' => 'html',
     ]
 );
 

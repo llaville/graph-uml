@@ -47,6 +47,8 @@ interface GeneratorInterface
 
 * `getName()` identifies the generator with a unique name.
 
+* `getPrefix()` prefixes all public attributes (graph, node, edge, cluster) only if necessary.
+
 * `getLabelClass()` is in charge to make the label of the vertex corresponding to a class or interface element.
 
 * `getLabelExtension()` is in charge to make the label of the vertex corresponding to an extension element.

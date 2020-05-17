@@ -11,7 +11,7 @@ $builder = new GraphUml\ClassDiagramBuilder(
     $generator,
     $graph,
     [
-        'label-format' => 'html',
+        'label_format' => 'html',
     ]
 );
 

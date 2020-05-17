@@ -50,10 +50,10 @@ $builder = new GraphUml\ClassDiagramBuilder(
     $generator,
     $graph,
     [
-        'label-format' => 'html',
-        'show-constants' => false,
-        'show-private' => false,
-        'show-protected' => false
+        'label_format' => 'html',
+        'show_constants' => false,
+        'show_private' => false,
+        'show_protected' => false
     ]
 );
 
