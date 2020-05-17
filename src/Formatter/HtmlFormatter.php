@@ -16,8 +16,8 @@ class HtmlFormatter extends AbstractFormatter implements FormatterInterface
 
     public function __construct(array $options)
     {
-        if (!isset($options['row-format'])) {
-            $options['row-format'] = self::DEFAULT_ROW_FORMAT;
+        if (!isset($options['row_format'])) {
+            $options['row_format'] = self::DEFAULT_ROW_FORMAT;
         }
         parent::__construct($options);
     }
@@ -65,7 +65,7 @@ class HtmlFormatter extends AbstractFormatter implements FormatterInterface
 
     public function getLabelConstants($reflection): string
     {
-        if (!$this->options['show-constants']) {
+        if (!$this->options['show_constants']) {
             return '';
         }
 
@@ -73,7 +73,7 @@ class HtmlFormatter extends AbstractFormatter implements FormatterInterface
         $tbody = '';
 
         foreach ($reflection->getConstants() as $name => $value) {
-            if ($this->options['only-self'] && $parent && $parent->getConstant($name) === $value) {
+            if ($this->options['only_self'] && $parent && $parent->getConstant($name) === $value) {
                 continue;
             }
 
@@ -85,7 +85,7 @@ class HtmlFormatter extends AbstractFormatter implements FormatterInterface
                 . $this->getCasted($value)
                 . ' {readOnly}'
             ;
-            $tbody .= sprintf($this->options['row-format'], $label);
+            $tbody .= sprintf($this->options['row_format'], $label);
             $tbody .= self::EOL;
         }
 
@@ -102,7 +102,7 @@ class HtmlFormatter extends AbstractFormatter implements FormatterInterface
 
     public function getLabelProperties(ReflectionClass $reflection): string
     {
-        if (!$this->options['show-properties']) {
+        if (!$this->options['show_properties']) {
             return '';
         }
 
@@ -116,7 +116,7 @@ class HtmlFormatter extends AbstractFormatter implements FormatterInterface
         $tbody = '';
 
         foreach ($properties as $property) {
-            if ($this->options['only-self'] && $property->getDeclaringClass()->getName() !== $reflection->getName()) {
+            if ($this->options['only_self'] && $property->getDeclaringClass()->getName() !== $reflection->getName()) {
                 continue;
             }
 
@@ -139,7 +139,7 @@ class HtmlFormatter extends AbstractFormatter implements FormatterInterface
             if (isset($defaults[$property->getName()])) {
                 $label .= ' = ' . $this->getCasted($defaults[$property->getName()]);
             }
-            $tbody .= sprintf($this->options['row-format'], $label);
+            $tbody .= sprintf($this->options['row_format'], $label);
             $tbody .= self::EOL;
         }
 
@@ -156,7 +156,7 @@ class HtmlFormatter extends AbstractFormatter implements FormatterInterface
 
     public function getLabelFunctions(array $functions, string $class = null): string
     {
-        if ($class && !$this->options['show-methods']) {
+        if ($class && !$this->options['show_methods']) {
             return '';
         }
 
@@ -166,7 +166,7 @@ class HtmlFormatter extends AbstractFormatter implements FormatterInterface
             $label = '';
             if ($method instanceof ReflectionMethod) {
                 // method not defined in this class (inherited from parent), so skip
-                if ($this->options['only-self'] && $method->getDeclaringClass()->getName() !== $class) {
+                if ($this->options['only_self'] && $method->getDeclaringClass()->getName() !== $class) {
                     continue;
                 }
 
@@ -230,7 +230,7 @@ class HtmlFormatter extends AbstractFormatter implements FormatterInterface
                 }
             }
 
-            $tbody .= sprintf($this->options['row-format'], $label);
+            $tbody .= sprintf($this->options['row_format'], $label);
             $tbody .= self::EOL;
         }
 

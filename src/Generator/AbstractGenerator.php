@@ -46,6 +46,11 @@ abstract class AbstractGenerator
 
     abstract public function getFormatter(): FormatterInterface;
 
+    public function getPrefix(): string
+    {
+        return '';
+    }
+    
     public function getLabelClass(ReflectionClass $reflection): string
     {
         return $this->getFormatter()->getLabelClass($reflection);

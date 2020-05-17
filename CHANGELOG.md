@@ -6,6 +6,15 @@ using the [Keep a CHANGELOG](http://keepachangelog.com) principles.
 
 ## [Unreleased]
 
+### Added
+
+* add new `getPrefix()` method to **GeneratorInterface** that suggest attribute public (only if necessary: see **GraphViz** class)
+
+### Changed
+
+* change case of options names
+from [Kebab case](https://en.wikipedia.org/wiki/Letter_case#Special_case_styles) to [Snake case](https://en.wikipedia.org/wiki/Snake_case)
+
 ### Fixed
 
 * undefined `$class` variable  in `RecordFormatter::getLabelProperties()`

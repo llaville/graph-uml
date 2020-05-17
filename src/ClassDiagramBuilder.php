@@ -74,12 +74,12 @@ final class ClassDiagramBuilder implements ClassDiagramBuilderInterface
             return $this->entities[$class];
         }
 
-        $generatorPrefix = $this->generator->getName() . '.';
+        $generatorPrefix = $this->generator->getPrefix();
 
         $vertex = $this->graph->createVertex(['id' => $class]);
         $this->entities[$class] = $vertex;
 
-        if ($this->options['add-parents']) {
+        if ($this->options['add_parents']) {
             $parent = $reflection->getParentClass();
             if ($parent) {
                 $parentVertex = $this->createVertexClass($parent);
@@ -135,7 +135,7 @@ final class ClassDiagramBuilder implements ClassDiagramBuilderInterface
         $vertex = $this->graph->createVertex(['id' => $extension]);
 
         $formatterType = $this->generator->getFormatter()->getFormat();
-        $generatorPrefix = $this->generator->getName() . '.';
+        $generatorPrefix = $this->generator->getPrefix();
 
         $vertex->setAttribute(
             $generatorPrefix . 'shape',

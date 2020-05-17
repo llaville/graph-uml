@@ -39,10 +39,10 @@ class GraphVizGenerator extends AbstractGenerator implements GeneratorInterface
         // (invoke dot -? for details on available formats)
         $this->setFormat('png');
     }
-
+    
     public function getFormatter(): FormatterInterface
     {
-        if ('html' === $this->options['label-format']) {
+        if ('html' === $this->options['label_format']) {
             return new HtmlFormatter($this->options);
         }
         return new RecordFormatter($this->options);
@@ -53,8 +53,23 @@ class GraphVizGenerator extends AbstractGenerator implements GeneratorInterface
         return 'graphviz';
     }
 
+    public function getPrefix(): string
+    {
+        return $this->getName() . '.';
+    }
+
     public function createScript(Graph $graph): string
     {
+        // convert graph attributes to specific Graphp\GraphViz\GraphViz class
+        $keys = array_keys($graph->getAttributes());
+
+        array_walk($keys, function(&$value, $key, $prefix = 'graphviz.') {
+            $value = $prefix . $value;
+        });
+        $attributes = array_combine($keys, array_values($graph->getAttributes()));
+
+        $graph->setAttributes($attributes);
+
         return $this->graphViz->createScript($graph);
     }
 

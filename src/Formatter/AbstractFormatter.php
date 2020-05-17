@@ -22,7 +22,7 @@ abstract class AbstractFormatter
 
     public function getFormat(): string
     {
-        return $this->options['label-format'];
+        return $this->options['label_format'];
     }
 
     protected function getStereotype(ReflectionClass $reflection): string
@@ -40,8 +40,8 @@ abstract class AbstractFormatter
     protected function isVisible(Reflector $reflection): bool
     {
         return ($reflection->isPublic()
-            || ($reflection->isProtected() && $this->options['show-protected'])
-            || ($reflection->isPrivate() && $this->options['show-private'])
+            || ($reflection->isProtected() && $this->options['show_protected'])
+            || ($reflection->isPrivate() && $this->options['show_private'])
         );
     }
 

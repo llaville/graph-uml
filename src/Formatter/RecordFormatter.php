@@ -58,11 +58,11 @@ class RecordFormatter extends AbstractFormatter implements FormatterInterface
     {
         $label = '';
 
-        if ($this->options['show-constants']) {
+        if ($this->options['show_constants']) {
             $parent = ($reflection instanceof ReflectionClass) ? $reflection->getParentClass() : false;
 
             foreach ($reflection->getConstants() as $name => $value) {
-                if ($this->options['only-self'] && $parent && $parent->getConstant($name) === $value) {
+                if ($this->options['only_self'] && $parent && $parent->getConstant($name) === $value) {
                     continue;
                 }
 
@@ -81,7 +81,7 @@ class RecordFormatter extends AbstractFormatter implements FormatterInterface
 
     public function getLabelProperties(ReflectionClass $reflection): string
     {
-        if (!$this->options['show-properties']) {
+        if (!$this->options['show_properties']) {
             return '';
         }
 
@@ -89,7 +89,7 @@ class RecordFormatter extends AbstractFormatter implements FormatterInterface
         $label = '';
 
         foreach ($reflection->getProperties() as $property) {
-            if ($this->options['only-self']
+            if ($this->options['only_self']
                 && $property->getDeclaringClass()->getName() !== $reflection->getName()
             ) {
                 continue;
@@ -122,7 +122,7 @@ class RecordFormatter extends AbstractFormatter implements FormatterInterface
 
     public function getLabelFunctions(array $functions, string $class = null): string
     {
-        if ($class && !$this->options['show-methods']) {
+        if ($class && !$this->options['show_methods']) {
             return '';
         }
 
@@ -131,7 +131,7 @@ class RecordFormatter extends AbstractFormatter implements FormatterInterface
         foreach ($functions as $method) {
             if ($method instanceof ReflectionMethod) {
                 // method not defined in this class (inherited from parent), so skip
-                if ($this->options['only-self'] && $method->getDeclaringClass()->getName() !== $class) {
+                if ($this->options['only_self'] && $method->getDeclaringClass()->getName() !== $class) {
                     continue;
                 }
 
