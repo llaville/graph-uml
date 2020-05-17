@@ -79,7 +79,7 @@ class ClassDiagramBuilderTest extends TestCase
     {
         $generator = new GraphVizGenerator(new GraphViz());
         $graph = new Graph();
-        $builder = new ClassDiagramBuilder($generator, $graph, ['add-parents' => false]);
+        $builder = new ClassDiagramBuilder($generator, $graph, ['add_parents' => false]);
 
         $builder->createVertexClass(ClassDiagramBuilder::class);
 
