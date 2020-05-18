@@ -10,11 +10,11 @@ use ReflectionExtension;
 use ReflectionMethod;
 use ReflectionParameter;
 
-class RecordFormatter extends AbstractFormatter implements FormatterInterface
+final class RecordFormatter extends AbstractFormatter implements FormatterInterface
 {
     public function getLabelExtension(ReflectionExtension $reflection): string
     {
-        $label  = '{';
+        $label = '{';
         $label .= '«extension»\\n';
         $label .= $this->escape($reflection->getName());
         $label .= '|';
@@ -28,10 +28,10 @@ class RecordFormatter extends AbstractFormatter implements FormatterInterface
 
     public function getLabelClass(ReflectionClass $reflection): string
     {
-        $class  = $reflection->getName();
+        $class = $reflection->getName();
 
         // start 'over'
-        $label  = '{';
+        $label = '{';
 
         $label .= $this->getStereotype($reflection);
         $label .= self::EOL;
@@ -58,22 +58,24 @@ class RecordFormatter extends AbstractFormatter implements FormatterInterface
     {
         $label = '';
 
-        if ($this->options['show_constants']) {
-            $parent = ($reflection instanceof ReflectionClass) ? $reflection->getParentClass() : false;
+        if (!$this->options['show_constants']) {
+            return $label;
+        }
 
-            foreach ($reflection->getConstants() as $name => $value) {
-                if ($this->options['only_self'] && $parent && $parent->getConstant($name) === $value) {
-                    continue;
-                }
+        $parent = ($reflection instanceof ReflectionClass) ? $reflection->getParentClass() : false;
 
-                $label .= '+ «static» '
-                    . $this->escape($name)
-                    . ' : '
-                    . $this->escape($this->getType(gettype($value)))
-                    . ' = '
-                    . $this->getCasted($value) . ' \\{readOnly\\}\\l'
-                ;
+        foreach ($reflection->getConstants() as $name => $value) {
+            if ($this->options['only_self'] && $parent && $parent->getConstant($name) === $value) {
+                continue;
             }
+
+            $label .= '+ «static» '
+                . $this->escape($name)
+                . ' : '
+                . $this->escape($this->getType(gettype($value)))
+                . ' = '
+                . $this->getCasted($value) . ' \\{readOnly\\}\\l'
+            ;
         }
 
         return $label;
@@ -95,7 +97,9 @@ class RecordFormatter extends AbstractFormatter implements FormatterInterface
                 continue;
             }
 
-            if (!$this->isVisible($property)) continue;
+            if (!$this->isVisible($property)) {
+                continue;
+            }
 
             $label .= $this->visibility($property);
             if ($property->isStatic()) {
@@ -156,7 +160,7 @@ class RecordFormatter extends AbstractFormatter implements FormatterInterface
 
             $firstParam = true;
             foreach ($method->getParameters() as $parameter) {
-                /* @var $parameter ReflectionParameter */
+                /** @var ReflectionParameter $parameter */
                 if ($firstParam) {
                     $firstParam = false;
                 } else {

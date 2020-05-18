@@ -16,7 +16,7 @@ $builder = new GraphUml\ClassDiagramBuilder(
         'label_format' => 'html',
         'show_constants' => false,
         'show_private' => false,
-        'show_protected' => false
+        'show_protected' => false,
     ]
 );
 

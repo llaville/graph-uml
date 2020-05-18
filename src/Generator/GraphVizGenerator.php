@@ -14,7 +14,7 @@ use Graphp\GraphViz\GraphViz;
  * The concrete GraphViz generator built by composition rather than inheritance.
  * Common functions to all generators are provided by AbstractGenerator class
  */
-class GraphVizGenerator extends AbstractGenerator implements GeneratorInterface
+final class GraphVizGenerator extends AbstractGenerator implements GeneratorInterface
 {
     /** @var GraphViz  */
     private $graphViz;
@@ -39,7 +39,7 @@ class GraphVizGenerator extends AbstractGenerator implements GeneratorInterface
         // (invoke dot -? for details on available formats)
         $this->setFormat('png');
     }
-    
+
     public function getFormatter(): FormatterInterface
     {
         if ('html' === $this->options['label_format']) {
@@ -63,7 +63,7 @@ class GraphVizGenerator extends AbstractGenerator implements GeneratorInterface
         // convert graph attributes to specific Graphp\GraphViz\GraphViz class
         $keys = array_keys($graph->getAttributes());
 
-        array_walk($keys, function(&$value, $key, $prefix = 'graphviz.') {
+        array_walk($keys, function(&$value, $key, $prefix = 'graphviz.'): void {
             $value = $prefix . $value;
         });
         $attributes = array_combine($keys, array_values($graph->getAttributes()));

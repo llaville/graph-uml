@@ -6,6 +6,8 @@ using the [Keep a CHANGELOG](http://keepachangelog.com) principles.
 
 ## [Unreleased]
 
+## [1.0.0-beta.1] - 2020-05-18
+
 ### Added
 
 * add new `getPrefix()` method to **GeneratorInterface** that suggest attribute public (only if necessary: see **GraphViz** class)
@@ -18,6 +20,7 @@ from [Kebab case](https://en.wikipedia.org/wiki/Letter_case#Special_case_styles)
 ### Fixed
 
 * undefined `$class` variable  in `RecordFormatter::getLabelProperties()`
+* minor other QA (thanks to all tools available in https://github.com/jakzal/phpqa)
 
 ## [0.8.0] - 2020-05-14
 

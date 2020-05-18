@@ -39,10 +39,9 @@ abstract class AbstractFormatter
 
     protected function isVisible(Reflector $reflection): bool
     {
-        return ($reflection->isPublic()
+        return $reflection->isPublic()
             || ($reflection->isProtected() && $this->options['show_protected'])
-            || ($reflection->isPrivate() && $this->options['show_private'])
-        );
+            || ($reflection->isPrivate() && $this->options['show_private']);
     }
 
     protected function getDocBlock($ref)
@@ -52,7 +51,7 @@ abstract class AbstractFormatter
             return trim(preg_replace('/(^(?:\h*\*)\h*|\h+$)/m', '', substr($doc, 3, -2)));
         }
 
-        return NULL;
+        return null;
     }
 
     protected function getDocBlockVar($ref)
@@ -94,7 +93,7 @@ abstract class AbstractFormatter
         preg_match_all('/^@' . $what . ' ([^\s]+)/m', $doc, $matches, PREG_SET_ORDER);
         $ret = [];
         foreach ($matches as $match) {
-            $ret []= trim($match[1]);
+            $ret[] = trim($match[1]);
         }
 
         return $ret;
@@ -110,7 +109,7 @@ abstract class AbstractFormatter
         return $multi[0];
     }
 
-    protected function getType($ret)
+    protected function getType($ret): string
     {
         if ($ret === null) {
             return $ret;
@@ -128,7 +127,7 @@ abstract class AbstractFormatter
             $ret = 'float';
         } elseif ($low === 'boolean') {
             return 'bool';
-        } elseif (in_array($low, array('int', 'float', 'bool', 'string', 'null', 'resource', 'array', 'void', 'mixed'))) {
+        } elseif (in_array($low, ['int', 'float', 'bool', 'string', 'null', 'resource', 'array', 'void', 'mixed'])) {
             return $low;
         }
 
@@ -146,7 +145,7 @@ abstract class AbstractFormatter
         } elseif (is_int($value) || is_float($value)) {
             return (string) $value;
         } elseif (is_array($value)) {
-            if ($value === array()) {
+            if ($value === []) {
                 return '[]';
             } else {
                 return '[…]';
@@ -157,13 +156,13 @@ abstract class AbstractFormatter
         return '…';
     }
 
-    protected function visibility(Reflector $ref): string
+    protected function visibility(Reflector $reflection): string
     {
-        if ($ref->isPublic()) {
+        if ($reflection->isPublic()) {
             return '+';
-        } elseif ($ref->isProtected()) {
+        } elseif ($reflection->isProtected()) {
             return '#';
-        } elseif ($ref->isPrivate()) {
+        } elseif ($reflection->isPrivate()) {
             // U+2013 EN DASH "–"
             return "\342\200\223";
         }

@@ -10,8 +10,8 @@ use Graphp\Graph\Graph;
 use Graphp\Graph\Vertex;
 
 use ReflectionClass;
-use ReflectionExtension;
 use ReflectionException;
+use ReflectionExtension;
 
 /**
  * UML class diagram builder
@@ -113,7 +113,7 @@ final class ClassDiagramBuilder implements ClassDiagramBuilderInterface
             $vertex->setAttribute('group', $reflection->getNamespaceName());
         }
 
-        $vertex->setAttribute('stereotype', $reflection->isInterface() ? 'interface': 'class');
+        $vertex->setAttribute('stereotype', $reflection->isInterface() ? 'interface' : 'class');
 
         return $vertex;
     }
@@ -158,15 +158,15 @@ final class ClassDiagramBuilder implements ClassDiagramBuilderInterface
         // remove each interface already implemented by the parent class (if any)
         $parent = $reflection->getParentClass();
         if ($parent) {
-            foreach ($parent->getInterfaceNames() as $in) {
-                unset($interfaces[$in]);
+            foreach ($parent->getInterfaceNames() as $interface) {
+                unset($interfaces[$interface]);
             }
         }
 
         // remove each interface already implemented by any of the inherited interfaces
-        foreach ($interfaces as $if) {
-            foreach ($if->getInterfaceNames() as $in) {
-                unset($interfaces[$in]);
+        foreach ($interfaces as $interface) {
+            foreach ($interface->getInterfaceNames() as $contract) {
+                unset($interfaces[$contract]);
             }
         }
 

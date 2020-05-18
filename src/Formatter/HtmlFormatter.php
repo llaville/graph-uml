@@ -10,7 +10,7 @@ use ReflectionExtension;
 use ReflectionMethod;
 use ReflectionParameter;
 
-class HtmlFormatter extends AbstractFormatter implements FormatterInterface
+final class HtmlFormatter extends AbstractFormatter implements FormatterInterface
 {
     private const DEFAULT_ROW_FORMAT = '    <tr><td align="left">%s</td></tr>';
 
@@ -131,7 +131,7 @@ class HtmlFormatter extends AbstractFormatter implements FormatterInterface
             $label .= ' ' . $this->escape($property->getName());
 
             $type = $this->getDocBlockVar($property);
-            if ($type !== NULL) {
+            if ($type !== null) {
                 $label .= ' : ' . $this->escape($type);
             }
 
@@ -191,7 +191,7 @@ class HtmlFormatter extends AbstractFormatter implements FormatterInterface
 
             $firstParam = true;
             foreach ($method->getParameters() as $parameter) {
-                /** @var $parameter ReflectionParameter */
+                /** @var ReflectionParameter $parameter */
                 if ($firstParam) {
                     $firstParam = false;
                 } else {

@@ -31,7 +31,7 @@ interface GeneratorInterface
 
     public function getLabelExtension(ReflectionExtension $reflection): string;
 
-    public function setExecutable($executable): void;
+    public function setExecutable(string $executable): void;
 
     public function setFormat(string $format): void;
 

@@ -19,6 +19,13 @@ abstract class AbstractGenerator
     protected const CMD_TEMP_FILE = '%t';
 
     /**
+     * List of options to personalize generator and formatters
+     *
+     * @var array
+     */
+    protected $options;
+
+    /**
      * The name of full path to GraphViz (or other) layout
      *
      * @var string
@@ -32,13 +39,6 @@ abstract class AbstractGenerator
      */
     private $format;
 
-    /**
-     * List of options to personalize generator and formatters
-     *
-     * @var array
-     */
-    protected $options;
-
     public function setOptions(array $values): void
     {
         $this->options = $values;
@@ -46,11 +46,13 @@ abstract class AbstractGenerator
 
     abstract public function getFormatter(): FormatterInterface;
 
+    abstract public function getName(): string;
+
     public function getPrefix(): string
     {
         return '';
     }
-    
+
     public function getLabelClass(ReflectionClass $reflection): string
     {
         return $this->getFormatter()->getLabelClass($reflection);
@@ -66,7 +68,7 @@ abstract class AbstractGenerator
      *
      * @param string $executable
      */
-    public function setExecutable($executable): void
+    public function setExecutable(string $executable): void
     {
         $this->executable = $executable;
     }
@@ -113,7 +115,7 @@ abstract class AbstractGenerator
 
         $command = strtr($cmdFormat, $cmdReplacePairs);
 
-        system(escapeshellcmd($command),$ret);
+        system(escapeshellcmd($command), $ret);
         if ($ret !== 0) {
             throw new UnexpectedValueException(
                 'Unable to invoke "' . $this->executable .'" to create image file (code ' . $ret . ')'
