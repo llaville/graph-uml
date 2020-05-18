@@ -6,6 +6,12 @@ using the [Keep a CHANGELOG](http://keepachangelog.com) principles.
 
 ## [Unreleased]
 
+## [1.0.0-beta.2] - 2020-05-18
+
+### Fixed
+
+* `AbstractFormatter::getType()` will return either string or null
+
 ## [1.0.0-beta.1] - 2020-05-18
 
 ### Added

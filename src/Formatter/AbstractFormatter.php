@@ -109,7 +109,7 @@ abstract class AbstractFormatter
         return $multi[0];
     }
 
-    protected function getType($ret): string
+    protected function getType($ret): ?string
     {
         if ($ret === null) {
             return $ret;
