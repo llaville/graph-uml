@@ -27,6 +27,8 @@ interface GeneratorInterface
 
     public function getName(): string;
 
+    public function getPrefix(): string;
+
     public function getLabelClass(ReflectionClass $reflection): string;
 
     public function getLabelExtension(ReflectionExtension $reflection): string;
