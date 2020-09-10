@@ -5,11 +5,11 @@ namespace Bartlett\GraphUml\Generator;
 
 use Bartlett\GraphUml\Formatter\FormatterInterface;
 
-use Graphp\Graph\Exception\UnexpectedValueException;
 use Graphp\Graph\Graph;
 
 use ReflectionClass;
 use ReflectionExtension;
+use UnexpectedValueException;
 
 abstract class AbstractGenerator
 {
