@@ -144,10 +144,13 @@ class ClassDiagramBuilderTest extends TestCase
     public function testGraphHasEdgesConnection()
     {
         $vertex = $this->builder->createVertexClass(ClassDiagramBuilder::class);
-        $parent = $this->graph->getVertices()->getVertexLast();
+        $vertices = $this->graph->getVertices();
+        $parent = end($vertices);
         $edges = $this->graph->getEdges();
 
-        $this->assertTrue($edges->getEdgeFirst()->hasVertexStart($vertex));
-        $this->assertTrue($edges->getEdgeFirst()->hasVertexTarget($parent));
+        $edgeFirst = reset($edges);
+
+        $this->assertTrue($edgeFirst->hasVertexStart($vertex));
+        $this->assertTrue($edgeFirst->hasVertexTarget($parent));
     }
 }

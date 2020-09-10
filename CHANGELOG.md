@@ -6,6 +6,14 @@ using the [Keep a CHANGELOG](http://keepachangelog.com) principles.
 
 ## [Unreleased]
 
+## [1.0.0-rc.2] - 2020-09-10
+
+### Fixed
+
+* synchronize with `graphp/graph` master branch (still under development) and fix it to commit [214de45](https://github.com/graphp/graph/commit/214de4572f0fa8a452addcf6135f87bfd3dec4ab)
+due to new feature
+  - [Remove `Vertices` and `Edges` collection classes, use plain arrays instead](https://github.com/graphp/graph/pull/195)
+
 ## [1.0.0-rc.1] - 2020-05-30
 
 ### Fixed
