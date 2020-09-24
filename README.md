@@ -1,8 +1,11 @@
-[![Latest Stable Version](https://img.shields.io/packagist/v/bartlett/graph-uml.svg?style=flat-square)](https://packagist.org/packages/bartlett/graph-uml)
-[![Minimum PHP Version](https://img.shields.io/badge/php-%3E%3D%207.1-8892BF.svg?style=flat-square)](https://php.net/)
-![License](https://img.shields.io/github/license/llaville/graph-uml)
 
 # bartlett/graph-uml
+
+| Stable | Upcoming |
+|:------:|:--------:|
+| [![Latest Stable Version](https://img.shields.io/packagist/v/bartlett/graph-uml)](https://packagist.org/packages/bartlett/graph-uml) | [![Unstable Version](https://img.shields.io/packagist/vpre/bartlett/graph-uml)](https://packagist.org/packages/bartlett/graph-uml) |
+| [![Minimum PHP Version](https://img.shields.io/packagist/php-v/bartlett/graph-uml)](https://php.net/) | [![Minimum PHP Version](https://img.shields.io/packagist/php-v/bartlett/graph-uml/dev-master)](https://php.net/) |
+| ![License](https://img.shields.io/github/license/llaville/graph-uml) | ![License](https://img.shields.io/github/license/llaville/graph-uml) |
 
 Generate UML diagrams by reflection for your PHP projects
 
