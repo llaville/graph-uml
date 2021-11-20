@@ -6,29 +6,31 @@
     "authors": [
         {
             "name": "Laurent Laville",
-            "email": "laurent.laville@gmail.com"
+            "email": "pear@laurent-laville.org",
+            "homepage": "https://github.com/llaville/graph-uml",
+            "role": "Lead"
         }
     ],
     "require": {
-        "php": "^7.1.3",
-        "graphp/graph": "dev-master#214de45 as 1.0.0",
-        "graphp/graphviz": "dev-subgraph_cluster_attributes as 1.0.0"
+        "php": "^7.1.3||^8.0",
+        "cweagans/composer-patches": "^1.7",
+        "graphp/graph": "dev-master as 1.0.0",
+        "graphp/graphviz": "dev-master as 1.0.0"
     },
-    "repositories": [
-        {
-            "type": "vcs",
-            "url": "https://github.com/llaville/graphviz"
-        }
-    ],
     "config": {
-        "preferred-install": {
-            "*": "dist"
-        },
+        "preferred-install": "source",
         "sort-packages": true
     },
     "autoload": {
         "psr-4": {
             "Bartlett\\GraphUml\\": "src/"
+        }
+    },
+    "extra": {
+        "patches": {
+            "graphp/graphviz": {
+                "add subgraph/cluster and class count (issue 42)": "patches/graph-graphviz_add_subgraph_cluster-42.patch"
+            }
         }
     }
 }
