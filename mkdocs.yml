@@ -29,3 +29,12 @@ markdown_extensions:
 nav:
     - "Home": index.md
     - "Getting-Started": getting-started.md
+    - "Features":
+          - "Formatters": 01_Features/Formatters.md
+          - "Generators": 01_Features/Generators.md
+          - "Options": 01_Features/Options.md
+    - "Cookbook":
+          - "Class diagrams":
+                - "Single Class": 02_Cookbook/Single_Class.md
+                - "Multiple Classes": 02_Cookbook/Multiple_Classes.md
+          - "Extension diagram": 02_Cookbook/Php_Extensions.md

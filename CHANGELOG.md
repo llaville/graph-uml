@@ -1,3 +1,4 @@
+<!-- markdownlint-disable MD013 MD024 -->
 # Change Log
 
 All notable changes to this project will be documented in this file.
@@ -6,9 +7,18 @@ using the [Keep a CHANGELOG](http://keepachangelog.com) principles.
 
 ## [Unreleased]
 
+### Added
+
+- GitHub workflow to build/deploy documentation with mkdocs/[mkdocs-material](https://github.com/squidfunk/mkdocs-material)
+- GitHub workflow to run [Mega-Linter](https://github.com/megalinter/megalinter) QA tool
+
 ### Changed
 
 - switch LICENSE from BSD 3-Clause "New" or "Revised" License to MIT
+
+### Fixed
+
+- Issue [#2](https://github.com/llaville/graph-uml/issues/2) -- Cannot install through composer.
 
 ## [1.0.0-rc.3] - 2021-11-20
 
@@ -18,7 +28,7 @@ using the [Keep a CHANGELOG](http://keepachangelog.com) principles.
 - Patch `graphp/graphviz` package with <https://github.com/cweagans/composer-patches> rather than using forks with branches
 
 If you need a good introduction about vendor patches,
-read this excellent article https://tomasvotruba.com/blog/2020/07/02/how-to-patch-package-in-vendor-yet-allow-its-updates/
+read this excellent article <https://tomasvotruba.com/blog/2020/07/02/how-to-patch-package-in-vendor-yet-allow-its-updates/>
 
 ## [1.0.0-rc.2] - 2020-09-10
 
@@ -54,7 +64,7 @@ from [Kebab case](https://en.wikipedia.org/wiki/Letter_case#Special_case_styles)
 ### Fixed
 
 * undefined `$class` variable  in `RecordFormatter::getLabelProperties()`
-* minor other QA (thanks to all tools available in https://github.com/jakzal/phpqa)
+* minor other QA (thanks to all tools available in <https://github.com/jakzal/phpqa>)
 
 ## [0.8.0] - 2020-05-14
 
@@ -109,7 +119,7 @@ from [Kebab case](https://en.wikipedia.org/wiki/Letter_case#Special_case_styles)
 
 ### Added
 
-* add UML `stereotype` (https://www.uml-diagrams.org/stereotype.html) as attribute of each vertex
+* add UML `stereotype` (<https://www.uml-diagrams.org/stereotype.html>) as attribute of each vertex
 * add `getFormat()` method in Formatter contract
 
 ### Fixed

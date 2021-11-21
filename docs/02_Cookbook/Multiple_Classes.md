@@ -1,5 +1,7 @@
+# Multiple classes diagram
 
 ```php
+<?php
 use Bartlett\GraphUml;
 
 use Graphp\Graph\Graph;

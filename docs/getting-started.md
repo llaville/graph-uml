@@ -31,8 +31,8 @@ Additionally, you'll have to install GraphViz (`dot` executable).
 Users of Debian/Ubuntu-based distributions may simply invoke:
 
 ```bash
-$ sudo apt update
-$ sudo apt-get install graphviz
+sudo apt update
+sudo apt-get install graphviz
 ```
 
 while remaining users should install from [GraphViz Download](http://www.graphviz.org/download/) page.

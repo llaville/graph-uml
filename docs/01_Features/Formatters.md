@@ -1,3 +1,5 @@
+<!-- markdownlint-disable MD013 -->
+# Formatters
 
 [GraphViz](https://graphviz.org/) allows two different formats to render vertex labels:
 

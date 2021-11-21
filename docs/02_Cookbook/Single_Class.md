@@ -1,5 +1,7 @@
+# Single class diagram
 
 ```php
+<?php
 use Bartlett\GraphUml\ClassDiagramBuilder;
 use Bartlett\GraphUml\Generator\GraphVizGenerator;
 

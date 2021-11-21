@@ -1,9 +1,11 @@
-[TOC]
-GraPHP UML used at least two components :
+<!-- markdownlint-disable MD013 -->
+# Generators
+
+GraPHP-UML used at least two components :
 
 - the mathematical graph/network [GraPHP](https://github.com/graphp/graph) library to draw UML diagrams.
 - any generator that implement the following contract.
-GraPHP UML uses [GraphVizGenerator](https://github.com/llaville/graph-uml/blob/master/src/Generator/GraphVizGenerator.php)
+GraPHP-UML uses [GraphVizGenerator](https://github.com/llaville/graph-uml/blob/master/src/Generator/GraphVizGenerator.php)
 as default, but allow others that may be registered later at runtime.
 
 ## Contract
@@ -11,6 +13,7 @@ as default, but allow others that may be registered later at runtime.
 Each generator used to build graph statements should implement following interface:
 
 ```php
+<?php
 namespace Bartlett\GraphUml\Generator;
 
 use Bartlett\GraphUml\Formatter\FormatterInterface;
@@ -22,6 +25,9 @@ use ReflectionExtension;
 
 interface GeneratorInterface
 {
+    /**
+     * @param array<string, mixed> $values
+     */
     public function setOptions(array $values): void;
 
     public function getFormatter(): FormatterInterface;

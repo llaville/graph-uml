@@ -1,5 +1,7 @@
+# PHP Extensions diagram
 
 ```php
+<?php
 use Bartlett\GraphUml\ClassDiagramBuilder;
 use Bartlett\GraphUml\Generator\GraphVizGenerator;
 
