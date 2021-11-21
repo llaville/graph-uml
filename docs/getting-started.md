@@ -7,6 +7,10 @@
 * [graphp/graph](https://github.com/graphp/graph) package from master branch (considered as future stable v1.0.0)
 * [graphp/graphviz](https://github.com/graphp/graphviz) package from master branch (considered as future stable v1.0.0)
 
+![GraPHP Composer](./graph-composer.svg)
+
+Generated with [clue/graph-composer](https://github.com/clue/graph-composer)
+
 ## Installation
 
 ### With Composer
