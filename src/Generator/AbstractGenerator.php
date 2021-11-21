@@ -14,6 +14,14 @@ use Graphp\Graph\Graph;
 use ReflectionClass;
 use ReflectionExtension;
 use UnexpectedValueException;
+use function escapeshellcmd;
+use function file_put_contents;
+use function sprintf;
+use function strtr;
+use function sys_get_temp_dir;
+use function system;
+use function tempnam;
+use function unlink;
 
 /**
  * @author Laurent Laville
@@ -125,7 +133,7 @@ abstract class AbstractGenerator
         system(escapeshellcmd($command), $ret);
         if ($ret !== 0) {
             throw new UnexpectedValueException(
-                'Unable to invoke "' . $this->executable .'" to create image file (code ' . $ret . ')'
+                'Unable to invoke "' . $this->executable . '" to create image file (code ' . $ret . ')'
             );
         }
         unlink($tmp);

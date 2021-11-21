@@ -11,6 +11,25 @@ use Exception;
 use ReflectionClass;
 use ReflectionParameter;
 use Reflector;
+use function count;
+use function get_class;
+use function htmlentities;
+use function in_array;
+use function is_array;
+use function is_bool;
+use function is_float;
+use function is_int;
+use function is_object;
+use function is_string;
+use function preg_match;
+use function preg_match_all;
+use function preg_replace;
+use function str_replace;
+use function strtolower;
+use function substr;
+use function trim;
+use const PHP_EOL;
+use const PREG_SET_ORDER;
 
 /**
  * @author Laurent Laville

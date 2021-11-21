@@ -12,6 +12,7 @@ use ReflectionClass;
 use ReflectionExtension;
 use ReflectionMethod;
 use ReflectionParameter;
+use function gettype;
 
 /**
  * @author Laurent Laville
@@ -97,7 +98,8 @@ final class RecordFormatter extends AbstractFormatter implements FormatterInterf
         $label = '';
 
         foreach ($reflection->getProperties() as $property) {
-            if ($this->options['only_self']
+            if (
+                $this->options['only_self']
                 && $property->getDeclaringClass()->getName() !== $reflection->getName()
             ) {
                 continue;

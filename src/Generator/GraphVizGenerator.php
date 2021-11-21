@@ -13,6 +13,11 @@ use Bartlett\GraphUml\Formatter\RecordFormatter;
 
 use Graphp\Graph\Graph;
 use Graphp\GraphViz\GraphViz;
+use function array_combine;
+use function array_keys;
+use function array_values;
+use function array_walk;
+use function sprintf;
 
 /**
  * The concrete GraphViz generator built by composition rather than inheritance.
@@ -69,7 +74,7 @@ final class GraphVizGenerator extends AbstractGenerator implements GeneratorInte
         // convert graph attributes to specific Graphp\GraphViz\GraphViz class
         $keys = array_keys($graph->getAttributes());
 
-        array_walk($keys, function(&$value, $key, $prefix = 'graphviz.'): void {
+        array_walk($keys, function (&$value, $key, $prefix = 'graphviz.'): void {
             $value = $prefix . $value;
         });
         $attributes = array_combine($keys, array_values($graph->getAttributes()));

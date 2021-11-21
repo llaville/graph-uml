@@ -12,6 +12,10 @@ use ReflectionClass;
 use ReflectionExtension;
 use ReflectionMethod;
 use ReflectionParameter;
+use function count;
+use function gettype;
+use function sprintf;
+use function str_replace;
 
 /**
  * @author Laurent Laville
@@ -99,7 +103,7 @@ final class HtmlFormatter extends AbstractFormatter implements FormatterInterfac
             return '';
         }
 
-        $constants = '<table border="0" cellspacing="0" cellpadding="2">' . PHP_EOL;
+        $constants = '<table border="0" cellspacing="0" cellpadding="2">' . self::EOL;
         $constants .= $tbody;
         $constants .= '</table>';
 
@@ -153,7 +157,7 @@ final class HtmlFormatter extends AbstractFormatter implements FormatterInterfac
             return '';
         }
 
-        $fields = '<table border="0" cellspacing="0" cellpadding="2">' . PHP_EOL;
+        $fields = '<table border="0" cellspacing="0" cellpadding="2">' . self::EOL;
         $fields .= $tbody;
         $fields .= '</table>';
 
@@ -244,7 +248,7 @@ final class HtmlFormatter extends AbstractFormatter implements FormatterInterfac
             return '';
         }
 
-        $operations = '<table border="0" cellspacing="0" cellpadding="2">' . PHP_EOL;
+        $operations = '<table border="0" cellspacing="0" cellpadding="2">' . self::EOL;
         $operations .= $tbody;
         $operations .= '</table>';
 
