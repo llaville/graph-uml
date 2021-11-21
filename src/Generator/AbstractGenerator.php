@@ -35,25 +35,25 @@ abstract class AbstractGenerator
 
     /**
      * List of options to personalize generator and formatters
-     *
-     * @var array
+     * @var array<string, mixed>
      */
     protected $options;
 
     /**
      * The name of full path to GraphViz (or other) layout
-     *
      * @var string
      */
     private $executable;
 
     /**
      * File output format to use
-     *
      * @var string
      */
     private $format;
 
+    /**
+     * @param array<string, mixed> $values
+     */
     public function setOptions(array $values): void
     {
         $this->options = $values;

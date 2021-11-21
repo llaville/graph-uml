@@ -9,7 +9,9 @@ namespace Bartlett\GraphUml\Formatter;
 
 use Exception;
 use ReflectionClass;
+use ReflectionFunctionAbstract;
 use ReflectionParameter;
+use ReflectionProperty;
 use Reflector;
 use function count;
 use function get_class;
@@ -38,8 +40,14 @@ abstract class AbstractFormatter
 {
     protected const EOL = PHP_EOL;
 
+    /**
+     * @var array<string, mixed>
+     */
     protected $options;
 
+    /**
+     * @param array<string, mixed> $options
+     */
     public function __construct(array $options)
     {
         $this->options = $options;
@@ -64,12 +72,15 @@ abstract class AbstractFormatter
 
     protected function isVisible(Reflector $reflection): bool
     {
-        return $reflection->isPublic()
-            || ($reflection->isProtected() && $this->options['show_protected'])
-            || ($reflection->isPrivate() && $this->options['show_private']);
+        return $reflection->isPublic()                                          // @phpstan-ignore-line
+            || ($reflection->isProtected() && $this->options['show_protected']) // @phpstan-ignore-line
+            || ($reflection->isPrivate() && $this->options['show_private']);    // @phpstan-ignore-line
     }
 
-    protected function getDocBlock($ref)
+    /**
+     * @param ReflectionFunctionAbstract|ReflectionProperty $ref
+     */
+    protected function getDocBlock($ref): ?string
     {
         $doc = $ref->getDocComment();
         if ($doc !== false) {
@@ -79,12 +90,12 @@ abstract class AbstractFormatter
         return null;
     }
 
-    protected function getDocBlockVar($ref)
+    protected function getDocBlockVar(ReflectionProperty $ref): ?string
     {
         return $this->getType($this->getDocBlockSingle($ref, 'var'));
     }
 
-    protected function getParameterType(ReflectionParameter $parameter)
+    protected function getParameterType(ReflectionParameter $parameter): ?string
     {
         $class = null;
         try {
@@ -109,7 +120,12 @@ abstract class AbstractFormatter
         return null;
     }
 
-    protected function getDocBlockMulti($ref, $what): array
+    /**
+     * @param ReflectionFunctionAbstract|ReflectionProperty $ref
+     * @param string $what
+     * @return string[]
+     */
+    protected function getDocBlockMulti($ref, string $what): array
     {
         $doc = $this->getDocBlock($ref);
         if ($doc === null) {
@@ -124,7 +140,7 @@ abstract class AbstractFormatter
         return $ret;
     }
 
-    protected function getDocBlockSingle($ref, $what)
+    protected function getDocBlockSingle(ReflectionProperty $ref, string $what): ?string
     {
         $multi = $this->getDocBlockMulti($ref, $what);
         if (count($multi) !== 1) {
@@ -134,7 +150,7 @@ abstract class AbstractFormatter
         return $multi[0];
     }
 
-    protected function getType($ret): ?string
+    protected function getType(?string $ret): ?string
     {
         if ($ret === null) {
             return $ret;
@@ -159,6 +175,11 @@ abstract class AbstractFormatter
         return $ret;
     }
 
+    /**
+     * @param mixed $value
+     * @param string $quoted
+     * @return string
+     */
     protected function getCasted($value, string $quoted = '"'): string
     {
         if ($value === null) {
@@ -183,18 +204,18 @@ abstract class AbstractFormatter
 
     protected function visibility(Reflector $reflection): string
     {
-        if ($reflection->isPublic()) {
+        if ($reflection->isPublic()) {          // @phpstan-ignore-line
             return '+';
-        } elseif ($reflection->isProtected()) {
+        } elseif ($reflection->isProtected()) { // @phpstan-ignore-line
             return '#';
-        } elseif ($reflection->isPrivate()) {
+        } elseif ($reflection->isPrivate()) {   // @phpstan-ignore-line
             // U+2013 EN DASH "–"
             return "\342\200\223";
         }
         return '?';
     }
 
-    protected function escape($id)
+    protected function escape(string $id): string
     {
         return preg_replace(
             '/([^\\w])/u',

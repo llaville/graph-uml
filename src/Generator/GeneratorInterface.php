@@ -19,6 +19,9 @@ use ReflectionExtension;
  */
 interface GeneratorInterface
 {
+    /**
+     * @param array<string, mixed> $values
+     */
     public function setOptions(array $values): void;
 
     public function getFormatter(): FormatterInterface;

@@ -9,6 +9,10 @@ namespace Bartlett\GraphUml;
 
 use Graphp\Graph\Vertex;
 
+use ReflectionClass;
+use ReflectionException;
+use ReflectionExtension;
+
 /**
  * @author Laurent Laville
  */
@@ -35,7 +39,17 @@ interface ClassDiagramBuilderInterface
         'add_parents' => true,
     ];
 
+    /**
+     * @param ReflectionClass|string $class
+     * @return Vertex
+     * @throws ReflectionException
+     */
     public function createVertexClass($class): Vertex;
 
+    /**
+     * @param ReflectionExtension|string $extension
+     * @return Vertex
+     * @throws ReflectionException
+     */
     public function createVertexExtension($extension): Vertex;
 }

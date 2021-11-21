@@ -13,7 +13,6 @@ use Graphp\Graph\Graph;
 use Graphp\Graph\Vertex;
 
 use ReflectionClass;
-use ReflectionException;
 use ReflectionExtension;
 
 /**
@@ -33,13 +32,13 @@ final class ClassDiagramBuilder implements ClassDiagramBuilderInterface
      */
     private $graph;
 
-    /** @var array  */
+    /** @var array<string, mixed>  */
     private $options;
 
     /** @var GeneratorInterface  */
     private $generator;
 
-    /** @var array */
+    /** @var array<string, Vertex> */
     private $entities;
 
     /**
@@ -47,7 +46,7 @@ final class ClassDiagramBuilder implements ClassDiagramBuilderInterface
      *
      * @param GeneratorInterface $generator
      * @param Graph $graph
-     * @param array $options
+     * @param array<string, mixed> $options
      * @see ClassDiagramBuilderInterface::OPTIONS_DEFAULTS for available options
      */
     public function __construct(GeneratorInterface $generator, Graph $graph, array $options = [])
@@ -60,9 +59,7 @@ final class ClassDiagramBuilder implements ClassDiagramBuilderInterface
     }
 
     /**
-     * @param ReflectionClass|string $class
-     * @return Vertex
-     * @throws ReflectionException
+     * {@inheritDoc}
      */
     public function createVertexClass($class): Vertex
     {
@@ -124,9 +121,7 @@ final class ClassDiagramBuilder implements ClassDiagramBuilderInterface
     }
 
     /**
-     * @param ReflectionExtension|string $extension
-     * @return Vertex
-     * @throws ReflectionException
+     * {@inheritDoc}
      */
     public function createVertexExtension($extension): Vertex
     {
@@ -155,6 +150,10 @@ final class ClassDiagramBuilder implements ClassDiagramBuilderInterface
         return $vertex;
     }
 
+    /**
+     * @param ReflectionClass $reflection
+     * @return ReflectionClass[]
+     */
     private function getInterfaces(ReflectionClass $reflection): array
     {
         // a list of all interfaces implemented explicitly or implicitly
