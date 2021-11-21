@@ -1,7 +1,10 @@
-<?php
-
-declare(strict_types=1);
-
+<?php declare(strict_types=1);
+/**
+ * This file is part of the GraPHP-UML package.
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
 namespace Bartlett\GraphUml;
 
 use Bartlett\GraphUml\Generator\GeneratorInterface;
@@ -19,6 +22,8 @@ use ReflectionExtension;
  * @link https://www.uml-diagrams.org/class-diagrams-overview.html
  * @link http://www.ffnn.nl/pages/articles/media/uml-diagrams-using-graphviz-dot.php
  * @link http://www.holub.com/goodies/uml/
+ *
+ * @author Laurent Laville
  */
 final class ClassDiagramBuilder implements ClassDiagramBuilderInterface
 {

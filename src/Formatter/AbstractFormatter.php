@@ -1,7 +1,10 @@
-<?php
-
-declare(strict_types=1);
-
+<?php declare(strict_types=1);
+/**
+ * This file is part of the GraPHP-UML package.
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
 namespace Bartlett\GraphUml\Formatter;
 
 use Exception;
@@ -9,6 +12,9 @@ use ReflectionClass;
 use ReflectionParameter;
 use Reflector;
 
+/**
+ * @author Laurent Laville
+ */
 abstract class AbstractFormatter
 {
     protected const EOL = PHP_EOL;

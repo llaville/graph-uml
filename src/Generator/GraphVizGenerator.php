@@ -1,6 +1,10 @@
-<?php
-declare(strict_types=1);
-
+<?php declare(strict_types=1);
+/**
+ * This file is part of the GraPHP-UML package.
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
 namespace Bartlett\GraphUml\Generator;
 
 use Bartlett\GraphUml\Formatter\FormatterInterface;
@@ -13,6 +17,8 @@ use Graphp\GraphViz\GraphViz;
 /**
  * The concrete GraphViz generator built by composition rather than inheritance.
  * Common functions to all generators are provided by AbstractGenerator class
+ *
+ * @author Laurent Laville
  */
 final class GraphVizGenerator extends AbstractGenerator implements GeneratorInterface
 {

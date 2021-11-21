@@ -1,6 +1,10 @@
-<?php
-declare(strict_types=1);
-
+<?php declare(strict_types=1);
+/**
+ * This file is part of the GraPHP-UML package.
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
 namespace Bartlett\GraphUml\Generator;
 
 use Bartlett\GraphUml\Formatter\FormatterInterface;
@@ -11,6 +15,9 @@ use ReflectionClass;
 use ReflectionExtension;
 use UnexpectedValueException;
 
+/**
+ * @author Laurent Laville
+ */
 abstract class AbstractGenerator
 {
     protected const CMD_EXECUTABLE = '%E';

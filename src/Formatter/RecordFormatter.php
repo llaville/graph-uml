@@ -1,7 +1,10 @@
-<?php
-
-declare(strict_types=1);
-
+<?php declare(strict_types=1);
+/**
+ * This file is part of the GraPHP-UML package.
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
 namespace Bartlett\GraphUml\Formatter;
 
 use Exception;
@@ -10,6 +13,9 @@ use ReflectionExtension;
 use ReflectionMethod;
 use ReflectionParameter;
 
+/**
+ * @author Laurent Laville
+ */
 final class RecordFormatter extends AbstractFormatter implements FormatterInterface
 {
     public function getLabelExtension(ReflectionExtension $reflection): string
