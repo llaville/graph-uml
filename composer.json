@@ -2,7 +2,7 @@
     "name": "bartlett/graph-uml",
     "description": "PHP library which helps you build UML diagrams.",
     "type": "library",
-    "license": "BSD-3-Clause",
+    "license": "MIT",
     "authors": [
         {
             "name": "Laurent Laville",
