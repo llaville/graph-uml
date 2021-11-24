@@ -15,28 +15,28 @@ Generate UML diagrams by reflection for your PHP projects.
 All the documentation is available on [website](https://llaville.github.io/graph-uml),
 generated from the [docs](https://github.com/llaville/graph-uml/tree/master/docs) folder.
 
-**Table of Contents**
+### Features
 
-* **Features**
-  - [Formatters](docs/01_Features/Formatters.md)
-  - [Generators](docs/01_Features/Generators.md)
-  - [Options](docs/01_Features/Options.md)
+- [Formatters](docs/01_Features/Formatters.md)
+- [Generators](docs/01_Features/Generators.md)
+- [Options](docs/01_Features/Options.md)
 
-* **Cookbook**
-  - [Single Class](docs/02_Cookbook/Single_Class.md)
-  - [Multiple Classes](docs/02_Cookbook/Multiple_Classes.md)
-  - [PHP Extensions](docs/02_Cookbook/Php_Extensions.md)
+### Cookbook
+
+- [Single Class](docs/02_Cookbook/Single_Class.md)
+- [Multiple Classes](docs/02_Cookbook/Multiple_Classes.md)
+- [PHP Extensions](docs/02_Cookbook/Php_Extensions.md)
 
 ## Resources
 
-* <https://github.com/llaville/graph-plantuml-generator> to draw UML diagrams in [PlantUML](https://plantuml.com/) format.
-* <http://www.graphviz.org/>
-* Let's Graphviz it Online <https://github.com/dreampuf/GraphvizOnline>
-* [The Top 55 Graphviz Open Source Projects](https://awesomeopensource.com/projects/graphviz)
+- <https://github.com/llaville/graph-plantuml-generator> to draw UML diagrams in [PlantUML](https://plantuml.com/) format.
+- <http://www.graphviz.org/>
+- Let's Graphviz it Online <https://github.com/dreampuf/GraphvizOnline>
+- [The Top 55 Graphviz Open Source Projects](https://awesomeopensource.com/projects/graphviz)
 
 ## Contributors
 
-* Laurent Laville (Lead Developer)
+- Laurent Laville (Lead Developer)
 
 ## Credits
 
