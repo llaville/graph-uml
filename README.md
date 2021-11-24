@@ -6,6 +6,7 @@
 | [![Latest Stable Version](https://img.shields.io/packagist/v/bartlett/graph-uml)](https://packagist.org/packages/bartlett/graph-uml) | [![Unstable Version](https://img.shields.io/packagist/vpre/bartlett/graph-uml)](https://packagist.org/packages/bartlett/graph-uml) |
 | [![Minimum PHP Version](https://img.shields.io/packagist/php-v/bartlett/graph-uml)](https://php.net/) | [![Minimum PHP Version](https://img.shields.io/packagist/php-v/bartlett/graph-uml/dev-master)](https://php.net/) |
 | ![License](https://img.shields.io/github/license/llaville/graph-uml) | ![License](https://img.shields.io/github/license/llaville/graph-uml) |
+|  | [![Mega-Linter](https://github.com/llaville/graph-uml/actions/workflows/mega-linter.yml/badge.svg)](https://github.com/llaville/graph-uml/actions/workflows/mega-linter.yml)|
 
 Generate UML diagrams by reflection for your PHP projects.
 
