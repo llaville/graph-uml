@@ -5,7 +5,8 @@
 |:------:|
 | [![Latest Stable Version](https://img.shields.io/packagist/v/bartlett/graph-uml)](https://packagist.org/packages/bartlett/graph-uml) |
 | [![Minimum PHP Version](https://img.shields.io/packagist/php-v/bartlett/graph-uml/dev-master)](https://php.net/) |
-| ![License](https://img.shields.io/github/license/llaville/graph-uml) |
+| [![License](https://img.shields.io/github/license/llaville/graph-uml)](https://github.com/llaville/graph-uml/blob/master/LICENSE) |
+| [![GitHub Discussions](https://img.shields.io/github/discussions/llaville/graph-uml)](https://github.com/llaville/graph-uml/discussions) |
 | [![Mega-Linter](https://github.com/llaville/graph-uml/actions/workflows/mega-linter.yml/badge.svg)](https://github.com/llaville/graph-uml/actions/workflows/mega-linter.yml) |
 | [![GitHub-Pages](https://github.com/llaville/graph-uml/actions/workflows/gh-pages.yml/badge.svg)](https://github.com/llaville/graph-uml/actions/workflows/gh-pages.yml) |
 
