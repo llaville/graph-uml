@@ -244,7 +244,7 @@ final class HtmlFormatter extends AbstractFormatter implements FormatterInterfac
 
             /** @var null|ReflectionNamedType $returnType */
             $returnType = $method->getReturnType();
-            if ($returnType) {
+            if ($returnType instanceof ReflectionNamedType) {
                 $type = $returnType->getName();
                 if ($type !== null) {
                     $label .= ' : ' . ($returnType->allowsNull() ? '?' : '') . $this->escape($type);
