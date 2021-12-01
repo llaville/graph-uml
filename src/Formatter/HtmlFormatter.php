@@ -15,6 +15,7 @@ use ReflectionNamedType;
 use ReflectionParameter;
 use function count;
 use function gettype;
+use function is_string;
 use function sprintf;
 use function str_replace;
 
@@ -165,7 +166,7 @@ final class HtmlFormatter extends AbstractFormatter implements FormatterInterfac
         return $fields;
     }
 
-    public function getLabelFunctions(array $functions, string $class = null): string
+    public function getLabelFunctions(array $functions, string $class = ''): string
     {
         if ($class && !$this->options['show_methods']) {
             return '';
@@ -222,10 +223,18 @@ final class HtmlFormatter extends AbstractFormatter implements FormatterInterfac
 
                 if ($parameter->isOptional()) {
                     try {
-                        $label .= ' = ' . $this->getCasted(
-                            str_replace(['self::', 'static::'], '', $parameter->getDefaultValueConstantName()),
-                            ''
-                        );
+                        $defaultValue = $parameter->getDefaultValueConstantName();
+                        if (null === $defaultValue) {
+                            if (!is_string($type)) {
+                                throw new Exception();
+                            }
+                            $label .= ' = ""';
+                        } else {
+                            $label .= ' = ' . $this->getCasted(
+                                str_replace(['self::', 'static::'], '', $defaultValue),
+                                ''
+                            );
+                        }
                     } catch (Exception $ignore) {
                         $label .= ' = «unknown»';
                     }

@@ -132,7 +132,7 @@ final class RecordFormatter extends AbstractFormatter implements FormatterInterf
         return $label;
     }
 
-    public function getLabelFunctions(array $functions, string $class = null): string
+    public function getLabelFunctions(array $functions, string $class = ''): string
     {
         if ($class && !$this->options['show_methods']) {
             return '';

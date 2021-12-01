@@ -63,8 +63,8 @@ interface FormatterInterface
      * Get string describing the given array of reflection methods / functions
      *
      * @param ReflectionMethod[]|ReflectionFunction[] $functions
-     * @param string|null $class
+     * @param string $class
      * @return string
      */
-    public function getLabelFunctions(array $functions, string $class = null): string;
+    public function getLabelFunctions(array $functions, string $class = ''): string;
 }
