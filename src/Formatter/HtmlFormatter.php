@@ -11,6 +11,7 @@ use Exception;
 use ReflectionClass;
 use ReflectionExtension;
 use ReflectionMethod;
+use ReflectionNamedType;
 use ReflectionParameter;
 use function count;
 use function gettype;
@@ -232,6 +233,7 @@ final class HtmlFormatter extends AbstractFormatter implements FormatterInterfac
             }
             $label .= ')';
 
+            /** @var null|ReflectionNamedType $returnType */
             $returnType = $method->getReturnType();
             if ($returnType) {
                 $type = $returnType->getName();

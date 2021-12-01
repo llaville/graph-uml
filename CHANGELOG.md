@@ -7,6 +7,8 @@ using the [Keep a CHANGELOG](http://keepachangelog.com) principles.
 
 ## [Unreleased]
 
+## [1.0.0] - 2021-12-01
+
 ### Added
 
 - GitHub workflow to build/deploy documentation with mkdocs/[mkdocs-material](https://github.com/squidfunk/mkdocs-material)
