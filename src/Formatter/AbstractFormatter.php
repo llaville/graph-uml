@@ -133,9 +133,9 @@ abstract class AbstractFormatter
                     return ' = «unknown»';
                 }
                 return ' = ' . $this->getCasted(
-                        str_replace(['self::', 'static::'], '', $defaultValue),
-                        ''
-                    );
+                    str_replace(['self::', 'static::'], '', $defaultValue),
+                    ''
+                );
             }
 
             if ($parameter->isDefaultValueAvailable()) {
@@ -145,6 +145,8 @@ abstract class AbstractFormatter
                 }
                 return ' = ' . $this->getCasted($defaultValue, "'");
             }
+
+            return '';
         } catch (ReflectionException $e) {
             // Cannot determine default value for internal functions
             return ' = «unknown»';
