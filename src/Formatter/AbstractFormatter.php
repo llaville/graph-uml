@@ -10,8 +10,10 @@ namespace Bartlett\GraphUml\Formatter;
 use Exception;
 use ReflectionClass;
 use ReflectionFunctionAbstract;
+use ReflectionNamedType;
 use ReflectionParameter;
 use ReflectionProperty;
+use ReflectionType;
 use Reflector;
 use function count;
 use function get_class;
@@ -100,13 +102,14 @@ abstract class AbstractFormatter
         $class = null;
         try {
             // get class hint for parameter
-            $class = $parameter->getClass();
+            /** @var null|ReflectionType $class */
+            $class = $parameter->getType();
             // will fail if specified class does not exist
         } catch (Exception $ignore) {
             return '«invalidClass»';
         }
 
-        if ($class !== null) {
+        if ($class instanceof ReflectionNamedType) {
             return $class->getName();
         }
 
