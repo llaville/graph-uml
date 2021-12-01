@@ -9,6 +9,7 @@ namespace Bartlett\GraphUml\Formatter;
 
 use Exception;
 use ReflectionClass;
+use ReflectionException;
 use ReflectionFunctionAbstract;
 use ReflectionNamedType;
 use ReflectionParameter;
@@ -121,6 +122,33 @@ abstract class AbstractFormatter
         }
 
         return null;
+    }
+
+    protected function getParameterDefaultValue(ReflectionParameter $parameter): string
+    {
+        try {
+            if ($parameter->isDefaultValueConstant()) {
+                $defaultValue = $parameter->getDefaultValueConstantName();
+                if (null === $defaultValue) {
+                    return ' = «unknown»';
+                }
+                return ' = ' . $this->getCasted(
+                        str_replace(['self::', 'static::'], '', $defaultValue),
+                        ''
+                    );
+            }
+
+            if ($parameter->isDefaultValueAvailable()) {
+                $defaultValue = $parameter->getDefaultValue();
+                if (null === $defaultValue) {
+                    return ' = «unknown»';
+                }
+                return ' = ' . $this->getCasted($defaultValue, "'");
+            }
+        } catch (ReflectionException $e) {
+            // Cannot determine default value for internal functions
+            return ' = «unknown»';
+        }
     }
 
     /**

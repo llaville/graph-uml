@@ -7,7 +7,6 @@
  */
 namespace Bartlett\GraphUml\Formatter;
 
-use Exception;
 use ReflectionClass;
 use ReflectionExtension;
 use ReflectionMethod;
@@ -15,9 +14,7 @@ use ReflectionNamedType;
 use ReflectionParameter;
 use function count;
 use function gettype;
-use function is_string;
 use function sprintf;
-use function str_replace;
 
 /**
  * @author Laurent Laville
@@ -222,22 +219,7 @@ final class HtmlFormatter extends AbstractFormatter implements FormatterInterfac
                 }
 
                 if ($parameter->isOptional()) {
-                    try {
-                        $defaultValue = $parameter->getDefaultValueConstantName();
-                        if (null === $defaultValue) {
-                            if (!is_string($type)) {
-                                throw new Exception();
-                            }
-                            $label .= ' = ""';
-                        } else {
-                            $label .= ' = ' . $this->getCasted(
-                                str_replace(['self::', 'static::'], '', $defaultValue),
-                                ''
-                            );
-                        }
-                    } catch (Exception $ignore) {
-                        $label .= ' = «unknown»';
-                    }
+                    $label .= $this->getParameterDefaultValue($parameter);
                 }
             }
             $label .= ')';

@@ -7,6 +7,12 @@ using the [Keep a CHANGELOG](http://keepachangelog.com) principles.
 
 ## [Unreleased]
 
+## [1.0.1] - 2021-12-01
+
+### Added
+
+- `AbstractFormatter::getParameterDefaultValue` to handle default value of optional parameters in function signatures.
+
 ## [1.0.0] - 2021-12-01
 
 ### Added
