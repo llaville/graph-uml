@@ -7,10 +7,10 @@
  */
 namespace Bartlett\GraphUml\Formatter;
 
-use Exception;
 use ReflectionClass;
 use ReflectionExtension;
 use ReflectionMethod;
+use ReflectionNamedType;
 use ReflectionParameter;
 use function gettype;
 
@@ -187,18 +187,15 @@ final class RecordFormatter extends AbstractFormatter implements FormatterInterf
                 }
 
                 if ($parameter->isOptional()) {
-                    try {
-                        $label .= ' = ' . $this->getCasted($parameter->getDefaultValue());
-                    } catch (Exception $ignore) {
-                        $label .= ' = «unknown»';
-                    }
+                    $label .= $this->getParameterDefaultValue($parameter);
                 }
             }
             $label .= ')';
 
+            /** @var null|ReflectionNamedType $returnType */
             $returnType = $method->getReturnType();
-            if ($returnType) {
-                $type = (string) $returnType;
+            if ($returnType instanceof ReflectionNamedType) {
+                $type = $returnType->getName();
                 if ($type !== null) {
                     $label .= ' : ' . ($returnType->allowsNull() ? '?' : '') . $this->escape($type);
                 }

@@ -13,6 +13,10 @@ using the [Keep a CHANGELOG](http://keepachangelog.com) principles.
 
 - `AbstractFormatter::getParameterDefaultValue` to handle default value of optional parameters in function signatures.
 
+### Fixed
+
+- return type checks in RecordFormatter.
+
 ## [1.0.0] - 2021-12-01
 
 ### Added
