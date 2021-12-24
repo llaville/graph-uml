@@ -39,7 +39,6 @@ jobs:
                 run: |
                     sudo apt-get update
                     sudo apt-fast install graphviz -y
-                    sudo apt-fast install libgraphviz-dev -y
 
             - # Setup PHP runtime
                 name: Setup PHP runtime

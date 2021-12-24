@@ -37,7 +37,7 @@ Users of Debian/Ubuntu-based distributions may simply invoke:
 
 ```bash
 sudo apt update
-sudo apt-get install graphviz
+sudo apt-get install graphviz -y
 ```
 
 while remaining users should install from [GraphViz Download](http://www.graphviz.org/download/) page.
