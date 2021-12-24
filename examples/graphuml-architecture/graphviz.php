@@ -57,4 +57,11 @@ $graph->setAttribute($generator->getPrefix() . 'cluster.Bartlett\\GraphUml\\Form
 // show UML diagram statements
 echo $generator->createScript($graph);
 // default format is PNG
-echo $generator->createImageFile($graph) . ' file generated' . PHP_EOL;
+if (isset($argv[1])) {
+    // target folder provided
+    $cmdFormat = '%E -T%F %t -o ' . rtrim($argv[1], DIRECTORY_SEPARATOR) . '/app.%F';
+} else {
+    $cmdFormat = '';
+}
+$target = $generator->createImageFile($graph, $cmdFormat);
+echo (empty($target) ? 'no' : $target) . ' file generated' . PHP_EOL;
