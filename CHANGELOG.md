@@ -7,6 +7,10 @@ using the [Keep a CHANGELOG](http://keepachangelog.com) principles.
 
 ## [Unreleased]
 
+### Added
+
+- example script `examples/multiple_classes/graphviz.php` already shown in documentation
+
 ## [1.0.1] - 2021-12-01
 
 ### Added
