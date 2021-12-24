@@ -100,6 +100,13 @@ abstract class AbstractGenerator
 
     abstract public function createScript(Graph $graph): string;
 
+    /**
+     * Make image file, and returns command used to generated it.
+     *
+     * @param Graph $graph
+     * @param string $cmdFormat
+     * @return string
+     */
     public function createImageFile(Graph $graph, string $cmdFormat): string
     {
         $script = $this->createScript($graph);
@@ -138,6 +145,6 @@ abstract class AbstractGenerator
         }
         unlink($tmp);
 
-        return $outFile;
+        return $command;
     }
 }

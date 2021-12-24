@@ -11,6 +11,10 @@ using the [Keep a CHANGELOG](http://keepachangelog.com) principles.
 
 - example script `examples/multiple_classes/graphviz.php` already shown in documentation
 
+### Changed
+
+- `Bartlett\GraphUml\Generator\AbstractGenerator::createImageFile` returns now the command used to generate image file rather than temporary file
+
 ## [1.0.1] - 2021-12-01
 
 ### Added

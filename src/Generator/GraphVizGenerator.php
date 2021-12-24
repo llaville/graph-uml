@@ -13,11 +13,14 @@ use Bartlett\GraphUml\Formatter\RecordFormatter;
 
 use Graphp\Graph\Graph;
 use Graphp\GraphViz\GraphViz;
+
 use function array_combine;
 use function array_keys;
 use function array_values;
 use function array_walk;
+use function preg_match;
 use function sprintf;
+use function trim;
 
 /**
  * The concrete GraphViz generator built by composition rather than inheritance.
@@ -97,6 +100,12 @@ final class GraphVizGenerator extends AbstractGenerator implements GeneratorInte
             );
         }
 
-        return parent::createImageFile($graph, $cmdFormat);
+        $command = parent::createImageFile($graph, $cmdFormat);
+
+        $patternFound = preg_match('/-o (.*)/', $command, $matches);
+        if ($patternFound) {
+            return trim($matches[1]);
+        }
+        return '';
     }
 }
