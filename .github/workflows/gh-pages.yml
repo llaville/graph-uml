@@ -10,7 +10,8 @@ on:
     pull_request:
 
 concurrency:
-    group: ${{ github.ref }}-${{ github.workflow }}
+    group: ${{ github.ref }}-pages-build-deployment
+    cancel-in-progress: true
 
 jobs:
     deploy:
