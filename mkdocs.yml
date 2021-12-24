@@ -37,4 +37,5 @@ nav:
           - "Class diagrams":
                 - "Single Class": 02_Cookbook/Single_Class.md
                 - "Multiple Classes": 02_Cookbook/Multiple_Classes.md
+                - "Without Elements": 02_Cookbook/Without_Elements.md
           - "Extension diagram": 02_Cookbook/Php_Extensions.md

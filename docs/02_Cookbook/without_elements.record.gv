@@ -1,0 +1,7 @@
+digraph {
+    "Bartlett\\GraphUml\\ClassDiagramBuilder" [shape="record" label="{
+Bartlett\\GraphUml\\ClassDiagramBuilder||}"]
+    "Bartlett\\GraphUml\\ClassDiagramBuilderInterface" [shape="record" label="{«interface»
+Bartlett\\GraphUml\\ClassDiagramBuilderInterface||}"]
+    "Bartlett\\GraphUml\\ClassDiagramBuilder" -> "Bartlett\\GraphUml\\ClassDiagramBuilderInterface" [arrowhead="empty" style="dashed"]
+}
