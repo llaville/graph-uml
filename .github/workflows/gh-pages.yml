@@ -58,6 +58,7 @@ jobs:
                 run: |
                     php examples/graphuml-architecture/graphviz.php docs
                     php examples/multiple-classes/graphviz.php docs/02_Cookbook
+                    php examples/php-extensions/graphviz.php docs/02_Cookbook
                     php examples/single-class/graphviz.php docs/02_Cookbook
                     php examples/without-elements/graphviz.php docs/02_Cookbook
 
