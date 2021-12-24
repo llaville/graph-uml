@@ -61,6 +61,14 @@ jobs:
                     php examples/single-class/graphviz.php docs/02_Cookbook
                     php examples/without-elements/graphviz.php docs/02_Cookbook
 
+            -   # Create commits
+                name: Commit new PNG files
+                run: |
+                    git config user.name 'github-actions'
+                    git config user.email 'github-actions@users.noreply.github.com'
+                    git add docs/
+                    git commit -m "Add generated png files during workflow"
+
             -   # Setup Python version
                 name: Set up Python runtime
                 uses: actions/setup-python@v2
