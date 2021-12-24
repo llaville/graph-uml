@@ -62,7 +62,7 @@ jobs:
                     php examples/without-elements/graphviz.php docs/02_Cookbook
 
             -   # Create commits
-                name: Commit new PNG files
+                name: Commit generated PNG files
                 run: |
                     git config user.name 'github-actions'
                     git config user.email 'github-actions@users.noreply.github.com'
