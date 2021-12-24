@@ -9,6 +9,9 @@ on:
             - docs/**
     pull_request:
 
+concurrency:
+    group: ${{ github.ref }}-${{ github.workflow }}
+
 jobs:
     deploy:
         name: Deploy to GH Pages
