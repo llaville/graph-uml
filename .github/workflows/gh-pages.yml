@@ -14,8 +14,8 @@ concurrency:
     cancel-in-progress: true
 
 jobs:
-    auto_update_diagrams:
-        name: Auto-Update Diagrams for documentation
+    deploy:
+        name: Deploy to GH Pages
 
         runs-on: ${{ matrix.os }}
 
@@ -28,7 +28,7 @@ jobs:
                     - 7.4
 
         steps:
-            - # Git Checkout
+            -   # Git Checkout
                 name: Checkout Code
                 uses: actions/checkout@v2
                 with:
@@ -40,38 +40,25 @@ jobs:
                     sudo apt-get update
                     sudo apt-fast install graphviz -y
 
-            - # Setup PHP runtime
+            -   # Setup PHP runtime
                 name: Setup PHP runtime
                 uses: "shivammathur/setup-php@v2"
                 with:
                     php-version: ${{ matrix.php }}
 
-            - # Install Composer dependencies
+            -   # Install Composer dependencies
                 name: Install Composer dependencies
                 uses: "ramsey/composer-install@v2"
                 with:
                     dependency-versions: "highest"
                     composer-options: "--prefer-dist --no-scripts"
 
-            - # Refresh diagrams used in documentation
-                name: Refresh Diagrams for documentation
-                id: refresh-diagrams
+            -   # Update diagrams used in documentation
+                name: Update Diagrams
                 run: |
                     php examples/graphuml-architecture/graphviz.php docs
                     php examples/multiple-classes/graphviz.php docs/02_Cookbook
                     php examples/single-class/graphviz.php docs/02_Cookbook
-
-    deploy:
-        needs: auto_update_diagrams
-
-        name: Deploy to GH Pages
-        runs-on: ubuntu-latest
-        steps:
-            -   # Git Checkout
-                name: Checkout Code
-                uses: actions/checkout@v2
-                with:
-                    persist-credentials: false
 
             -   # Setup Python version
                 name: Set up Python runtime
