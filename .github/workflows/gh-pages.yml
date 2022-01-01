@@ -56,11 +56,13 @@ jobs:
             -   # Update diagrams used in documentation
                 name: Update Diagrams
                 run: |
-                    php examples/graphuml-architecture/graphviz.php docs
-                    php examples/multiple-classes/graphviz.php docs/02_Cookbook
-                    php examples/php-extensions/graphviz.php docs/02_Cookbook
-                    php examples/single-class/graphviz.php docs/02_Cookbook
-                    php examples/without-elements/graphviz.php docs/02_Cookbook
+                    php resources/graph-uml/build.php application docs/
+                    php resources/graph-uml/build.php formatter docs/01_Features/
+                    php resources/graph-uml/build.php generator docs/01_Features/
+                    php resources/graph-uml/build.php multiple_classes docs/02_Cookbook/
+                    php resources/graph-uml/build.php php_extensions docs/02_Cookbook/
+                    php resources/graph-uml/build.php single_class docs/02_Cookbook/
+                    php resources/graph-uml/build.php without_elements docs/02_Cookbook/
 
             -   # Setup Python version
                 name: Set up Python runtime
