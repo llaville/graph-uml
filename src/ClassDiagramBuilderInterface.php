@@ -45,10 +45,11 @@ interface ClassDiagramBuilderInterface
 
     /**
      * @param ReflectionClass|string $class
+     * @param array<string, mixed> $attributes
      * @return Vertex
      * @throws ReflectionException
      */
-    public function createVertexClass($class): Vertex;
+    public function createVertexClass($class, array $attributes = []): Vertex;
 
     /**
      * @param ReflectionExtension|string $extension
@@ -59,7 +60,7 @@ interface ClassDiagramBuilderInterface
 
     /**
      * @param callable $callback
-     * @param Generator $vertices
+     * @param Generator<string> $vertices
      * @return void
      */
     public function createVerticesFromCallable(callable $callback, Generator $vertices): void;
