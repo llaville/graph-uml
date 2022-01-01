@@ -33,12 +33,10 @@ $builder->createVertexClass(ClassDiagramBuilder::class);
 
 // show UML diagram statements
 echo $generator->createScript($graph);
-// default format is PNG
-if (isset($argv[1])) {
-    // target folder provided
-    $cmdFormat = '%E -T%F %t -o ' . rtrim($argv[1], DIRECTORY_SEPARATOR) . '/without_elements.graphviz.%F';
-} else {
-    $cmdFormat = '';
-}
-$target = $generator->createImageFile($graph, $cmdFormat);
+
+// default format is PNG, change it to SVG
+$generator->setFormat('svg');
+
+// generate binary image file
+$target = $generator->createImageFile($graph);
 echo (empty($target) ? 'no' : $target) . ' file generated' . PHP_EOL;
