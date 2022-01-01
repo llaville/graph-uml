@@ -22,14 +22,14 @@ generated from the [docs](https://github.com/llaville/graph-uml/tree/master/docs
 
 ## Resources
 
-- <https://github.com/llaville/graph-plantuml-generator> to draw UML diagrams in [PlantUML](https://plantuml.com/) format.
-- <http://www.graphviz.org/>
-- Let's Graphviz it Online <https://github.com/dreampuf/GraphvizOnline>
-- [The Top 55 Graphviz Open Source Projects](https://awesomeopensource.com/projects/graphviz)
+* <https://github.com/llaville/graph-plantuml-generator> to draw UML diagrams in [PlantUML](https://plantuml.com/) format.
+* <http://www.graphviz.org/>
+* Let's Graphviz it Online <https://github.com/dreampuf/GraphvizOnline>
+* [The Top 55 Graphviz Open Source Projects](https://awesomeopensource.com/projects/graphviz)
 
 ## Contributors
 
-- Laurent Laville (Lead Developer)
+* Laurent Laville (Lead Developer)
 
 ## Credits
 

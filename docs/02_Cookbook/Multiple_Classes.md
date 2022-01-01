@@ -1,3 +1,4 @@
+<!-- markdownlint-disable MD013 -->
 # Multiple classes diagram
 
 In this example, we specify only two classes, and these classes with theirs direct dependencies will be rendered in graph.

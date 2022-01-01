@@ -1,3 +1,4 @@
+<!-- markdownlint-disable MD013 -->
 # PHP Extensions diagram
 
 In this example, we specify only two extensions available, and these extensions will be rendered in graph.

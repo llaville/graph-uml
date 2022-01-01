@@ -1,3 +1,4 @@
+<!-- markdownlint-disable MD013 -->
 # Single class diagram
 
 In this example, we specify only one class, and this class with its direct dependencies will be rendered in graph.
