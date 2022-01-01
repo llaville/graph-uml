@@ -12,6 +12,8 @@ use Bartlett\GraphUml\Generator\GeneratorInterface;
 use Graphp\Graph\Graph;
 use Graphp\Graph\Vertex;
 
+use Closure;
+use Generator;
 use ReflectionClass;
 use ReflectionExtension;
 
@@ -61,7 +63,7 @@ final class ClassDiagramBuilder implements ClassDiagramBuilderInterface
     /**
      * {@inheritDoc}
      */
-    public function createVertexClass($class): Vertex
+    public function createVertexClass($class, array $attributes = []): Vertex
     {
         if ($class instanceof ReflectionClass) {
             $reflection = $class;
@@ -72,19 +74,25 @@ final class ClassDiagramBuilder implements ClassDiagramBuilderInterface
             $reflection = new ReflectionClass($class);
         }
 
-        if (isset($this->entities[$class])) {
-            return $this->entities[$class];
-        }
+        $vertex = $this->entities[$class] ?? $this->graph->createVertex(['id' => $class]);
 
         $generatorPrefix = $this->generator->getPrefix();
 
-        $vertex = $this->graph->createVertex(['id' => $class]);
+        foreach ($attributes as $attribute => $value) {
+            $vertex->setAttribute($generatorPrefix . $attribute, $value);
+        }
+
+        if (isset($this->entities[$class])) {
+            // already exists, use cached version
+            return $this->entities[$class];
+        }
+
         $this->entities[$class] = $vertex;
 
         if ($this->options['add_parents']) {
             $parent = $reflection->getParentClass();
             if ($parent) {
-                $parentVertex = $this->createVertexClass($parent);
+                $parentVertex = $this->createVertexClass($parent, $attributes);
                 $this->graph->createEdgeDirected($vertex, $parentVertex)
                     ->setAttribute($generatorPrefix . 'arrowhead', 'empty')
                     ->setAttribute($generatorPrefix . 'style', 'filled')
@@ -148,6 +156,16 @@ final class ClassDiagramBuilder implements ClassDiagramBuilderInterface
         $vertex->setAttribute('group', 'PHP Extensions');
 
         return $vertex;
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function createVerticesFromCallable(callable $callback, Generator $vertices): void
+    {
+        $closure = Closure::fromCallable($callback);
+        $closure = $closure->bindTo($this);
+        $closure($vertices, $this->generator, $this->graph, $this->options);
     }
 
     /**

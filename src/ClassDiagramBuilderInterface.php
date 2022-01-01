@@ -7,8 +7,10 @@
  */
 namespace Bartlett\GraphUml;
 
+use Bartlett\GraphUml\Filter\NamespaceFilterInterface;
 use Graphp\Graph\Vertex;
 
+use Generator;
 use ReflectionClass;
 use ReflectionException;
 use ReflectionExtension;
@@ -37,6 +39,8 @@ interface ClassDiagramBuilderInterface
         'show_methods' => true,
         // whether to show add parent classes or interfaces
         'add_parents' => true,
+        // namespace filter
+        'namespace_filter' => null,
     ];
 
     /**
@@ -52,4 +56,11 @@ interface ClassDiagramBuilderInterface
      * @throws ReflectionException
      */
     public function createVertexExtension($extension): Vertex;
+
+    /**
+     * @param callable $callback
+     * @param Generator $vertices
+     * @return void
+     */
+    public function createVerticesFromCallable(callable $callback, Generator $vertices): void;
 }

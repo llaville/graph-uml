@@ -7,6 +7,13 @@ using the [Keep a CHANGELOG](http://keepachangelog.com) principles.
 
 ## [Unreleased]
 
+### Added
+
+- ability to filter source on namespace (your class should implement `Bartlett\GraphUml\Filter\NamespaceFilterInterface`)
+: default is none filter
+- resources to generate dynamically all UML graphs for documentation (see `.github/workflows/gh-pages.yml`)
+- `Bartlett\GraphUml\ClassDiagramBuilder::createVerticesFromCallable` to generate a graph with a subset of vertices, from a callable
+
 ## [1.1.0] - 2021-12-24
 
 ### Added
