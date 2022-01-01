@@ -7,6 +7,8 @@ using the [Keep a CHANGELOG](http://keepachangelog.com) principles.
 
 ## [Unreleased]
 
+## [1.2.0] - 2022-01-01
+
 ### Added
 
 - ability to filter source on namespace (your class should implement `Bartlett\GraphUml\Filter\NamespaceFilterInterface`)
