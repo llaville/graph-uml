@@ -1,7 +1,0 @@
-digraph {
-  "Bartlett\\GraphUml\\ClassDiagramBuilder" [shape="record" label="{
-Bartlett\\GraphUml\\ClassDiagramBuilder|+ «static» OPTIONS_DEFAULTS : array = […] \{readOnly\}\l– graph : Graph\l– options : array\l– generator : GeneratorInterface\l– entities : array\l|+ __construct(generator : Bartlett\\GraphUml\\Generator\\GeneratorInterface, graph : Graphp\\Graph\\Graph, options : array = [])\l+ createVertexClass(class : mixed) : Graphp\\Graph\\Vertex\l+ createVertexExtension(extension : mixed) : Graphp\\Graph\\Vertex\l– getInterfaces(reflection : ReflectionClass) : array\l}"]
-  "Bartlett\\GraphUml\\ClassDiagramBuilderInterface" [shape="record" label="{«interface»
-Bartlett\\GraphUml\\ClassDiagramBuilderInterface|+ «static» OPTIONS_DEFAULTS : array = […] \{readOnly\}\l|+ «abstract» createVertexClass(class) : Graphp\\Graph\\Vertex\l+ «abstract» createVertexExtension(extension) : Graphp\\Graph\\Vertex\l}"]
-  "Bartlett\\GraphUml\\ClassDiagramBuilder" -> "Bartlett\\GraphUml\\ClassDiagramBuilderInterface" [arrowhead="empty" style="dashed"]
-}
