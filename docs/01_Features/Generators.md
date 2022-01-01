@@ -1,11 +1,13 @@
 <!-- markdownlint-disable MD013 -->
 # Generators
 
-GraPHP-UML used at least two components :
+![Graph UML Generator](./generator.graphviz.svg)
+
+Graph-UML used at least two components :
 
 - the mathematical graph/network [GraPHP](https://github.com/graphp/graph) library to draw UML diagrams.
 - any generator that implement the following contract.
-GraPHP-UML uses [GraphVizGenerator](https://github.com/llaville/graph-uml/blob/master/src/Generator/GraphVizGenerator.php)
+Graph-UML uses [GraphVizGenerator](https://github.com/llaville/graph-uml/blob/master/src/Generator/GraphVizGenerator.php)
 as default, but allow others that may be registered later at runtime.
 
 ## Contract

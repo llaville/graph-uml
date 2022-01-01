@@ -25,7 +25,7 @@ composer require bartlett/graph-uml
 
 ### With Git
 
-The GraPHP-UML can be directly used from [GitHub](https://github.com/llaville/graph-uml.git)
+The Graph-UML can be directly used from [GitHub](https://github.com/llaville/graph-uml.git)
 by cloning the repository into a directory of your choice.
 
 ```shell

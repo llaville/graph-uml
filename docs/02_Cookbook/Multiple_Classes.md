@@ -1,5 +1,7 @@
 # Multiple classes diagram
 
+In this example, we specify only two classes, and these classes with theirs direct dependencies will be rendered in graph.
+
 ```php
 <?php
 use Bartlett\GraphUml;
@@ -20,21 +22,38 @@ $builder = new GraphUml\ClassDiagramBuilder(
 $builder->createVertexClass(GraphUml\Generator\GraphVizGenerator::class);
 $builder->createVertexClass(GraphUml\ClassDiagramBuilder::class);
 
+// For large graph, orientation is recommended
+// https://graphviz.gitlab.io/docs/attrs/rankdir/
+$graph->setAttribute($generator->getPrefix() . 'graph.rankdir', 'LR');
+// https://graphviz.gitlab.io/docs/attrs/bgcolor/
+$graph->setAttribute($generator->getPrefix() . 'graph.bgcolor', 'transparent');
+// https://graphviz.gitlab.io/docs/attrs/fillcolor/
+$graph->setAttribute($generator->getPrefix() . 'node.fillcolor', '#FEFECE');
+// https://graphviz.gitlab.io/docs/attrs/style/
+$graph->setAttribute($generator->getPrefix() . 'node.style', 'filled');
+
+$clusters = [
+    'Bartlett\\GraphUml',
+    'Bartlett\\GraphUml\\Generator',
+];
+foreach ($clusters as $cluster) {
+    $attribute = sprintf('cluster.%s.graph.bgcolor', $cluster);
+    $graph->setAttribute($generator->getPrefix() . $attribute, 'burlywood3');
+}
+
 // show UML diagram statements
 echo $generator->createScript($graph);
-// default format is PNG
-if (isset($argv[1])) {
-    // target folder provided
-    $cmdFormat = '%E -T%F %t -o ' . rtrim($argv[1], DIRECTORY_SEPARATOR) . '/multiple_classes.graphviz.%F';
-} else {
-    $cmdFormat = '';
-}
-$target = $generator->createImageFile($graph, $cmdFormat);
+
+// default format is PNG, change it to SVG
+$generator->setFormat('svg');
+
+// generate binary image file
+$target = $generator->createImageFile($graph);
 echo (empty($target) ? 'no' : $target) . ' file generated' . PHP_EOL;
 ```
 
 Will output this [graph statements](./multiple_classes.html.gv).
 
-And png file generated look like :
+And image file generated look like :
 
-![Multiple Classes UML](./multiple_classes.graphviz.png)
+![Multiple Classes UML](./multiple_classes.graphviz.svg)
