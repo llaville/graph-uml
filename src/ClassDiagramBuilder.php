@@ -100,7 +100,7 @@ final class ClassDiagramBuilder implements ClassDiagramBuilderInterface
             }
 
             foreach ($this->getInterfaces($reflection) as $interface) {
-                $parentVertex = $this->createVertexClass($interface);
+                $parentVertex = $this->createVertexClass($interface, $attributes);
                 $this->graph->createEdgeDirected($vertex, $parentVertex)
                     ->setAttribute($generatorPrefix . 'arrowhead', 'empty')
                     ->setAttribute($generatorPrefix . 'style', 'dashed')
@@ -153,7 +153,8 @@ final class ClassDiagramBuilder implements ClassDiagramBuilderInterface
             $generatorPrefix . 'label_' . $formatterType,
             $this->generator->getLabelExtension($reflection)
         );
-        $vertex->setAttribute('group', 'PHP Extensions');
+        $vertex->setAttribute('group', 'PHP');
+        $vertex->setAttribute('stereotype', 'extension');
 
         return $vertex;
     }

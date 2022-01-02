@@ -7,6 +7,14 @@ using the [Keep a CHANGELOG](http://keepachangelog.com) principles.
 
 ## [Unreleased]
 
+## [1.2.1] - 2022-01-02
+
+### Fixed
+
+- cluster of vertices for PHP extension graph is now named 'PHP'
+- stereotype for PHP extension is now 'extension'
+- default attributes on interface inheritance is now applied
+
 ## [1.2.0] - 2022-01-01
 
 ### Added
