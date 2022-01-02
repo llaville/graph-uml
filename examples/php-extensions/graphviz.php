@@ -32,8 +32,9 @@ $extensions = get_loaded_extensions(false);
 shuffle($extensions);
 $extensions = array_slice($extensions, 0, 2);
 
-foreach ($extensions as $extension) {
-    $builder->createVertexExtension($extension);
+foreach ($extensions as $i => $extension) {
+    $attributes = ($i === 0) ? ['fillcolor' => 'burlywood3'] : [];
+    $builder->createVertexExtension($extension, $attributes);
 }
 
 // For large graph, orientation is recommended
