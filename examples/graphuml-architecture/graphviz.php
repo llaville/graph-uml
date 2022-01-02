@@ -34,19 +34,19 @@ $builder->createVertexClass(GraphUml\Generator\GraphVizGenerator::class);
 $builder->createVertexClass(GraphUml\ClassDiagramBuilder::class);
 
 // For large graph, orientation is recommended
-// https://graphviz.gitlab.io/_pages/doc/info/attrs.html#d:rankdir
+// https://graphviz.gitlab.io/docs/attrs/rankdir/
 $graph->setAttribute($generator->getPrefix() . 'graph.rankdir', 'LR');
-// https://graphviz.gitlab.io/_pages/doc/info/attrs.html#d:bgcolor
+// https://graphviz.gitlab.io/docs/attrs/bgcolor/
 $graph->setAttribute($generator->getPrefix() . 'graph.bgcolor', 'transparent');
-// https://graphviz.gitlab.io/_pages/doc/info/attrs.html#d:fillcolor
+// https://graphviz.gitlab.io/docs/attrs/fillcolor/
 $graph->setAttribute($generator->getPrefix() . 'node.fillcolor', 'lightgrey');
-// https://graphviz.gitlab.io/_pages/doc/info/attrs.html#d:style
+// https://graphviz.gitlab.io/docs/attrs/style/
 $graph->setAttribute($generator->getPrefix() . 'node.style', 'filled');
 
 // To use this feature, use my fork of graphp/graphviz project (see composer.json)
 $graph->setAttribute($generator->getPrefix() . 'cluster.2.graph.bgcolor', 'lightblue');
 // Either numeric or class namespace is allowed (2 = Bartlett\GraphUml)
-// https://graphviz.gitlab.io/_pages/doc/info/attrs.html#k:colorList
+// https://graphviz.gitlab.io/docs/attr-types/colorList/
 $graph->setAttribute($generator->getPrefix() . 'cluster.Bartlett\\GraphUml\\Generator.graph.style', 'filled');
 $graph->setAttribute($generator->getPrefix() . 'cluster.Bartlett\\GraphUml\\Generator.graph.fillcolor', 'yellow:blue');
 $graph->setAttribute($generator->getPrefix() . 'cluster.Bartlett\\GraphUml\\Generator.graph.gradientangle', 45);
@@ -56,12 +56,10 @@ $graph->setAttribute($generator->getPrefix() . 'cluster.Bartlett\\GraphUml\\Form
 
 // show UML diagram statements
 echo $generator->createScript($graph);
-// default format is PNG
-if (isset($argv[1])) {
-    // target folder provided
-    $cmdFormat = '%E -T%F %t -o ' . rtrim($argv[1], DIRECTORY_SEPARATOR) . '/app.%F';
-} else {
-    $cmdFormat = '';
-}
-$target = $generator->createImageFile($graph, $cmdFormat);
+
+// default format is PNG, change it to SVG
+$generator->setFormat('svg');
+
+// generate binary image file
+$target = $generator->createImageFile($graph);
 echo (empty($target) ? 'no' : $target) . ' file generated' . PHP_EOL;
