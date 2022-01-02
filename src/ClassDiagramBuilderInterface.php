@@ -53,10 +53,11 @@ interface ClassDiagramBuilderInterface
 
     /**
      * @param ReflectionExtension|string $extension
+     * @param array<string, mixed> $attributes
      * @return Vertex
      * @throws ReflectionException
      */
-    public function createVertexExtension($extension): Vertex;
+    public function createVertexExtension($extension, array $attributes = []): Vertex;
 
     /**
      * @param callable $callback

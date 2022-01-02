@@ -131,7 +131,7 @@ final class ClassDiagramBuilder implements ClassDiagramBuilderInterface
     /**
      * {@inheritDoc}
      */
-    public function createVertexExtension($extension): Vertex
+    public function createVertexExtension($extension, array $attributes = []): Vertex
     {
         if ($extension instanceof ReflectionExtension) {
             $reflection = $extension;
@@ -142,8 +142,13 @@ final class ClassDiagramBuilder implements ClassDiagramBuilderInterface
 
         $vertex = $this->graph->createVertex(['id' => $extension]);
 
-        $formatterType = $this->generator->getFormatter()->getFormat();
         $generatorPrefix = $this->generator->getPrefix();
+
+        foreach ($attributes as $attribute => $value) {
+            $vertex->setAttribute($generatorPrefix . $attribute, $value);
+        }
+
+        $formatterType = $this->generator->getFormatter()->getFormat();
 
         $vertex->setAttribute(
             $generatorPrefix . 'shape',

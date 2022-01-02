@@ -9,6 +9,10 @@ using the [Keep a CHANGELOG](http://keepachangelog.com) principles.
 
 ## [1.2.1] - 2022-01-02
 
+### Changed
+
+- `Bartlett\GraphUml\ClassDiagramBuilderInterface::createVertexExtension` have a second optional parameter to specify default vertex attributes
+
 ### Fixed
 
 - cluster of vertices for PHP extension graph is now named 'PHP'
