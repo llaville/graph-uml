@@ -7,6 +7,13 @@ using the [Keep a CHANGELOG](http://keepachangelog.com) principles.
 
 ## [Unreleased]
 
+## [1.2.2] - 2022-01-04
+
+### Fixed
+
+- `graphp/graph` constraint to specific commit compatible with patch provided (see `patches` directory)
+- `graphp/graphviz` constraint to specific commit compatible with patch provided (see `patches` directory)
+
 ## [1.2.1] - 2022-01-02
 
 ### Changed
