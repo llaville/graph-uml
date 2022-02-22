@@ -53,8 +53,8 @@ $target = $generator->createImageFile($graph);
 echo (empty($target) ? 'no' : $target) . ' file generated' . PHP_EOL;
 ```
 
-Will output this [graph statements](./multiple_classes.html.gv).
+Will output this [graph statements](../assets/images/multiple_classes.html.gv).
 
 And image file generated look like :
 
-![Multiple Classes UML](./multiple_classes.graphviz.svg)
+![Multiple Classes UML](../assets/images/multiple_classes.graphviz.svg)

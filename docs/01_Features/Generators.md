@@ -1,7 +1,7 @@
 <!-- markdownlint-disable MD013 -->
 # Generators
 
-![Graph UML Generator](./generator.graphviz.svg)
+![Graph UML Generator](../assets/images/generator.graphviz.svg)
 
 Graph-UML used at least two components :
 

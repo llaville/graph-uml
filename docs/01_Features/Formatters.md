@@ -1,7 +1,7 @@
 <!-- markdownlint-disable MD013 -->
 # Formatters
 
-![Graph UML Formatter](./formatter.graphviz.svg)
+![Graph UML Formatter](../assets/images/formatter.graphviz.svg)
 
 [GraphViz](https://graphviz.org/) allows two different formats to render vertex labels:
 

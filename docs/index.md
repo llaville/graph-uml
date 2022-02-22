@@ -3,7 +3,7 @@
 
 Generate UML diagrams by reflection for your PHP projects.
 
-![Graph UML Application](./application.graphviz.svg)
+![Graph UML Application](./assets/images/application.graphviz.svg)
 
 ## Features
 

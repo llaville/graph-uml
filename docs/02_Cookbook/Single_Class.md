@@ -55,8 +55,8 @@ echo (empty($target) ? 'no' : $target) . ' file generated' . PHP_EOL;
 **NOTE**: Without custom `$options` provided with `ClassDiagramBuilder` class constructor,
 all default values are used (see `ClassDiagramBuilderInterface::OPTIONS_DEFAULTS`)
 
-Will output this [graph statements](./single_class.html.gv).
+Will output this [graph statements](../assets/images/single_class.html.gv).
 
 And image file generated look like :
 
-![Single Class UML](./single_class.graphviz.svg)
+![Single Class UML](../assets/images/single_class.graphviz.svg)

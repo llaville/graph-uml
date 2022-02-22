@@ -38,8 +38,8 @@ $target = $generator->createImageFile($graph);
 echo (empty($target) ? 'no' : $target) . ' file generated' . PHP_EOL;
 ```
 
-Will output this [graph statements](./without_elements.record.gv).
+Will output this [graph statements](../assets/images/without_elements.record.gv).
 
 And image file generated look like :
 
-![Classes without elements](./without_elements.graphviz.svg)
+![Classes without elements](../assets/images/without_elements.graphviz.svg)

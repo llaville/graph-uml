@@ -52,8 +52,8 @@ $target = $generator->createImageFile($graph);
 echo (empty($target) ? 'no' : $target) . ' file generated' . PHP_EOL;
 ```
 
-Will output this [graph statements](./php_extensions.html.gv).
+Will output this [graph statements](../assets/images/php_extensions.html.gv).
 
 And image file generated look like :
 
-![PHP Extensions](./php_extensions.graphviz.svg)
+![PHP Extensions](../assets/images/php_extensions.graphviz.svg)
