@@ -11,13 +11,12 @@
         }
     ],
     "require": {
-        "php": "^7.1.3|^8.0",
+        "php": "^7.1.3 || ^8.0",
         "cweagans/composer-patches": "^1.7",
         "graphp/graph": "dev-master#04461a7 as 1.0.0",
         "graphp/graphviz": "dev-master#5872f6b as 1.0.0"
     },
     "config": {
-        "preferred-install": "source",
         "sort-packages": true,
         "allow-plugins": {
             "cweagans/composer-patches": true
