@@ -17,6 +17,9 @@
         "graphp/graphviz": "dev-master#5872f6b as 1.0.0"
     },
     "config": {
+        "platform": {
+            "php": "7.4.0"
+        },
         "sort-packages": true,
         "allow-plugins": {
             "cweagans/composer-patches": true
