@@ -7,6 +7,13 @@ using the [Keep a CHANGELOG](http://keepachangelog.com) principles.
 
 ## [Unreleased]
 
+<!-- MARKDOWN-RELEASE:START -->
+### Changed
+
+- Raises PHP minimum constraint to 7.4.0
+
+<!-- MARKDOWN-RELEASE:END -->
+
 ## [1.2.2] - 2022-01-04
 
 ### Fixed
