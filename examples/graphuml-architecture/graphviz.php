@@ -43,7 +43,7 @@ $graph->setAttribute($generator->getPrefix() . 'node.fillcolor', 'lightgrey');
 // https://graphviz.gitlab.io/docs/attrs/style/
 $graph->setAttribute($generator->getPrefix() . 'node.style', 'filled');
 
-// To use this feature, use my fork of graphp/graphviz project (see composer.json)
+// To use this feature, use patched graphp/graphviz project (see composer.json)
 $graph->setAttribute($generator->getPrefix() . 'cluster.2.graph.bgcolor', 'lightblue');
 // Either numeric or class namespace is allowed (2 = Bartlett\GraphUml)
 // https://graphviz.gitlab.io/docs/attr-types/colorList/
