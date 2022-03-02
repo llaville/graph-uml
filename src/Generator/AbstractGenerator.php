@@ -37,19 +37,19 @@ abstract class AbstractGenerator
      * List of options to personalize generator and formatters
      * @var array<string, mixed>
      */
-    protected $options;
+    protected array $options;
 
     /**
      * The name of full path to GraphViz (or other) layout
      * @var string
      */
-    private $executable;
+    private string $executable;
 
     /**
      * File output format to use
      * @var string
      */
-    private $format;
+    private string $format;
 
     /**
      * @param array<string, mixed> $values

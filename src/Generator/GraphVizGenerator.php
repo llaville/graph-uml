@@ -30,8 +30,7 @@ use function trim;
  */
 final class GraphVizGenerator extends AbstractGenerator implements GeneratorInterface
 {
-    /** @var GraphViz  */
-    private $graphViz;
+    private GraphViz $graphViz;
 
     public function __construct(GraphViz $graphViz)
     {

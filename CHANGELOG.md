@@ -11,6 +11,12 @@ using the [Keep a CHANGELOG](http://keepachangelog.com) principles.
 ### Changed
 
 - Raises PHP minimum constraint to 7.4.0
+- Support **Typed properties** features, now minimum PHP requirement is 7.4
+
+  Read more about this feature at :
+
+    - <https://stitcher.io/blog/typed-properties-in-php-74>
+    - <https://php.watch/versions/7.4/typed-properties>
 
 <!-- MARKDOWN-RELEASE:END -->
 

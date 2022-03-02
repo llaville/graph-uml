@@ -30,18 +30,16 @@ final class ClassDiagramBuilder implements ClassDiagramBuilderInterface
 {
     /**
      * Graph instance to operate on
-     * @var Graph
      */
-    private $graph;
+    private Graph $graph;
 
     /** @var array<string, mixed>  */
-    private $options;
+    private array $options;
 
-    /** @var GeneratorInterface  */
-    private $generator;
+    private GeneratorInterface $generator;
 
     /** @var array<string, Vertex> */
-    private $entities;
+    private array $entities;
 
     /**
      * ClassDiagramBuilder constructor.

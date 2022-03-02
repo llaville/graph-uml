@@ -46,7 +46,7 @@ abstract class AbstractFormatter
     /**
      * @var array<string, mixed>
      */
-    protected $options;
+    protected array $options;
 
     /**
      * @param array<string, mixed> $options
