@@ -8,7 +8,7 @@
 | [![License](https://img.shields.io/github/license/llaville/graph-uml)](https://github.com/llaville/graph-uml/blob/master/LICENSE) |
 
 [![GitHub Discussions](https://img.shields.io/github/discussions/llaville/graph-uml)](https://github.com/llaville/graph-uml/discussions)
-[![Mega-Linter](https://github.com/llaville/graph-uml/actions/workflows/mega-linter.yml/badge.svg)](https://github.com/llaville/graph-uml/actions/workflows/mega-linter.yml)
+[![Unit Tests](https://github.com/llaville/graph-uml/actions/workflows/unit-tests.yaml/badge.svg)](https://github.com/llaville/graph-uml/actions/workflows/unit-tests.yaml)
 [![GitHub-Pages](https://github.com/llaville/graph-uml/actions/workflows/gh-pages.yml/badge.svg)](https://github.com/llaville/graph-uml/actions/workflows/gh-pages.yml)
 
 Generate UML diagrams by reflection for your PHP projects.
