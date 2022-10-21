@@ -7,9 +7,16 @@ using the [Keep a CHANGELOG](http://keepachangelog.com) principles.
 
 ## [Unreleased]
 
-## [1.3.0] - 2022-09-12
+## [1.3.1] - 2022-10-21
 
 <!-- MARKDOWN-RELEASE:START -->
+### Fixed
+
+- Composer constraint, due to `graphp/graph` PR [#213](https://github.com/graphp/graph/pull/213) changes
+<!-- MARKDOWN-RELEASE:END -->
+
+## [1.3.0] - 2022-09-12
+
 ### Changed
 
 - Raises PHP minimum constraint to 7.4.0
@@ -21,7 +28,6 @@ using the [Keep a CHANGELOG](http://keepachangelog.com) principles.
   - <https://php.watch/versions/7.4/typed-properties>
 
 - add [composer config platform](https://getcomposer.org/doc/06-config.md#platform)
-<!-- MARKDOWN-RELEASE:END -->
 
 ## [1.2.2] - 2022-01-04
 
