@@ -7,13 +7,18 @@ using the [Keep a CHANGELOG](http://keepachangelog.com) principles.
 
 ## [Unreleased]
 
-## [1.3.1] - 2022-10-21
-
+## [1.3.2] - 2022-10-29
 <!-- MARKDOWN-RELEASE:START -->
 ### Fixed
 
-- Composer constraint, due to `graphp/graph` PR [#213](https://github.com/graphp/graph/pull/213) changes
+- Composer constraint, due to `graphp/graphviz` PR [#64](https://github.com/graphp/graphviz/pull/64) changes
 <!-- MARKDOWN-RELEASE:END -->
+
+## [1.3.1] - 2022-10-21
+
+### Fixed
+
+- Composer constraint, due to `graphp/graph` PR [#213](https://github.com/graphp/graph/pull/213) changes
 
 ## [1.3.0] - 2022-09-12
 

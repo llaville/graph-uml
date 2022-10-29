@@ -13,8 +13,8 @@
     "require": {
         "php": "^7.4.0 || ^8.0",
         "cweagans/composer-patches": "^1.7",
-        "graphp/graph": "dev-master#e5b2802 as 1.0.0",
-        "graphp/graphviz": "dev-master#42a2098 as 1.0.0"
+        "graphp/graph": "1.x-dev#0adb04d as 1.0.0",
+        "graphp/graphviz": "1.x-dev#24b1994 as 1.0.0"
     },
     "config": {
         "platform": {
