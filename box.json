@@ -1,0 +1,6 @@
+{
+    "main": false,
+    "output": "graph-uml.phar",
+    "directories": ["src", "vendor"],
+    "compression": "GZ"
+}

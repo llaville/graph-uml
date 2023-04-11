@@ -1,0 +1,17 @@
+{
+    "main": false,
+    "output": "graph-uml.phar",
+    "stub": "stub.php",
+    "directories": ["src", "vendor"],
+    "compression": "GZ",
+    "files-bin": [
+        "console.txt",
+        "manifest.txt",
+        "sbom.json"
+    ],
+    "map": [
+        { "console.txt": ".box.manifests/console.txt" },
+        { "manifest.txt": ".box.manifests/manifest.txt" },
+        { "sbom.json": ".box.manifests/sbom.json" }
+    ]
+}
