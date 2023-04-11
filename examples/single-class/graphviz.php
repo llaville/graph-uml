@@ -9,7 +9,7 @@
  */
 
 $baseDir = dirname(__DIR__, 2);
-if (file_exists( $baseDir . '/graph-uml.phar')) {
+if (file_exists($baseDir . '/graph-uml.phar')) {
     require_once $baseDir . '/graph-uml.phar';
 } else {
     require_once $baseDir . '/vendor/autoload.php';
