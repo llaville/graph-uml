@@ -19,6 +19,7 @@ MARKDOWN_MARKDOWNLINT_CONFIG_FILE: ".markdown-lint.json"
 MARKDOWN_MARKDOWNLINT_FILTER_REGEX_EXCLUDE: "(\\.github)"
 PHP_PHPSTAN_CLI_LINT_MODE: project # to avoid https://github.com/nvuillam/mega-linter/issues/725
 PHP_PHPCS_CLI_LINT_MODE: project
+PHP_PHPLINT_ARGUMENTS: "--no-cache"
 PHP_PHPCS_CONFIG_FILE: ".phpcs.xml.dist"
 PHP_PHPCS_ARGUMENTS: "-n"
 PHP_PSALM_CLI_LINT_MODE: project
@@ -29,7 +30,6 @@ CONFIG_REPORTER: false
 UPDATED_SOURCES_REPORTER: false
 #TEXT_REPORTER: true # cannot be set to true, and should use default value (true), otherwise TAP REPORTER is also generated. See https://github.com/nvuillam/mega-linter/issues/744
 CONSOLE_REPORTER: true
-LOG_FILE: mega-linter-v6.log
 LOG_LEVEL: INFO
 PRINT_ALL_FILES: false
 PARALLEL: false  # to avoid issue with MegaLinter v6.20.0 (see https://github.com/oxsecurity/megalinter/issues/2425)
