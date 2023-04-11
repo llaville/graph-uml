@@ -1,5 +1,5 @@
 {
-    "main": false,
+    "main": "bootstrap.php",
     "output": "graph-uml.phar",
     "directories": ["src", "vendor"],
     "compression": "GZ"
