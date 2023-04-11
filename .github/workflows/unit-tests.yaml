@@ -28,10 +28,6 @@ jobs:
                 include:
                     -
                         os: ubuntu-latest
-                        php: 7.4
-                        tools: phpunit
-                    -
-                        os: ubuntu-latest
                         php: 8.0
                         tools: phpunit
                     -
