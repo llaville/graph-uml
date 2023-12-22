@@ -7,9 +7,7 @@ digraph {
     "Bartlett\\GraphUml\\Generator\\GraphVizGenerator" [shape="none" label=<
 <table cellspacing="0" border="0" cellborder="1">
     <tr><td bgcolor="#eeeeee"><b><br/>GraphVizGenerator</b></td></tr>
-    <tr><td><table border="0" cellspacing="0" cellpadding="2">
-    <tr><td align="left">– graphViz</td></tr>
-</table></td></tr>
+    <tr><td></td></tr>
     <tr><td><table border="0" cellspacing="0" cellpadding="2">
     <tr><td align="left">+ __construct(graphViz : Graphp\\GraphViz\\GraphViz)</td></tr>
     <tr><td align="left">+ getFormatter() : Bartlett\\GraphUml\\Formatter\\FormatterInterface</td></tr>
@@ -22,17 +20,7 @@ digraph {
     "Bartlett\\GraphUml\\Generator\\AbstractGenerator" [shape="none" label=<
 <table cellspacing="0" border="0" cellborder="1">
     <tr><td bgcolor="#eeeeee"><b>«abstract»<br/>AbstractGenerator</b></td></tr>
-    <tr><td><table border="0" cellspacing="0" cellpadding="2">
-    <tr><td align="left">+ «static» CMD_EXECUTABLE : string = "\%E" {readOnly}</td></tr>
-    <tr><td align="left">+ «static» CMD_FORMAT : string = "\%F" {readOnly}</td></tr>
-    <tr><td align="left">+ «static» CMD_OUTPUT_FILE : string = "\%o" {readOnly}</td></tr>
-    <tr><td align="left">+ «static» CMD_TEMP_FILE : string = "\%t" {readOnly}</td></tr>
-</table></td></tr>
-    <tr><td><table border="0" cellspacing="0" cellpadding="2">
-    <tr><td align="left"># options : mixed</td></tr>
-    <tr><td align="left">– executable : string</td></tr>
-    <tr><td align="left">– format : string</td></tr>
-</table></td></tr>
+    <tr><td></td></tr>
     <tr><td><table border="0" cellspacing="0" cellpadding="2">
     <tr><td align="left">+ setOptions(values : array) : void</td></tr>
     <tr><td align="left">+ «abstract» getFormatter() : Bartlett\\GraphUml\\Formatter\\FormatterInterface</td></tr>

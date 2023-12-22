@@ -749,35 +749,21 @@
 <span class="k">use</span> <span class="nx">Graphp\Graph\Graph</span><span class="p">;</span>
 <span class="k">use</span> <span class="nx">Graphp\GraphViz\GraphViz</span><span class="p">;</span>
 
-<span class="nv">$generator</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">GraphVizGenerator</span><span class="p">(</span><span class="k">new</span> <span class="nx">GraphViz</span><span class="p">());</span>
-<span class="nv">$graph</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Graph</span><span class="p">();</span>
-<span class="nv">$builder</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ClassDiagramBuilder</span><span class="p">(</span>
-    <span class="nv">$generator</span><span class="p">,</span>
-    <span class="nv">$graph</span><span class="p">,</span>
-    <span class="p">[</span>
-        <span class="s1">&#39;label_format&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;html&#39;</span><span class="p">,</span>
-    <span class="p">]</span>
-<span class="p">);</span>
+<span class="nv">$options</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s1">&#39;label_format&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;html&#39;</span><span class="p">,</span>
+    <span class="c1">// @link https://graphviz.gitlab.io/docs/attrs/rankdir/</span>
+    <span class="s1">&#39;graph.rankdir&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;LR&#39;</span><span class="p">,</span>
+    <span class="c1">// @linkg https://graphviz.gitlab.io/docs/attrs/bgcolor/</span>
+    <span class="s1">&#39;graph.bgcolor&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;transparent&#39;</span><span class="p">,</span>
+    <span class="c1">// @link https://graphviz.gitlab.io/docs/attrs/fillcolor/</span>
+    <span class="s1">&#39;node.fillcolor&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;#FECECE&#39;</span><span class="p">,</span>
+    <span class="c1">// @link https://graphviz.gitlab.io/docs/attrs/style/</span>
+    <span class="s1">&#39;node.style&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;filled&#39;</span><span class="p">,</span>
+    <span class="c1">// @link https://graphviz.gitlab.io/docs/attr-types/colorList/</span>
+    <span class="s1">&#39;cluster.Bartlett\\GraphUml.graph.bgcolor&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;burlywood3&#39;</span><span class="p">,</span>
+<span class="p">];</span>
 
 <span class="nv">$builder</span><span class="o">-&gt;</span><span class="na">createVertexClass</span><span class="p">(</span><span class="nx">ClassDiagramBuilder</span><span class="o">::</span><span class="na">class</span><span class="p">);</span>
-
-<span class="c1">// For large graph, orientation is recommended</span>
-<span class="c1">// https://graphviz.gitlab.io/docs/attrs/rankdir/</span>
-<span class="nv">$graph</span><span class="o">-&gt;</span><span class="na">setAttribute</span><span class="p">(</span><span class="nv">$generator</span><span class="o">-&gt;</span><span class="na">getPrefix</span><span class="p">()</span> <span class="o">.</span> <span class="s1">&#39;graph.rankdir&#39;</span><span class="p">,</span> <span class="s1">&#39;LR&#39;</span><span class="p">);</span>
-<span class="c1">// https://graphviz.gitlab.io/docs/attrs/bgcolor/</span>
-<span class="nv">$graph</span><span class="o">-&gt;</span><span class="na">setAttribute</span><span class="p">(</span><span class="nv">$generator</span><span class="o">-&gt;</span><span class="na">getPrefix</span><span class="p">()</span> <span class="o">.</span> <span class="s1">&#39;graph.bgcolor&#39;</span><span class="p">,</span> <span class="s1">&#39;transparent&#39;</span><span class="p">);</span>
-<span class="c1">// https://graphviz.gitlab.io/docs/attrs/fillcolor/</span>
-<span class="nv">$graph</span><span class="o">-&gt;</span><span class="na">setAttribute</span><span class="p">(</span><span class="nv">$generator</span><span class="o">-&gt;</span><span class="na">getPrefix</span><span class="p">()</span> <span class="o">.</span> <span class="s1">&#39;node.fillcolor&#39;</span><span class="p">,</span> <span class="s1">&#39;#FEFECE&#39;</span><span class="p">);</span>
-<span class="c1">// https://graphviz.gitlab.io/docs/attrs/style/</span>
-<span class="nv">$graph</span><span class="o">-&gt;</span><span class="na">setAttribute</span><span class="p">(</span><span class="nv">$generator</span><span class="o">-&gt;</span><span class="na">getPrefix</span><span class="p">()</span> <span class="o">.</span> <span class="s1">&#39;node.style&#39;</span><span class="p">,</span> <span class="s1">&#39;filled&#39;</span><span class="p">);</span>
-
-<span class="nv">$clusters</span> <span class="o">=</span> <span class="p">[</span>
-    <span class="s1">&#39;Bartlett\\GraphUml&#39;</span><span class="p">,</span>
-<span class="p">];</span>
-<span class="k">foreach</span> <span class="p">(</span><span class="nv">$clusters</span> <span class="k">as</span> <span class="nv">$cluster</span><span class="p">)</span> <span class="p">{</span>
-    <span class="nv">$attribute</span> <span class="o">=</span> <span class="nb">sprintf</span><span class="p">(</span><span class="s1">&#39;cluster.%s.graph.bgcolor&#39;</span><span class="p">,</span> <span class="nv">$cluster</span><span class="p">);</span>
-    <span class="nv">$graph</span><span class="o">-&gt;</span><span class="na">setAttribute</span><span class="p">(</span><span class="nv">$generator</span><span class="o">-&gt;</span><span class="na">getPrefix</span><span class="p">()</span> <span class="o">.</span> <span class="nv">$attribute</span><span class="p">,</span> <span class="s1">&#39;burlywood3&#39;</span><span class="p">);</span>
-<span class="p">}</span>
 
 <span class="c1">// show UML diagram statements</span>
 <span class="k">echo</span> <span class="nv">$generator</span><span class="o">-&gt;</span><span class="na">createScript</span><span class="p">(</span><span class="nv">$graph</span><span class="p">);</span>
@@ -791,9 +777,9 @@
 </code></pre></div>
 <p><strong>NOTE</strong>: Without custom <code>$options</code> provided with <code>ClassDiagramBuilder</code> class constructor,
 all default values are used (see <code>ClassDiagramBuilderInterface::OPTIONS_DEFAULTS</code>)</p>
-<p>Will output this <a href="../../assets/images/single_class.html.gv">graph statements</a>.</p>
+<p>Will output this <a href="../../assets/images/single-class.html.gv">graph statements</a>.</p>
 <p>And image file generated look like :</p>
-<p><img alt="Single Class UML" src="../../assets/images/single_class.graphviz.svg" /></p>
+<p><img alt="Single Class UML" src="../../assets/images/single-class.graphviz.svg" /></p>
 
 
 

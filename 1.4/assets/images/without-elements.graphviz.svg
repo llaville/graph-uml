@@ -11,13 +11,13 @@
 <polygon fill="white" stroke="transparent" points="-4,4 -4,-235 488,-235 488,4 -4,4"/>
 <g id="clust1" class="cluster">
 <title>cluster_0</title>
-<polygon fill="white" stroke="black" points="8,-8 8,-223 476,-223 476,-8 8,-8"/>
+<polygon fill="none" stroke="black" points="8,-8 8,-223 476,-223 476,-8 8,-8"/>
 <text text-anchor="middle" x="242" y="-207.8" font-family="Times,serif" font-size="14.00">Bartlett\GraphUml</text>
 </g>
 <!-- Bartlett\\GraphUml\\ClassDiagramBuilder -->
 <g id="node1" class="node">
 <title>Bartlett\\GraphUml\\ClassDiagramBuilder</title>
-<polygon fill="white" stroke="black" points="88,-122.5 88,-191.5 396,-191.5 396,-122.5 88,-122.5"/>
+<polygon fill="none" stroke="black" points="88,-122.5 88,-191.5 396,-191.5 396,-122.5 88,-122.5"/>
 <text text-anchor="middle" x="242" y="-176.3" font-family="Times,serif" font-size="14.00">Bartlett\GraphUml\ClassDiagramBuilder</text>
 <polyline fill="none" stroke="black" points="88,-168.5 396,-168.5 "/>
 <text text-anchor="middle" x="242" y="-153.3" font-family="Times,serif" font-size="14.00"> </text>
@@ -27,7 +27,7 @@
 <!-- Bartlett\\GraphUml\\ClassDiagramBuilderInterface -->
 <g id="node2" class="node">
 <title>Bartlett\\GraphUml\\ClassDiagramBuilderInterface</title>
-<polygon fill="white" stroke="black" points="15.5,-16.5 15.5,-85.5 468.5,-85.5 468.5,-16.5 15.5,-16.5"/>
+<polygon fill="none" stroke="black" points="15.5,-16.5 15.5,-85.5 468.5,-85.5 468.5,-16.5 15.5,-16.5"/>
 <text text-anchor="middle" x="242" y="-70.3" font-family="Times,serif" font-size="14.00">«interface»Bartlett\GraphUml\ClassDiagramBuilderInterface</text>
 <polyline fill="none" stroke="black" points="15.5,-62.5 468.5,-62.5 "/>
 <text text-anchor="middle" x="242" y="-47.3" font-family="Times,serif" font-size="14.00"> </text>

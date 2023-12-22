@@ -743,41 +743,38 @@
 <h1 id="multiple-classes-diagram">Multiple classes diagram</h1>
 <p>In this example, we specify only two classes, and these classes with theirs direct dependencies will be rendered in graph.</p>
 <div class="highlight"><pre><span></span><code><span class="cp">&lt;?php</span>
-<span class="k">use</span> <span class="nx">Bartlett\GraphUml</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Bartlett\GraphUml\ClassDiagramBuilder</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Bartlett\GraphUml\Generator\GraphVizGenerator</span><span class="p">;</span>
 
 <span class="k">use</span> <span class="nx">Graphp\Graph\Graph</span><span class="p">;</span>
 <span class="k">use</span> <span class="nx">Graphp\GraphViz\GraphViz</span><span class="p">;</span>
 
-<span class="nv">$generator</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">GraphUml\Generator\GraphVizGenerator</span><span class="p">(</span><span class="k">new</span> <span class="nx">GraphViz</span><span class="p">());</span>
-<span class="nv">$graph</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Graph</span><span class="p">();</span>
-<span class="nv">$builder</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">GraphUml\ClassDiagramBuilder</span><span class="p">(</span>
-    <span class="nv">$generator</span><span class="p">,</span>
-    <span class="nv">$graph</span><span class="p">,</span>
-    <span class="p">[</span>
-        <span class="s1">&#39;label_format&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;html&#39;</span><span class="p">,</span>
-    <span class="p">]</span>
-<span class="p">);</span>
-
-<span class="nv">$builder</span><span class="o">-&gt;</span><span class="na">createVertexClass</span><span class="p">(</span><span class="nx">GraphUml\Generator\GraphVizGenerator</span><span class="o">::</span><span class="na">class</span><span class="p">);</span>
-<span class="nv">$builder</span><span class="o">-&gt;</span><span class="na">createVertexClass</span><span class="p">(</span><span class="nx">GraphUml\ClassDiagramBuilder</span><span class="o">::</span><span class="na">class</span><span class="p">);</span>
-
-<span class="c1">// For large graph, orientation is recommended</span>
-<span class="c1">// https://graphviz.gitlab.io/docs/attrs/rankdir/</span>
-<span class="nv">$graph</span><span class="o">-&gt;</span><span class="na">setAttribute</span><span class="p">(</span><span class="nv">$generator</span><span class="o">-&gt;</span><span class="na">getPrefix</span><span class="p">()</span> <span class="o">.</span> <span class="s1">&#39;graph.rankdir&#39;</span><span class="p">,</span> <span class="s1">&#39;LR&#39;</span><span class="p">);</span>
-<span class="c1">// https://graphviz.gitlab.io/docs/attrs/bgcolor/</span>
-<span class="nv">$graph</span><span class="o">-&gt;</span><span class="na">setAttribute</span><span class="p">(</span><span class="nv">$generator</span><span class="o">-&gt;</span><span class="na">getPrefix</span><span class="p">()</span> <span class="o">.</span> <span class="s1">&#39;graph.bgcolor&#39;</span><span class="p">,</span> <span class="s1">&#39;transparent&#39;</span><span class="p">);</span>
-<span class="c1">// https://graphviz.gitlab.io/docs/attrs/fillcolor/</span>
-<span class="nv">$graph</span><span class="o">-&gt;</span><span class="na">setAttribute</span><span class="p">(</span><span class="nv">$generator</span><span class="o">-&gt;</span><span class="na">getPrefix</span><span class="p">()</span> <span class="o">.</span> <span class="s1">&#39;node.fillcolor&#39;</span><span class="p">,</span> <span class="s1">&#39;#FEFECE&#39;</span><span class="p">);</span>
-<span class="c1">// https://graphviz.gitlab.io/docs/attrs/style/</span>
-<span class="nv">$graph</span><span class="o">-&gt;</span><span class="na">setAttribute</span><span class="p">(</span><span class="nv">$generator</span><span class="o">-&gt;</span><span class="na">getPrefix</span><span class="p">()</span> <span class="o">.</span> <span class="s1">&#39;node.style&#39;</span><span class="p">,</span> <span class="s1">&#39;filled&#39;</span><span class="p">);</span>
-
-<span class="nv">$clusters</span> <span class="o">=</span> <span class="p">[</span>
-    <span class="s1">&#39;Bartlett\\GraphUml&#39;</span><span class="p">,</span>
-    <span class="s1">&#39;Bartlett\\GraphUml\\Generator&#39;</span><span class="p">,</span>
+<span class="nv">$options</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s1">&#39;label_format&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;html&#39;</span><span class="p">,</span>
+    <span class="c1">// @link https://graphviz.gitlab.io/docs/attrs/rankdir/</span>
+    <span class="s1">&#39;graph.rankdir&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;LR&#39;</span><span class="p">,</span>
+    <span class="c1">// @linkg https://graphviz.gitlab.io/docs/attrs/bgcolor/</span>
+    <span class="s1">&#39;graph.bgcolor&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;transparent&#39;</span><span class="p">,</span>
+    <span class="c1">// @link https://graphviz.gitlab.io/docs/attrs/fillcolor/</span>
+    <span class="s1">&#39;node.fillcolor&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;#FECECE&#39;</span><span class="p">,</span>
+    <span class="c1">// @link https://graphviz.gitlab.io/docs/attrs/style/</span>
+    <span class="s1">&#39;node.style&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;filled&#39;</span><span class="p">,</span>
+    <span class="c1">// @link https://graphviz.gitlab.io/docs/attr-types/colorList/</span>
+    <span class="s1">&#39;cluster.Bartlett\\GraphUml.graph.bgcolor&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;burlywood3&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;cluster.Bartlett\\GraphUml\\Generator.graph.bgcolor&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;burlywood3&#39;</span><span class="p">,</span>
 <span class="p">];</span>
-<span class="k">foreach</span> <span class="p">(</span><span class="nv">$clusters</span> <span class="k">as</span> <span class="nv">$cluster</span><span class="p">)</span> <span class="p">{</span>
-    <span class="nv">$attribute</span> <span class="o">=</span> <span class="nb">sprintf</span><span class="p">(</span><span class="s1">&#39;cluster.%s.graph.bgcolor&#39;</span><span class="p">,</span> <span class="nv">$cluster</span><span class="p">);</span>
-    <span class="nv">$graph</span><span class="o">-&gt;</span><span class="na">setAttribute</span><span class="p">(</span><span class="nv">$generator</span><span class="o">-&gt;</span><span class="na">getPrefix</span><span class="p">()</span> <span class="o">.</span> <span class="nv">$attribute</span><span class="p">,</span> <span class="s1">&#39;burlywood3&#39;</span><span class="p">);</span>
+
+<span class="nv">$datasource</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="nx">GraphVizGenerator</span><span class="o">::</span><span class="na">class</span><span class="p">,</span>
+    <span class="nx">ClassDiagramBuilder</span><span class="o">::</span><span class="na">class</span><span class="p">,</span>
+<span class="p">];</span>
+
+<span class="nv">$generator</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">GraphVizGenerator</span><span class="p">(</span><span class="k">new</span> <span class="nx">GraphViz</span><span class="p">());</span>
+<span class="nv">$graph</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Graph</span><span class="p">();</span>
+<span class="nv">$builder</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ClassDiagramBuilder</span><span class="p">(</span><span class="nv">$generator</span><span class="p">,</span> <span class="nv">$graph</span><span class="p">,</span> <span class="nv">$options</span> <span class="o">??</span> <span class="p">[]);</span>
+
+<span class="k">foreach</span> <span class="p">(</span><span class="nv">$datasource</span> <span class="k">as</span> <span class="nv">$class</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nv">$builder</span><span class="o">-&gt;</span><span class="na">createVertexClass</span><span class="p">(</span><span class="nv">$class</span><span class="p">,</span> <span class="nv">$options</span><span class="p">);</span>
 <span class="p">}</span>
 
 <span class="c1">// show UML diagram statements</span>
@@ -790,9 +787,9 @@
 <span class="nv">$target</span> <span class="o">=</span> <span class="nv">$generator</span><span class="o">-&gt;</span><span class="na">createImageFile</span><span class="p">(</span><span class="nv">$graph</span><span class="p">);</span>
 <span class="k">echo</span> <span class="p">(</span><span class="k">empty</span><span class="p">(</span><span class="nv">$target</span><span class="p">)</span> <span class="o">?</span> <span class="s1">&#39;no&#39;</span> <span class="o">:</span> <span class="nv">$target</span><span class="p">)</span> <span class="o">.</span> <span class="s1">&#39; file generated&#39;</span> <span class="o">.</span> <span class="nx">PHP_EOL</span><span class="p">;</span>
 </code></pre></div>
-<p>Will output this <a href="../../assets/images/multiple_classes.html.gv">graph statements</a>.</p>
+<p>Will output this <a href="../../assets/images/multiple-classes.html.gv">graph statements</a>.</p>
 <p>And image file generated look like :</p>
-<p><img alt="Multiple Classes UML" src="../../assets/images/multiple_classes.graphviz.svg" /></p>
+<p><img alt="Multiple Classes UML" src="../../assets/images/multiple-classes.graphviz.svg" /></p>
 
 
 

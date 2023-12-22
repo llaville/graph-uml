@@ -750,18 +750,12 @@ without constants, properties and methods.</p>
 <span class="k">use</span> <span class="nx">Graphp\Graph\Graph</span><span class="p">;</span>
 <span class="k">use</span> <span class="nx">Graphp\GraphViz\GraphViz</span><span class="p">;</span>
 
-<span class="nv">$generator</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">GraphVizGenerator</span><span class="p">(</span><span class="k">new</span> <span class="nx">GraphViz</span><span class="p">());</span>
-<span class="nv">$graph</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Graph</span><span class="p">();</span>
-<span class="nv">$builder</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ClassDiagramBuilder</span><span class="p">(</span>
-    <span class="nv">$generator</span><span class="p">,</span>
-    <span class="nv">$graph</span><span class="p">,</span>
-    <span class="p">[</span>
-        <span class="s1">&#39;label_format&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;record&#39;</span><span class="p">,</span>
-        <span class="s1">&#39;show_constants&#39;</span> <span class="o">=&gt;</span> <span class="k">false</span><span class="p">,</span>
-        <span class="s1">&#39;show_properties&#39;</span> <span class="o">=&gt;</span> <span class="k">false</span><span class="p">,</span>
-        <span class="s1">&#39;show_methods&#39;</span> <span class="o">=&gt;</span> <span class="k">false</span><span class="p">,</span>
-    <span class="p">]</span>
-<span class="p">);</span>
+<span class="nv">$options</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s1">&#39;label_format&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;record&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;show_constants&#39;</span> <span class="o">=&gt;</span> <span class="k">false</span><span class="p">,</span>
+    <span class="s1">&#39;show_properties&#39;</span> <span class="o">=&gt;</span> <span class="k">false</span><span class="p">,</span>
+    <span class="s1">&#39;show_methods&#39;</span> <span class="o">=&gt;</span> <span class="k">false</span><span class="p">,</span>
+<span class="p">];</span>
 
 <span class="nv">$builder</span><span class="o">-&gt;</span><span class="na">createVertexClass</span><span class="p">(</span><span class="nx">ClassDiagramBuilder</span><span class="o">::</span><span class="na">class</span><span class="p">);</span>
 
@@ -775,9 +769,9 @@ without constants, properties and methods.</p>
 <span class="nv">$target</span> <span class="o">=</span> <span class="nv">$generator</span><span class="o">-&gt;</span><span class="na">createImageFile</span><span class="p">(</span><span class="nv">$graph</span><span class="p">);</span>
 <span class="k">echo</span> <span class="p">(</span><span class="k">empty</span><span class="p">(</span><span class="nv">$target</span><span class="p">)</span> <span class="o">?</span> <span class="s1">&#39;no&#39;</span> <span class="o">:</span> <span class="nv">$target</span><span class="p">)</span> <span class="o">.</span> <span class="s1">&#39; file generated&#39;</span> <span class="o">.</span> <span class="nx">PHP_EOL</span><span class="p">;</span>
 </code></pre></div>
-<p>Will output this <a href="../../assets/images/without_elements.record.gv">graph statements</a>.</p>
+<p>Will output this <a href="../assets/images/without-elements.record.gv">graph statements</a>.</p>
 <p>And image file generated look like :</p>
-<p><img alt="Classes without elements" src="../../assets/images/without_elements.graphviz.svg" /></p>
+<p><img alt="Classes without elements" src="../../assets/images/without-elements.graphviz.svg" /></p>
 
 
 

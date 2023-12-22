@@ -1,6 +1,4 @@
 digraph {
-  graph [rankdir="TB" bgcolor="white"]
-  node [fillcolor="white" style="filled"]
   subgraph cluster_0 {
     label = "Bartlett\\GraphUml"
     "Bartlett\\GraphUml\\ClassDiagramBuilder" [shape="record" label="{

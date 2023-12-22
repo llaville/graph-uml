@@ -1,6 +1,5 @@
 digraph {
-  graph [rankdir="LR" bgcolor="transparent"]
-  node [fillcolor="#FECECE" style="filled"]
+  graph [rankdir="LR"]
   subgraph cluster_0 {
     graph [style="radial" fillcolor="yellow:blue" gradientangle=180]
     label = "Bartlett\\GraphUml\\Formatter"

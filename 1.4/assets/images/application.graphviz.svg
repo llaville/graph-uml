@@ -8,6 +8,7 @@
  viewBox="0.00 0.00 1762.00 1127.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 <g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 1123)">
 <title>%3</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-1123 1758,-1123 1758,4 -4,4"/>
 <g id="clust1" class="cluster">
 <title>cluster_0</title>
 <defs>
@@ -38,7 +39,6 @@
 <!-- Bartlett\\GraphUml\\Formatter\\HtmlFormatter -->
 <g id="node1" class="node">
 <title>Bartlett\\GraphUml\\Formatter\\HtmlFormatter</title>
-<polygon fill="#fecece" stroke="transparent" points="726,-350 239,-350 239,-182 726,-182 726,-350"/>
 <polygon fill="#eeeeee" stroke="transparent" points="247.5,-312 247.5,-346 718.5,-346 718.5,-312 247.5,-312"/>
 <polygon fill="none" stroke="black" points="247.5,-312 247.5,-346 718.5,-346 718.5,-312 247.5,-312"/>
 <text text-anchor="start" x="422.5" y="-318.8" font-family="Times,serif" font-weight="bold" font-size="14.00">HtmlFormatter</text>
@@ -54,7 +54,6 @@
 <!-- Bartlett\\GraphUml\\Formatter\\AbstractFormatter -->
 <g id="node2" class="node">
 <title>Bartlett\\GraphUml\\Formatter\\AbstractFormatter</title>
-<polygon fill="#fecece" stroke="transparent" points="1481,-143 1242,-143 1242,-51 1481,-51 1481,-143"/>
 <polygon fill="#eeeeee" stroke="transparent" points="1250.5,-105 1250.5,-139 1473.5,-139 1473.5,-105 1250.5,-105"/>
 <polygon fill="none" stroke="black" points="1250.5,-105 1250.5,-139 1473.5,-139 1473.5,-105 1250.5,-105"/>
 <text text-anchor="start" x="1320" y="-125.8" font-family="Times,serif" font-weight="bold" font-size="14.00">«abstract»</text>
@@ -73,7 +72,6 @@
 <!-- Bartlett\\GraphUml\\Formatter\\FormatterInterface -->
 <g id="node3" class="node">
 <title>Bartlett\\GraphUml\\Formatter\\FormatterInterface</title>
-<polygon fill="#fecece" stroke="transparent" points="1645,-343 1078,-343 1078,-175 1645,-175 1645,-343"/>
 <polygon fill="#eeeeee" stroke="transparent" points="1086.5,-305 1086.5,-339 1637.5,-339 1637.5,-305 1086.5,-305"/>
 <polygon fill="none" stroke="black" points="1086.5,-305 1086.5,-339 1637.5,-339 1637.5,-305 1086.5,-305"/>
 <text text-anchor="start" x="1317" y="-325.8" font-family="Times,serif" font-weight="bold" font-size="14.00">«interface»</text>
@@ -96,7 +94,6 @@
 <!-- Bartlett\\GraphUml\\Formatter\\RecordFormatter -->
 <g id="node4" class="node">
 <title>Bartlett\\GraphUml\\Formatter\\RecordFormatter</title>
-<polygon fill="#fecece" stroke="transparent" points="726,-164.5 239,-164.5 239,-15.5 726,-15.5 726,-164.5"/>
 <polygon fill="#eeeeee" stroke="transparent" points="247.5,-126 247.5,-160 718.5,-160 718.5,-126 247.5,-126"/>
 <polygon fill="none" stroke="black" points="247.5,-126 247.5,-160 718.5,-160 718.5,-126 247.5,-126"/>
 <text text-anchor="start" x="415" y="-132.8" font-family="Times,serif" font-weight="bold" font-size="14.00">RecordFormatter</text>
@@ -123,7 +120,6 @@
 <!-- Bartlett\\GraphUml\\Generator\\GraphVizGenerator -->
 <g id="node5" class="node">
 <title>Bartlett\\GraphUml\\Generator\\GraphVizGenerator</title>
-<polygon fill="#fecece" stroke="transparent" points="786.5,-734 178.5,-734 178.5,-566 786.5,-566 786.5,-734"/>
 <polygon fill="#eeeeee" stroke="transparent" points="186.5,-696 186.5,-730 778.5,-730 778.5,-696 186.5,-696"/>
 <polygon fill="none" stroke="black" points="186.5,-696 186.5,-730 778.5,-730 778.5,-696 186.5,-696"/>
 <text text-anchor="start" x="405.5" y="-702.8" font-family="Times,serif" font-weight="bold" font-size="14.00">GraphVizGenerator</text>
@@ -139,7 +135,6 @@
 <!-- Bartlett\\GraphUml\\Generator\\AbstractGenerator -->
 <g id="node6" class="node">
 <title>Bartlett\\GraphUml\\Generator\\AbstractGenerator</title>
-<polygon fill="#fecece" stroke="transparent" points="1660,-641 1063,-641 1063,-397 1660,-397 1660,-641"/>
 <polygon fill="#eeeeee" stroke="transparent" points="1071.5,-603 1071.5,-637 1652.5,-637 1652.5,-603 1071.5,-603"/>
 <polygon fill="none" stroke="black" points="1071.5,-603 1071.5,-637 1652.5,-637 1652.5,-603 1071.5,-603"/>
 <text text-anchor="start" x="1320" y="-623.8" font-family="Times,serif" font-weight="bold" font-size="14.00">«abstract»</text>
@@ -166,7 +161,6 @@
 <!-- Bartlett\\GraphUml\\Generator\\GeneratorInterface -->
 <g id="node7" class="node">
 <title>Bartlett\\GraphUml\\Generator\\GeneratorInterface</title>
-<polygon fill="#fecece" stroke="transparent" points="1691.5,-903 1031.5,-903 1031.5,-659 1691.5,-659 1691.5,-903"/>
 <polygon fill="#eeeeee" stroke="transparent" points="1039.5,-865 1039.5,-899 1683.5,-899 1683.5,-865 1039.5,-865"/>
 <polygon fill="none" stroke="black" points="1039.5,-865 1039.5,-899 1683.5,-899 1683.5,-865 1039.5,-865"/>
 <text text-anchor="start" x="1316.5" y="-885.8" font-family="Times,serif" font-weight="bold" font-size="14.00">«interface»</text>
@@ -193,7 +187,6 @@
 <!-- Bartlett\\GraphUml\\ClassDiagramBuilder -->
 <g id="node8" class="node">
 <title>Bartlett\\GraphUml\\ClassDiagramBuilder</title>
-<polygon fill="#fecece" stroke="transparent" points="949,-1080 16,-1080 16,-950 949,-950 949,-1080"/>
 <polygon fill="#eeeeee" stroke="transparent" points="24.5,-1042 24.5,-1076 941.5,-1076 941.5,-1042 24.5,-1042"/>
 <polygon fill="none" stroke="black" points="24.5,-1042 24.5,-1076 941.5,-1076 941.5,-1042 24.5,-1042"/>
 <text text-anchor="start" x="398.5" y="-1048.8" font-family="Times,serif" font-weight="bold" font-size="14.00">ClassDiagramBuilder</text>
@@ -207,7 +200,6 @@
 <!-- Bartlett\\GraphUml\\ClassDiagramBuilderInterface -->
 <g id="node9" class="node">
 <title>Bartlett\\GraphUml\\ClassDiagramBuilderInterface</title>
-<polygon fill="#fecece" stroke="transparent" points="1738,-1070.5 985,-1070.5 985,-959.5 1738,-959.5 1738,-1070.5"/>
 <polygon fill="#eeeeee" stroke="transparent" points="993.5,-1032 993.5,-1066 1730.5,-1066 1730.5,-1032 993.5,-1032"/>
 <polygon fill="none" stroke="black" points="993.5,-1032 993.5,-1066 1730.5,-1066 1730.5,-1032 993.5,-1032"/>
 <text text-anchor="start" x="1317" y="-1052.8" font-family="Times,serif" font-weight="bold" font-size="14.00">«interface»</text>
