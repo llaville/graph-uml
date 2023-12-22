@@ -10,10 +10,14 @@
 
 return [
     'label_format' => 'html',
+    'show_constants' => false,
+    'show_private' => false,
+    'show_protected' => false,
     'graph.rankdir' => 'LR',
     'graph.bgcolor' => 'transparent',
     'node.fillcolor' => '#FECECE',
     'node.style' => 'filled',
     // @link https://graphviz.gitlab.io/docs/attr-types/colorList/
-    'cluster.Bartlett\\GraphUml.graph.bgcolor' => 'burlywood3',
-];
+    'cluster.Bartlett\\GraphUml\\Generator.graph.bgcolor' => 'burlywood1',
+    'cluster.Bartlett\\GraphUml\\Generator\\GeneratorInterface.node.fillcolor' => 'burlywood3',
+ ];

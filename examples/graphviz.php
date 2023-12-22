@@ -11,9 +11,20 @@ use Bartlett\GraphUml\Generator\GraphVizGenerator;
 use Graphp\Graph\Graph;
 use Graphp\GraphViz\GraphViz;
 
+if ($_SERVER['argc'] == 1) {
+    echo '=============================================================================================================', PHP_EOL;
+    echo 'Usage: php examples/graphviz.php <example-dirname>', PHP_EOL;
+    echo '                                 <output-folder>', PHP_EOL;
+    echo '                                 <format:png|svg>', PHP_EOL;
+    echo '                                 <write-statement-to-file>', PHP_EOL;
+    echo '=============================================================================================================', PHP_EOL;
+    exit();
+}
+
 $example = $_SERVER['argv'][1] ?? null;
-$format = $_SERVER['argv'][2] ?? 'svg';
-$printGraphStatement = $_SERVER['argv'][3] ?? false;
+$folder = $_SERVER['argv'][2] ?? sys_get_temp_dir();
+$format = $_SERVER['argv'][3] ?? 'svg';
+$writeGraphStatement = $_SERVER['argv'][4] ?? false;
 
 $baseDir = __DIR__ . DIRECTORY_SEPARATOR . $example . DIRECTORY_SEPARATOR;
 $available = is_dir($baseDir) && file_exists($baseDir);
@@ -46,17 +57,16 @@ $graph = new Graph();
 $builder = new ClassDiagramBuilder($generator, $graph, $options ?? []);
 
 foreach ($datasource() as $class) {
-    $builder->createVertexClass($class);
+    $builder->createVertexClass($class, $options ?? []);
 }
 
-// show UML diagram statements
-if ($printGraphStatement) {
-    $script = $generator->createScript($graph);
-    echo $script;
-}
+// writes graphviz statements to file
+$output = rtrim($folder, DIRECTORY_SEPARATOR) . DIRECTORY_SEPARATOR . $example . '.html.gv';
+file_put_contents($output, $generator->createScript($graph));
 
-// default format is PNG, change it to SVG
 $generator->setFormat($format);
 
-$target = $generator->createImageFile($graph);
+$output = rtrim($folder, DIRECTORY_SEPARATOR) . DIRECTORY_SEPARATOR . $example . '.graphviz.' . $format;
+$cmdFormat = '%E -T%F %t -o ' . $output;
+$target = $generator->createImageFile($graph, $cmdFormat);
 echo (empty($target) ? 'no' : $target) . ' file generated' . PHP_EOL;

@@ -5,12 +5,10 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  *
- * @since Release 1.2.0
  * @author Laurent Laville
  */
 
-$callback = function (Generator $vertices) {
-    foreach ($vertices as $extension) {
-        $this->createVertexExtension($extension);
-    }
+return function (): void
+{
+    require_once dirname(__DIR__, 2) . '/vendor/autoload.php';
 };
