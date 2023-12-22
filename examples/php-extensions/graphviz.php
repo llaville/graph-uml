@@ -37,6 +37,9 @@ foreach ($resources as $resource) {
         $bootstrap();
     }
 }
+if (!isset($datasource)) {
+    $datasource = fn() => [];
+}
 
 $generator = new GraphVizGenerator(new GraphViz());
 $graph = new Graph();
