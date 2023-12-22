@@ -11,8 +11,7 @@
 use Bartlett\GraphUml\ClassDiagramBuilder;
 use Bartlett\GraphUml\Generator\GraphVizGenerator;
 
-return function (): Generator
-{
+return function (): Generator {
     $classes = [
         ClassDiagramBuilder::class,
         GraphVizGenerator::class,

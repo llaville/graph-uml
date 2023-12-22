@@ -11,8 +11,7 @@
 use Bartlett\GraphUml\Generator\GeneratorInterface;
 use Bartlett\GraphUml\Generator\GraphVizGenerator;
 
-return function (): Generator
-{
+return function (): Generator {
     $classes = [
         GraphVizGenerator::class,
         GeneratorInterface::class,

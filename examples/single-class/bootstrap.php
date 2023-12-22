@@ -8,7 +8,6 @@
  * @author Laurent Laville
  */
 
-return function (): void
-{
+return function (): void {
     require_once dirname(__DIR__, 2) . '/vendor/autoload.php';
 };

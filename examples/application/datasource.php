@@ -13,8 +13,7 @@ use Bartlett\GraphUml\Formatter\HtmlFormatter;
 use Bartlett\GraphUml\Formatter\RecordFormatter;
 use Bartlett\GraphUml\Generator\GraphVizGenerator;
 
-return function (): Generator
-{
+return function (): Generator {
     $classes = [
         HtmlFormatter::class,
         RecordFormatter::class,

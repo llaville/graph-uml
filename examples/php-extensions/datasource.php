@@ -8,8 +8,7 @@
  * @author Laurent Laville
  */
 
-return function (): Generator
-{
+return function (): Generator {
     $extensions = [
         'lzf',
         'yaml',

@@ -10,8 +10,7 @@
 
 use Bartlett\GraphUml\ClassDiagramBuilder;
 
-return function (): Generator
-{
+return function (): Generator {
     $classes = [
         ClassDiagramBuilder::class,
     ];
