@@ -1,0 +1,79 @@
+digraph {
+  graph [rankdir="LR" bgcolor="transparent"]
+  node [fillcolor="#FECECE" style="filled"]
+  subgraph cluster_0 {
+    graph [bgcolor="burlywood1"]
+    label = "Bartlett\\GraphUml\\Formatter"
+    "Bartlett\\GraphUml\\Formatter\\HtmlFormatter" [shape="none" label=<
+<table cellspacing="0" border="0" cellborder="1">
+    <tr><td bgcolor="#eeeeee"><b><br/>HtmlFormatter</b></td></tr>
+    <tr><td><table border="0" cellspacing="0" cellpadding="2">
+    <tr><td align="left">+ «static» DEFAULT_ROW_FORMAT : string = "\ \ \ \ \&lt;tr\&gt;\&lt;td\ align\=\&quot;left\&quot;\&gt;\%s\&lt;\/td\&gt;\&lt;\/tr\&gt;" {readOnly}</td></tr>
+</table></td></tr>
+    <tr><td></td></tr>
+    <tr><td><table border="0" cellspacing="0" cellpadding="2">
+    <tr><td align="left">+ __construct(options : array)</td></tr>
+    <tr><td align="left">+ getLabelExtension(reflection : ReflectionExtension) : string</td></tr>
+    <tr><td align="left">+ getLabelClass(reflection : ReflectionClass) : string</td></tr>
+    <tr><td align="left">+ getLabelConstants(reflection) : string</td></tr>
+    <tr><td align="left">+ getLabelProperties(reflection : ReflectionClass) : string</td></tr>
+    <tr><td align="left">+ getLabelFunctions(functions : array, class : string = '') : string</td></tr>
+</table></td></tr>
+</table>>]
+    "Bartlett\\GraphUml\\Formatter\\AbstractFormatter" [shape="none" label=<
+<table cellspacing="0" border="0" cellborder="1">
+    <tr><td bgcolor="#eeeeee"><b>«abstract»<br/>AbstractFormatter</b></td></tr>
+    <tr><td><table border="0" cellspacing="0" cellpadding="2">
+    <tr><td align="left">+ «static» EOL : string = "\\n" {readOnly}</td></tr>
+</table></td></tr>
+    <tr><td><table border="0" cellspacing="0" cellpadding="2">
+    <tr><td align="left"># options : mixed</td></tr>
+</table></td></tr>
+    <tr><td><table border="0" cellspacing="0" cellpadding="2">
+    <tr><td align="left">+ __construct(options : array)</td></tr>
+    <tr><td align="left">+ getFormat() : string</td></tr>
+    <tr><td align="left"># getStereotype(reflection : ReflectionClass) : string</td></tr>
+    <tr><td align="left"># isVisible(reflection : Reflector) : bool</td></tr>
+    <tr><td align="left"># getDocBlock(ref : mixed) : ?string</td></tr>
+    <tr><td align="left"># getDocBlockVar(ref : ReflectionProperty) : ?string</td></tr>
+    <tr><td align="left"># getParameterType(parameter : ReflectionParameter) : ?string</td></tr>
+    <tr><td align="left"># getParameterDefaultValue(parameter : ReflectionParameter) : string</td></tr>
+    <tr><td align="left"># getDocBlockMulti(ref : mixed, what : string) : array</td></tr>
+    <tr><td align="left"># getDocBlockSingle(ref : ReflectionProperty, what : string) : ?string</td></tr>
+    <tr><td align="left"># getType(ret : string) : ?string</td></tr>
+    <tr><td align="left"># getCasted(value : mixed, quoted : string = '\&quot;') : string</td></tr>
+    <tr><td align="left"># visibility(reflection : Reflector) : string</td></tr>
+    <tr><td align="left"># escape(id : string) : string</td></tr>
+</table></td></tr>
+</table>>]
+    "Bartlett\\GraphUml\\Formatter\\FormatterInterface" [shape="none" label=<
+<table cellspacing="0" border="0" cellborder="1">
+    <tr><td bgcolor="#eeeeee"><b>«interface»<br/>FormatterInterface</b></td></tr>
+    <tr><td></td></tr>
+    <tr><td><table border="0" cellspacing="0" cellpadding="2">
+    <tr><td align="left">+ «abstract» getFormat() : string</td></tr>
+    <tr><td align="left">+ «abstract» getLabelExtension(reflection : ReflectionExtension) : string</td></tr>
+    <tr><td align="left">+ «abstract» getLabelClass(reflection : ReflectionClass) : string</td></tr>
+    <tr><td align="left">+ «abstract» getLabelConstants(reflection : mixed) : string</td></tr>
+    <tr><td align="left">+ «abstract» getLabelProperties(reflection : ReflectionClass) : string</td></tr>
+    <tr><td align="left">+ «abstract» getLabelFunctions(functions : array, class : string = '') : string</td></tr>
+</table></td></tr>
+</table>> fillcolor="burlywood3"]
+    "Bartlett\\GraphUml\\Formatter\\RecordFormatter" [shape="none" label=<
+<table cellspacing="0" border="0" cellborder="1">
+    <tr><td bgcolor="#eeeeee"><b><br/>RecordFormatter</b></td></tr>
+    <tr><td></td></tr>
+    <tr><td><table border="0" cellspacing="0" cellpadding="2">
+    <tr><td align="left">+ getLabelExtension(reflection : ReflectionExtension) : string</td></tr>
+    <tr><td align="left">+ getLabelClass(reflection : ReflectionClass) : string</td></tr>
+    <tr><td align="left">+ getLabelConstants(reflection) : string</td></tr>
+    <tr><td align="left">+ getLabelProperties(reflection : ReflectionClass) : string</td></tr>
+    <tr><td align="left">+ getLabelFunctions(functions : array, class : string = '') : string</td></tr>
+</table></td></tr>
+</table>>]
+  }
+  "Bartlett\\GraphUml\\Formatter\\HtmlFormatter" -> "Bartlett\\GraphUml\\Formatter\\AbstractFormatter" [arrowhead="empty" style="filled"]
+  "Bartlett\\GraphUml\\Formatter\\HtmlFormatter" -> "Bartlett\\GraphUml\\Formatter\\FormatterInterface" [arrowhead="empty" style="dashed"]
+  "Bartlett\\GraphUml\\Formatter\\RecordFormatter" -> "Bartlett\\GraphUml\\Formatter\\AbstractFormatter" [arrowhead="empty" style="filled"]
+  "Bartlett\\GraphUml\\Formatter\\RecordFormatter" -> "Bartlett\\GraphUml\\Formatter\\FormatterInterface" [arrowhead="empty" style="dashed"]
+}

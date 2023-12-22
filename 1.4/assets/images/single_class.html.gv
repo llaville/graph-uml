@@ -1,0 +1,42 @@
+digraph {
+  graph [rankdir="LR" bgcolor="transparent"]
+  node [fillcolor="#FECECE" style="filled"]
+  subgraph cluster_0 {
+    graph [bgcolor="burlywood3"]
+    label = "Bartlett\\GraphUml"
+    "Bartlett\\GraphUml\\ClassDiagramBuilder" [shape="none" label=<
+<table cellspacing="0" border="0" cellborder="1">
+    <tr><td bgcolor="#eeeeee"><b><br/>ClassDiagramBuilder</b></td></tr>
+    <tr><td><table border="0" cellspacing="0" cellpadding="2">
+    <tr><td align="left">+ «static» OPTIONS_DEFAULTS : array = […] {readOnly}</td></tr>
+</table></td></tr>
+    <tr><td><table border="0" cellspacing="0" cellpadding="2">
+    <tr><td align="left">– graph</td></tr>
+    <tr><td align="left">– options : mixed</td></tr>
+    <tr><td align="left">– generator</td></tr>
+    <tr><td align="left">– entities : mixed</td></tr>
+</table></td></tr>
+    <tr><td><table border="0" cellspacing="0" cellpadding="2">
+    <tr><td align="left">+ __construct(generator : Bartlett\\GraphUml\\Generator\\GeneratorInterface, graph : Graphp\\Graph\\Graph, options : array = [])</td></tr>
+    <tr><td align="left">+ createVertexClass(class, attributes : array = []) : Graphp\\Graph\\Vertex</td></tr>
+    <tr><td align="left">+ createVertexExtension(extension, attributes : array = []) : Graphp\\Graph\\Vertex</td></tr>
+    <tr><td align="left">+ createVerticesFromCallable(callback : callable, vertices : Generator) : void</td></tr>
+    <tr><td align="left">– getInterfaces(reflection : ReflectionClass) : array</td></tr>
+</table></td></tr>
+</table>>]
+    "Bartlett\\GraphUml\\ClassDiagramBuilderInterface" [shape="none" label=<
+<table cellspacing="0" border="0" cellborder="1">
+    <tr><td bgcolor="#eeeeee"><b>«interface»<br/>ClassDiagramBuilderInterface</b></td></tr>
+    <tr><td><table border="0" cellspacing="0" cellpadding="2">
+    <tr><td align="left">+ «static» OPTIONS_DEFAULTS : array = […] {readOnly}</td></tr>
+</table></td></tr>
+    <tr><td></td></tr>
+    <tr><td><table border="0" cellspacing="0" cellpadding="2">
+    <tr><td align="left">+ «abstract» createVertexClass(class : mixed, attributes : array = []) : Graphp\\Graph\\Vertex</td></tr>
+    <tr><td align="left">+ «abstract» createVertexExtension(extension : mixed, attributes : array = []) : Graphp\\Graph\\Vertex</td></tr>
+    <tr><td align="left">+ «abstract» createVerticesFromCallable(callback : callable, vertices : Generator) : void</td></tr>
+</table></td></tr>
+</table>>]
+  }
+  "Bartlett\\GraphUml\\ClassDiagramBuilder" -> "Bartlett\\GraphUml\\ClassDiagramBuilderInterface" [arrowhead="empty" style="dashed"]
+}
