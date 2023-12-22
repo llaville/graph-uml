@@ -17,6 +17,8 @@ use Generator;
 use ReflectionClass;
 use ReflectionExtension;
 use function array_filter;
+use function str_replace;
+use function str_starts_with;
 use const ARRAY_FILTER_USE_KEY;
 
 /**
@@ -87,6 +89,14 @@ final class ClassDiagramBuilder implements ClassDiagramBuilderInterface
         $vertex = $this->entities[$class] ?? $this->graph->createVertex(['id' => $class]);
 
         $generatorPrefix = $this->generator->getPrefix();
+
+        $attributePrefix = 'cluster.' . $class . '.node.';
+        foreach ($attributes as $option => $value) {
+            if (str_starts_with($option, $attributePrefix)) {
+                $attributes[str_replace($attributePrefix, '', $option)] = $value;
+            }
+            unset($attributes[$option]);
+        }
 
         foreach ($attributes as $attribute => $value) {
             $vertex->setAttribute($generatorPrefix . $attribute, $value);
