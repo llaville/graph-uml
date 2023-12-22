@@ -8,7 +8,7 @@ on:
     pull_request:
         branches:
             - master
-            - "1.4"
+            - "1.5"
         paths-ignore:
             - 'docs/**'
     workflow_call:
@@ -18,7 +18,7 @@ jobs:
         uses: llaville/.github/.github/workflows/mega-linter.yml@master
         with:
             repository: ${{ github.repository }}
-            php-version: "8.0"
+            php-version: "8.1"
 
     unit_tests:
         needs: lint_files
@@ -29,14 +29,14 @@ jobs:
             fail-fast: false
             matrix:
                 include:
-                    -
-                        os: ubuntu-latest
-                        php: 8.0
-                        tools: phpunit:9.6
-                    -
-                        os: ubuntu-latest
-                        php: 8.1
-                        tools: phpunit:10.5
+                os:
+                    - ubuntu-22.04
+                php:
+                    - 8.1
+                    - 8.2
+                    - 8.3
+                tools:
+                    - phpunit:10.5
 
         name: UML Graphs
 
@@ -59,11 +59,6 @@ jobs:
                 with:
                     composer-options: "--prefer-dist"
 
-            -   # https://github.com/sebastianbergmann/phpunit/tree/9.6
-                name: Unit tests with PHPUnit 9
-                if: ${{ matrix.php == '8.0' }}
-                run: phpunit --configuration ./phpunit-9.xml --testdox --do-not-cache-result
             -   # https://github.com/sebastianbergmann/phpunit/tree/10.5
                 name: Unit tests with PHPUnit 10
-                if: ${{ matrix.php != '8.0' }}
                 run: phpunit --testdox --do-not-cache-result --no-progress
