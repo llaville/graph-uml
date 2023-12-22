@@ -16,6 +16,8 @@ use Closure;
 use Generator;
 use ReflectionClass;
 use ReflectionExtension;
+use function array_filter;
+use const ARRAY_FILTER_USE_KEY;
 
 /**
  * UML class diagram builder
@@ -51,7 +53,17 @@ final class ClassDiagramBuilder implements ClassDiagramBuilderInterface
      */
     public function __construct(GeneratorInterface $generator, Graph $graph, array $options = [])
     {
+        $attributes = array_filter($options, function ($key) {
+            return (str_starts_with($key, 'graph.')
+                || str_starts_with($key, 'node.')
+                || str_starts_with($key, 'edge.')
+                || str_starts_with($key, 'cluster.')
+            );
+        }, ARRAY_FILTER_USE_KEY);
+
         $this->graph = $graph;
+        $this->graph->setAttributes($attributes);
+
         $this->options = array_merge(ClassDiagramBuilderInterface::OPTIONS_DEFAULTS, $options);
         $this->generator = $generator;
         $this->generator->setOptions($this->options);
