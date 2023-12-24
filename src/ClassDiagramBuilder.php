@@ -48,8 +48,6 @@ final class ClassDiagramBuilder implements ClassDiagramBuilderInterface
     /**
      * ClassDiagramBuilder constructor.
      *
-     * @param GeneratorInterface $generator
-     * @param Graph $graph
      * @param array<string, mixed> $options
      * @see ClassDiagramBuilderInterface::OPTIONS_DEFAULTS for available options
      */
@@ -184,9 +182,6 @@ final class ClassDiagramBuilder implements ClassDiagramBuilderInterface
         return $vertex;
     }
 
-    /**
-     * {@inheritDoc}
-     */
     public function createVerticesFromCallable(callable $callback, Generator $vertices): void
     {
         $closure = Closure::fromCallable($callback);
@@ -195,7 +190,6 @@ final class ClassDiagramBuilder implements ClassDiagramBuilderInterface
     }
 
     /**
-     * @param ReflectionClass $reflection
      * @return ReflectionClass[]
      */
     private function getInterfaces(ReflectionClass $reflection): array

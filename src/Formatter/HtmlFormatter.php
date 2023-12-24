@@ -23,6 +23,9 @@ final class HtmlFormatter extends AbstractFormatter implements FormatterInterfac
 {
     private const DEFAULT_ROW_FORMAT = '    <tr><td align="left">%s</td></tr>';
 
+    /**
+     * @param array<string, string> $options
+     */
     public function __construct(array $options)
     {
         if (!isset($options['row_format'])) {

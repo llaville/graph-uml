@@ -41,13 +41,11 @@ abstract class AbstractGenerator
 
     /**
      * The name of full path to GraphViz (or other) layout
-     * @var string
      */
     private string $executable;
 
     /**
      * File output format to use
-     * @var string
      */
     private string $format;
 
@@ -80,8 +78,6 @@ abstract class AbstractGenerator
 
     /**
      * Change the executable to use.
-     *
-     * @param string $executable
      */
     public function setExecutable(string $executable): void
     {
@@ -102,10 +98,6 @@ abstract class AbstractGenerator
 
     /**
      * Make image file, and returns command used to generated it.
-     *
-     * @param Graph $graph
-     * @param string $cmdFormat
-     * @return string
      */
     public function createImageFile(Graph $graph, string $cmdFormat): string
     {

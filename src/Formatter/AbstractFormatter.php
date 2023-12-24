@@ -80,10 +80,7 @@ abstract class AbstractFormatter
             || ($reflection->isPrivate() && $this->options['show_private']);    // @phpstan-ignore-line
     }
 
-    /**
-     * @param ReflectionFunctionAbstract|ReflectionProperty $ref
-     */
-    protected function getDocBlock($ref): ?string
+    protected function getDocBlock(ReflectionFunctionAbstract|ReflectionProperty $ref): ?string
     {
         $doc = $ref->getDocComment();
         if ($doc !== false) {
@@ -106,7 +103,7 @@ abstract class AbstractFormatter
             /** @var null|ReflectionType $class */
             $class = $parameter->getType();
             // will fail if specified class does not exist
-        } catch (Exception $ignore) {
+        } catch (Exception) {
             return '«invalidClass»';
         }
 
@@ -147,18 +144,16 @@ abstract class AbstractFormatter
             }
 
             return '';
-        } catch (ReflectionException $e) {
+        } catch (ReflectionException) {
             // Cannot determine default value for internal functions
             return ' = «unknown»';
         }
     }
 
     /**
-     * @param ReflectionFunctionAbstract|ReflectionProperty $ref
-     * @param string $what
      * @return string[]
      */
-    protected function getDocBlockMulti($ref, string $what): array
+    protected function getDocBlockMulti(ReflectionFunctionAbstract|ReflectionProperty $ref, string $what): array
     {
         $doc = $this->getDocBlock($ref);
         if ($doc === null) {
@@ -186,7 +181,7 @@ abstract class AbstractFormatter
     protected function getType(?string $ret): ?string
     {
         if ($ret === null) {
-            return $ret;
+            return null;
         }
         if (preg_match('/^array\[(\w+)\]$/i', $ret, $match)) {
             return $this->getType($match[1]) . '[]';
@@ -208,12 +203,7 @@ abstract class AbstractFormatter
         return $ret;
     }
 
-    /**
-     * @param mixed $value
-     * @param string $quoted
-     * @return string
-     */
-    protected function getCasted($value, string $quoted = '"'): string
+    protected function getCasted(mixed $value, string $quoted = '"'): string
     {
         if ($value === null) {
             return 'NULL';

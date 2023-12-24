@@ -7,7 +7,6 @@
  */
 namespace Bartlett\GraphUml;
 
-use Bartlett\GraphUml\Filter\NamespaceFilterInterface;
 use Graphp\Graph\Vertex;
 
 use Generator;
@@ -42,25 +41,16 @@ interface ClassDiagramBuilderInterface
     ];
 
     /**
-     * @param ReflectionClass|string $class
      * @param array<string, mixed> $attributes
-     * @return Vertex
      * @throws ReflectionException
      */
-    public function createVertexClass($class, array $attributes = []): Vertex;
+    public function createVertexClass(string|ReflectionClass $class, array $attributes = []): Vertex;
 
     /**
-     * @param ReflectionExtension|string $extension
      * @param array<string, mixed> $attributes
-     * @return Vertex
      * @throws ReflectionException
      */
-    public function createVertexExtension($extension, array $attributes = []): Vertex;
+    public function createVertexExtension(string|ReflectionExtension $extension, array $attributes = []): Vertex;
 
-    /**
-     * @param callable $callback
-     * @param Generator<string> $vertices
-     * @return void
-     */
     public function createVerticesFromCallable(callable $callback, Generator $vertices): void;
 }

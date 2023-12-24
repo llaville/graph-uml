@@ -61,7 +61,7 @@ final class RecordFormatter extends AbstractFormatter implements FormatterInterf
         return $label;
     }
 
-    public function getLabelConstants($reflection): string
+    public function getLabelConstants(ReflectionClass|ReflectionExtension $reflection): string
     {
         $label = '';
 
@@ -132,6 +132,9 @@ final class RecordFormatter extends AbstractFormatter implements FormatterInterf
         return $label;
     }
 
+    /**
+     * @inheritDoc
+     */
     public function getLabelFunctions(array $functions, string $class = ''): string
     {
         if ($class && !$this->options['show_methods']) {
