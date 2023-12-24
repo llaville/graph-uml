@@ -1,0 +1,54 @@
+digraph {
+  graph [rankdir="LR" bgcolor="transparent"]
+  node [fillcolor="#FECECE" style="filled"]
+  subgraph cluster_0 {
+    graph [bgcolor="burlywood1"]
+    label = "Bartlett\\GraphUml\\Generator"
+    "Bartlett\\GraphUml\\Generator\\GraphVizGenerator" [shape="none" label=<
+<table cellspacing="0" border="0" cellborder="1">
+    <tr><td bgcolor="#eeeeee"><b><br/>GraphVizGenerator</b></td></tr>
+    <tr><td></td></tr>
+    <tr><td><table border="0" cellspacing="0" cellpadding="2">
+    <tr><td align="left">+ __construct(graphViz : Graphp\\GraphViz\\GraphViz, executable : string = 'dot', format : string = 'png')</td></tr>
+    <tr><td align="left">+ getFormatter() : Bartlett\\GraphUml\\Formatter\\FormatterInterface</td></tr>
+    <tr><td align="left">+ getName() : string</td></tr>
+    <tr><td align="left">+ getPrefix() : string</td></tr>
+    <tr><td align="left">+ createScript(graph : Graphp\\Graph\\Graph) : string</td></tr>
+    <tr><td align="left">+ createImageFile(graph : Graphp\\Graph\\Graph, cmdFormat : string = '') : string</td></tr>
+</table></td></tr>
+</table>>]
+    "Bartlett\\GraphUml\\Generator\\AbstractGenerator" [shape="none" label=<
+<table cellspacing="0" border="0" cellborder="1">
+    <tr><td bgcolor="#eeeeee"><b>«abstract»<br/>AbstractGenerator</b></td></tr>
+    <tr><td></td></tr>
+    <tr><td><table border="0" cellspacing="0" cellpadding="2">
+    <tr><td align="left">+ __construct(executable : string, format : string)</td></tr>
+    <tr><td align="left">+ setOptions(values : array) : void</td></tr>
+    <tr><td align="left">+ «abstract» getFormatter() : Bartlett\\GraphUml\\Formatter\\FormatterInterface</td></tr>
+    <tr><td align="left">+ «abstract» getName() : string</td></tr>
+    <tr><td align="left">+ getPrefix() : string</td></tr>
+    <tr><td align="left">+ getLabelClass(reflection : ReflectionClass) : string</td></tr>
+    <tr><td align="left">+ getLabelExtension(reflection : ReflectionExtension) : string</td></tr>
+    <tr><td align="left">+ «abstract» createScript(graph : Graphp\\Graph\\Graph) : string</td></tr>
+    <tr><td align="left">+ createImageFile(graph : Graphp\\Graph\\Graph, cmdFormat : string) : string</td></tr>
+</table></td></tr>
+</table>>]
+    "Bartlett\\GraphUml\\Generator\\GeneratorInterface" [shape="none" label=<
+<table cellspacing="0" border="0" cellborder="1">
+    <tr><td bgcolor="#eeeeee"><b>«interface»<br/>GeneratorInterface</b></td></tr>
+    <tr><td></td></tr>
+    <tr><td><table border="0" cellspacing="0" cellpadding="2">
+    <tr><td align="left">+ «abstract» setOptions(values : array) : void</td></tr>
+    <tr><td align="left">+ «abstract» getFormatter() : Bartlett\\GraphUml\\Formatter\\FormatterInterface</td></tr>
+    <tr><td align="left">+ «abstract» getName() : string</td></tr>
+    <tr><td align="left">+ «abstract» getPrefix() : string</td></tr>
+    <tr><td align="left">+ «abstract» getLabelClass(reflection : ReflectionClass) : string</td></tr>
+    <tr><td align="left">+ «abstract» getLabelExtension(reflection : ReflectionExtension) : string</td></tr>
+    <tr><td align="left">+ «abstract» createScript(graph : Graphp\\Graph\\Graph) : string</td></tr>
+    <tr><td align="left">+ «abstract» createImageFile(graph : Graphp\\Graph\\Graph, cmdFormat : string) : string</td></tr>
+</table></td></tr>
+</table>> fillcolor="burlywood3"]
+  }
+  "Bartlett\\GraphUml\\Generator\\GraphVizGenerator" -> "Bartlett\\GraphUml\\Generator\\AbstractGenerator" [arrowhead="empty" style="filled"]
+  "Bartlett\\GraphUml\\Generator\\GraphVizGenerator" -> "Bartlett\\GraphUml\\Generator\\GeneratorInterface" [arrowhead="empty" style="dashed"]
+}
