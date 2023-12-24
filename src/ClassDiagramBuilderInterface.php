@@ -23,7 +23,7 @@ interface ClassDiagramBuilderInterface
         // string to indent graph statement parts
         'indent_string' => '  ',
         // whether to use html or record formatted labels (graphviz specific feature)
-        'label_format' => 'record',
+        'label_format' => 'html',
         // whether to only show methods/properties that are actually defined in this class (and not those merely inherited from base)
         'only_self' => true,
         // whether to also show private methods/properties
