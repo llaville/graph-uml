@@ -1,6 +1,19 @@
-# Documentation for Graph-UML
+# Documentation
 
 Here are the links to the documentation for versions of Graph-UML that are still supported : 
 
 - [Graph-UML 1.4](https://llaville.github.io/graph-uml/1.4/)
 - [Graph-UML 1.5](https://llaville.github.io/graph-uml/1.5/)
+
+Full documentation may be found in `docs` folder into this repository, and may be read online without to do anything else.
+
+As alternative, you may generate a professional static site with [Material for MkDocs][mkdocs-material].
+
+Configuration file `mkdocs.yml` is available and if you have Docker support, 
+the documentation site can be simply build with following command:
+
+```shell
+docker run --rm -it -u "$(id -u):$(id -g)" -v ${PWD}:/docs squidfunk/mkdocs-material build --verbose
+```
+
+[mkdocs-material]: https://github.com/squidfunk/mkdocs-material
