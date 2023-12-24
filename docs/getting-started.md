@@ -7,11 +7,6 @@
 * [graphp/graph](https://github.com/graphp/graph) package from master branch (considered as future stable v1.0.0)
 * [graphp/graphviz](https://github.com/graphp/graphviz) package from master branch (considered as future stable v1.0.0)
 
-![GraPHP Composer](./graph-composer.svg)
-
-Generated with [fork](https://github.com/markuspoerschke/graph-composer/tree/add-options-to-exclude) of [clue/graph-composer](https://github.com/clue/graph-composer).
-Learn more about this fork on [PR request](https://github.com/clue/graph-composer/pull/45).
-
 ## Installation
 
 ### With Composer
