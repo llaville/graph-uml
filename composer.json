@@ -14,7 +14,7 @@
         "php": "^8.1",
         "cweagans/composer-patches": "^1.7",
         "graphp/graph": "1.x-dev#0adb04d as 1.0.0",
-        "graphp/graphviz": "1.x-dev#24b1994 as 1.0.0"
+        "graphp/graphviz": "1.x-dev#686f747 as 1.0.0"
     },
     "config": {
         "preferred-install": {
