@@ -19,6 +19,9 @@ use function gettype;
  */
 final class RecordFormatter extends AbstractFormatter implements FormatterInterface
 {
+    /**
+     * @inheritDoc
+     */
     public function getLabelExtension(ReflectionExtension $reflection): string
     {
         $label = '{';
@@ -33,6 +36,9 @@ final class RecordFormatter extends AbstractFormatter implements FormatterInterf
         return $label;
     }
 
+    /**
+     * @inheritDoc
+     */
     public function getLabelClass(ReflectionClass $reflection): string
     {
         $class = $reflection->getName();
@@ -61,33 +67,9 @@ final class RecordFormatter extends AbstractFormatter implements FormatterInterf
         return $label;
     }
 
-    public function getLabelConstants(ReflectionClass|ReflectionExtension $reflection): string
-    {
-        $label = '';
-
-        if (!$this->options['show_constants']) {
-            return $label;
-        }
-
-        $parent = ($reflection instanceof ReflectionClass) ? $reflection->getParentClass() : false;
-
-        foreach ($reflection->getConstants() as $name => $value) {
-            if ($this->options['only_self'] && $parent && $parent->getConstant($name) === $value) {
-                continue;
-            }
-
-            $label .= '+ «static» '
-                . $this->escape($name)
-                . ' : '
-                . $this->escape($this->getType(gettype($value)))
-                . ' = '
-                . $this->getCasted($value) . ' \\{readOnly\\}\\l'
-            ;
-        }
-
-        return $label;
-    }
-
+    /**
+     * @inheritDoc
+     */
     public function getLabelProperties(ReflectionClass $reflection): string
     {
         if (!$this->options['show_properties']) {
@@ -127,6 +109,36 @@ final class RecordFormatter extends AbstractFormatter implements FormatterInterf
 
             // align this line to the left
             $label .= '\\l';
+        }
+
+        return $label;
+    }
+
+    /**
+     * @inheritDoc
+     */
+    public function getLabelConstants(ReflectionClass|ReflectionExtension $reflection): string
+    {
+        $label = '';
+
+        if (!$this->options['show_constants']) {
+            return $label;
+        }
+
+        $parent = ($reflection instanceof ReflectionClass) ? $reflection->getParentClass() : false;
+
+        foreach ($reflection->getConstants() as $name => $value) {
+            if ($this->options['only_self'] && $parent && $parent->getConstant($name) === $value) {
+                continue;
+            }
+
+            $label .= '+ «static» '
+                . $this->escape($name)
+                . ' : '
+                . $this->escape($this->getType(gettype($value)))
+                . ' = '
+                . $this->getCasted($value) . ' \\{readOnly\\}\\l'
+            ;
         }
 
         return $label;

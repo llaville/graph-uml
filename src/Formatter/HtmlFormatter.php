@@ -34,6 +34,9 @@ final class HtmlFormatter extends AbstractFormatter implements FormatterInterfac
         parent::__construct($options);
     }
 
+    /**
+     * @inheritDoc
+     */
     public function getLabelExtension(ReflectionExtension $reflection): string
     {
         $constants = $this->getLabelConstants($reflection);
@@ -53,6 +56,9 @@ final class HtmlFormatter extends AbstractFormatter implements FormatterInterfac
         return $label;
     }
 
+    /**
+     * @inheritDoc
+     */
     public function getLabelClass(ReflectionClass $reflection): string
     {
         $constants = $this->getLabelConstants($reflection);
@@ -75,7 +81,10 @@ final class HtmlFormatter extends AbstractFormatter implements FormatterInterfac
         return $label;
     }
 
-    public function getLabelConstants($reflection): string
+    /**
+     * @inheritDoc
+     */
+    public function getLabelConstants(ReflectionClass|ReflectionExtension $reflection): string
     {
         if (!$this->options['show_constants']) {
             return '';
@@ -112,6 +121,9 @@ final class HtmlFormatter extends AbstractFormatter implements FormatterInterfac
         return $constants;
     }
 
+    /**
+     * @inheritDoc
+     */
     public function getLabelProperties(ReflectionClass $reflection): string
     {
         if (!$this->options['show_properties']) {
@@ -166,6 +178,9 @@ final class HtmlFormatter extends AbstractFormatter implements FormatterInterfac
         return $fields;
     }
 
+    /**
+     * @inheritDoc
+     */
     public function getLabelFunctions(array $functions, string $class = ''): string
     {
         if ($class && !$this->options['show_methods']) {

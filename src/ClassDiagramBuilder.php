@@ -71,9 +71,9 @@ final class ClassDiagramBuilder implements ClassDiagramBuilderInterface
     }
 
     /**
-     * {@inheritDoc}
+     * @inheritDoc
      */
-    public function createVertexClass($class, array $attributes = []): Vertex
+    public function createVertexClass(string|ReflectionClass $class, array $attributes = []): Vertex
     {
         if ($class instanceof ReflectionClass) {
             $reflection = $class;
@@ -147,9 +147,9 @@ final class ClassDiagramBuilder implements ClassDiagramBuilderInterface
     }
 
     /**
-     * {@inheritDoc}
+     * @inheritDoc
      */
-    public function createVertexExtension($extension, array $attributes = []): Vertex
+    public function createVertexExtension(string|ReflectionExtension $extension, array $attributes = []): Vertex
     {
         if ($extension instanceof ReflectionExtension) {
             $reflection = $extension;
