@@ -8,16 +8,17 @@
 
 use Bartlett\GraphUml\ClassDiagramBuilder;
 use Bartlett\GraphUml\Generator\GraphVizGenerator;
+
 use Graphp\Graph\Graph;
 use Graphp\GraphViz\GraphViz;
 
 if ($_SERVER['argc'] == 1) {
-    echo '=============================================================================================================', PHP_EOL;
+    echo '=====================================================================', PHP_EOL;
     echo 'Usage: php examples/graphviz.php <example-dirname>', PHP_EOL;
     echo '                                 <output-folder>', PHP_EOL;
     echo '                                 <format:png|svg>', PHP_EOL;
     echo '                                 <write-statement-to-file>', PHP_EOL;
-    echo '=============================================================================================================', PHP_EOL;
+    echo '=====================================================================', PHP_EOL;
     exit();
 }
 
@@ -63,9 +64,11 @@ foreach ($datasource() as $class) {
     $builder->createVertexClass($class, $options ?? []);
 }
 
-// writes graphviz statements to file
-$output = rtrim($folder, DIRECTORY_SEPARATOR) . DIRECTORY_SEPARATOR . $example . '.html.gv';
-file_put_contents($output, $generator->createScript($graph));
+if ($writeGraphStatement) {
+    // writes graphviz statements to file
+    $output = rtrim($folder, DIRECTORY_SEPARATOR) . DIRECTORY_SEPARATOR . $example . '.html.gv';
+    file_put_contents($output, $generator->createScript($graph));
+}
 
 $generator->setFormat($format);
 

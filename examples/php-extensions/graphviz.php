@@ -50,9 +50,11 @@ foreach ($datasource() as $i => $extension) {
     $builder->createVertexExtension($extension, $attributes);
 }
 
-// writes graphviz statements to file
-$output = rtrim($folder, DIRECTORY_SEPARATOR) . DIRECTORY_SEPARATOR . $example . '.html.gv';
-file_put_contents($output, $generator->createScript($graph));
+if ($writeGraphStatement) {
+    // writes graphviz statements to file
+    $output = rtrim($folder, DIRECTORY_SEPARATOR) . DIRECTORY_SEPARATOR . $example . '.html.gv';
+    file_put_contents($output, $generator->createScript($graph));
+}
 
 $generator->setFormat($format);
 
