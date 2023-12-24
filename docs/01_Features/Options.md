@@ -10,7 +10,7 @@
 | show_protected  | boolean  | true    | whether to also show protected methods/properties                                                                          |
 | add_parents     | boolean  | true    | whether to show add parent classes or interfaces                                                                           |
 | only_self       | boolean  | true    | whether to only show methods/properties that are actually defined in this class (and not those merely inherited from base) |
-| label_format    | string   | record  | whether to use html or record formatted labels (graphviz specific feature). Others generator may have different values     |
+| label_format    | string   | html    | whether to use html or record formatted labels (graphviz specific feature). Others generator may have different values     |
 | indent_string   | string   | '  '    | string to indent graph statement parts                                                                                     |
 
 All default options are available in `Bartlett\GraphUml\ClassDiagramBuilderInterface::OPTIONS_DEFAULTS` class constant
