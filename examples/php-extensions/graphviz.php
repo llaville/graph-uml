@@ -41,7 +41,7 @@ if (!isset($datasource)) {
     $datasource = fn() => [];
 }
 
-$generator = new GraphVizGenerator(new GraphViz());
+$generator = new GraphVizGenerator(new GraphViz(), 'dot', $format);
 $graph = new Graph();
 $builder = new ClassDiagramBuilder($generator, $graph, $options ?? []);
 
@@ -55,8 +55,6 @@ if ($writeGraphStatement) {
     $output = rtrim($folder, DIRECTORY_SEPARATOR) . DIRECTORY_SEPARATOR . $example . '.html.gv';
     file_put_contents($output, $generator->createScript($graph));
 }
-
-$generator->setFormat($format);
 
 $output = rtrim($folder, DIRECTORY_SEPARATOR) . DIRECTORY_SEPARATOR . $example . '.graphviz.' . $format;
 $cmdFormat = '%E -T%F %t -o ' . $output;

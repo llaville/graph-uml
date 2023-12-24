@@ -32,7 +32,7 @@ final class GraphVizGenerator extends AbstractGenerator implements GeneratorInte
 {
     private GraphViz $graphViz;
 
-    public function __construct(GraphViz $graphViz)
+    public function __construct(GraphViz $graphViz, string $executable = 'dot', string $format = 'png')
     {
         $this->graphViz = $graphViz;
 
@@ -47,10 +47,10 @@ final class GraphVizGenerator extends AbstractGenerator implements GeneratorInte
          * - neato
          * - dot.exe
          * - c:\path\to\bin\dot.exe
+         *
+         * Change the graph image output format between available values (png, svg, eps, pdf, ...)
          */
-        $this->setExecutable('dot');
-        // (invoke dot -? for details on available formats)
-        $this->setFormat('png');
+        parent::__construct($executable, $format);
     }
 
     public function getFormatter(): FormatterInterface

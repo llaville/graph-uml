@@ -49,6 +49,12 @@ abstract class AbstractGenerator
      */
     private string $format;
 
+    public function __construct(string $executable, string $format)
+    {
+        $this->executable = $executable;
+        $this->format = $format;
+    }
+
     /**
      * @param array<string, mixed> $values
      */
@@ -74,24 +80,6 @@ abstract class AbstractGenerator
     public function getLabelExtension(ReflectionExtension $reflection): string
     {
         return $this->getFormatter()->getLabelExtension($reflection);
-    }
-
-    /**
-     * Change the executable to use.
-     */
-    public function setExecutable(string $executable): void
-    {
-        $this->executable = $executable;
-    }
-
-    /**
-     * Change the graph image output format.
-     *
-     * @param string $format png, svg, eps, pdf, ...
-     */
-    public function setFormat(string $format): void
-    {
-        $this->format = $format;
     }
 
     abstract public function createScript(Graph $graph): string;

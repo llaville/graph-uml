@@ -34,10 +34,6 @@ interface GeneratorInterface
 
     public function getLabelExtension(ReflectionExtension $reflection): string;
 
-    public function setExecutable(string $executable): void;
-
-    public function setFormat(string $format): void;
-
     public function createScript(Graph $graph): string;
 
     public function createImageFile(Graph $graph, string $cmdFormat): string;
