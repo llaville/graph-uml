@@ -19,8 +19,8 @@ use Graphp\GraphViz\GraphViz;
  */
 class ClassDiagramBuilderTest extends TestCase
 {
-    private $builder;
-    private $graph;
+    private ClassDiagramBuilder $builder;
+    private Graph $graph;
 
     public function setup(): void
     {
