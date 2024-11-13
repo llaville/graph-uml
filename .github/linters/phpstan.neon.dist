@@ -3,4 +3,6 @@ parameters:
     paths:
         - ../../src/
         - ../../examples/
-    checkGenericClassInNonGenericObjectType: false
+    ignoreErrors:
+        -
+            identifier: missingType.generics
