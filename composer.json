@@ -53,10 +53,12 @@
     "scripts": {
         "bin": "echo 'bin not installed'",
         "code:lint": "vendor/bin/phplint --configuration .github/linters/.phplint.yml --verbose --progress=indicator --ansi",
+        "style:check": "vendor/bin/phpcs --standard=.github/linters/.phpcs.xml.dist --warning-severity=0 --colors",
         "tests:unit": "vendor/bin/phpunit --configuration phpunit.xml.dist"
     },
     "scripts-descriptions" : {
         "code:lint": "Run PHPLint on project source code",
+        "style:check": "Run PHP CodeSniffer on project source code",
         "tests:unit": "Run unit tests on project source code"
     }
 }
