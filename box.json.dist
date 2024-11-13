@@ -1,17 +1,26 @@
 {
+    "alias": "graph-uml.phar",
     "main": "bootstrap.php",
     "output": "graph-uml.phar",
     "directories": ["src", "vendor"],
     "compression": "GZ",
     "stub": "stub.php",
     "files-bin": [
-        "console.txt",
-        "manifest.txt",
-        "sbom.json"
+        "console-table.txt",
+        "plain.txt",
+        "sbom.json",
+        ".box.manifests.bin"
     ],
     "map": [
-        { "console.txt": ".box.manifests/console.txt" },
-        { "manifest.txt": ".box.manifests/manifest.txt" },
-        { "sbom.json": ".box.manifests/sbom.json" }
-    ]
+        {
+            "console-table.txt": ".box.manifests/console-table.txt"
+        },
+        {
+            "plain.txt": ".box.manifests/plain.txt"
+        },
+        {
+            "sbom.json": ".box.manifests/sbom.json"
+        }
+    ],
+    "dump-autoload": true
 }
