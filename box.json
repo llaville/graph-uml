@@ -1,9 +1,10 @@
 {
-    "alias": "graph-uml.phar",
     "main": "bootstrap.php",
     "output": "graph-uml.phar",
-    "directories": ["src", "vendor"],
+    "directories": [
+        "src",
+        "vendor"
+    ],
     "compression": "GZ",
-    "stub": "stub.php",
     "dump-autoload": true
 }

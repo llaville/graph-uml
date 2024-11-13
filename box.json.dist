@@ -1,10 +1,11 @@
 {
-    "alias": "graph-uml.phar",
     "main": "bootstrap.php",
     "output": "graph-uml.phar",
-    "directories": ["src", "vendor"],
+    "directories": [
+        "src",
+        "vendor"
+    ],
     "compression": "GZ",
-    "stub": "stub.php",
     "files-bin": [
         "console-table.txt",
         "plain.txt",
@@ -22,5 +23,6 @@
             "sbom.json": ".box.manifests/sbom.json"
         }
     ],
+    "stub": "stub.php",
     "dump-autoload": true
 }
