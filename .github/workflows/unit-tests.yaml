@@ -34,8 +34,6 @@ jobs:
                     - 8.1
                     - 8.2
                     - 8.3
-                tools:
-                    - phpunit:10.5
 
         name: UML Graphs
 
@@ -50,7 +48,6 @@ jobs:
                 with:
                     php-version: ${{ matrix.php }}
                     coverage: "none"
-                    tools: ${{ matrix.tools }}
 
             -   # https://github.com/ramsey/composer-install
                 name: Install Composer dependencies
@@ -60,4 +57,4 @@ jobs:
 
             -   # https://github.com/sebastianbergmann/phpunit/tree/10.5
                 name: Unit tests with PHPUnit 10
-                run: phpunit --testdox --do-not-cache-result --no-progress
+                run: vendor/bin/phpunit --testdox --do-not-cache-result --no-progress
