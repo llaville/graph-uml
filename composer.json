@@ -16,6 +16,9 @@
         "graphp/graph": "1.x-dev#0adb04d as 1.0.0",
         "graphp/graphviz": "1.x-dev#686f747 as 1.0.0"
     },
+    "require-dev": {
+        "bamarni/composer-bin-plugin": "^1.8"
+    },
     "config": {
         "preferred-install": {
             "graphp/graphviz": "source",
@@ -23,7 +26,8 @@
         },
         "sort-packages": true,
         "allow-plugins": {
-            "cweagans/composer-patches": true
+            "cweagans/composer-patches": true,
+            "bamarni/composer-bin-plugin": true
         }
     },
     "autoload": {
@@ -39,6 +43,14 @@
         },
         "branch-alias": {
             "dev-master": "1.5.x-dev"
+        },
+        "bamarni-bin": {
+            "bin-links": true,
+            "target-directory": "vendor-bin",
+            "forward-command": true
         }
+    },
+    "scripts": {
+        "bin": "echo 'bin not installed'"
     }
 }
