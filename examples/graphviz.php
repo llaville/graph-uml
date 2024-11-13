@@ -60,8 +60,13 @@ $generator = new GraphVizGenerator(new GraphViz(), 'dot', $format);
 $graph = new Graph();
 $builder = new ClassDiagramBuilder($generator, $graph, $options ?? []);
 
-foreach ($datasource() as $class) {
-    $builder->createVertexClass($class, $options ?? []);
+foreach ($datasource() as $i => $source) {
+    if ('php-extensions' === $example) {
+        $attributes = ($i === 0) ? ['fillcolor' => 'burlywood3'] : [];
+        $builder->createVertexExtension($source, $attributes);
+    } else {
+        $builder->createVertexClass($source, $options ?? []);
+    }
 }
 
 if ($writeGraphStatement) {
