@@ -34,12 +34,14 @@ class ClassDiagramBuilderTest extends TestCase
      */
     public function testExtensionFail()
     {
-        $this->expectException(\ReflectionException::class);
+        $this->expectException(ReflectionException::class);
         $this->builder->createVertexExtension('unknown');
     }
 
     /**
      * Test that the ReflectionExtension class reports class information about loaded extension.
+     *
+     * @throws ReflectionException
      */
     public function testExtensionSuccess()
     {
@@ -53,12 +55,14 @@ class ClassDiagramBuilderTest extends TestCase
      */
     public function testClassFail()
     {
-        $this->expectException(\ReflectionException::class);
+        $this->expectException(ReflectionException::class);
         $this->builder->createVertexClass('unknown');
     }
 
     /**
      * Test that the ReflectionClass class reports class information about loaded class instance.
+     *
+     * @throws ReflectionException
      */
     public function testClassSuccess()
     {
@@ -71,6 +75,7 @@ class ClassDiagramBuilderTest extends TestCase
      * Test that the graph will include all class parents
      *
      * @depends testClassSuccess
+     * @throws ReflectionException
      */
     public function testInheritanceSuccess()
     {
@@ -83,6 +88,7 @@ class ClassDiagramBuilderTest extends TestCase
      * Test that the graph will not include class parents
      *
      * @depends testClassSuccess
+     * @throws ReflectionException
      */
     public function testInheritanceWithoutParent()
     {
@@ -99,6 +105,7 @@ class ClassDiagramBuilderTest extends TestCase
      * Test that a class in namespace has a group attribute attached to its corresponding vertex
      *
      * @depends testClassSuccess
+     * @throws ReflectionException
      */
     public function testClassInGroup()
     {
@@ -113,6 +120,7 @@ class ClassDiagramBuilderTest extends TestCase
      * Test that a class has a stereotype attribute attached to its corresponding vertex
      *
      * @depends testClassSuccess
+     * @throws ReflectionException
      */
     public function testClassHasGoodStereotype()
     {
@@ -125,6 +133,7 @@ class ClassDiagramBuilderTest extends TestCase
      * Test that an interface has a stereotype attribute attached to its corresponding vertex
      *
      * @depends testClassSuccess
+     * @throws ReflectionException
      */
     public function testInterfaceHasGoodStereotype()
     {
@@ -137,6 +146,7 @@ class ClassDiagramBuilderTest extends TestCase
      * Test that the graph has edges
      *
      * @depends testClassSuccess
+     * @throws ReflectionException
      */
     public function testGraphHasEdges()
     {
@@ -149,6 +159,7 @@ class ClassDiagramBuilderTest extends TestCase
      * Test that the graph include edges corresponding to vertices connections (class -> interface)
      *
      * @depends testGraphHasEdges
+     * @throws ReflectionException
      */
     public function testGraphHasEdgesConnection()
     {
