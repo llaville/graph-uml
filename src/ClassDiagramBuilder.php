@@ -206,7 +206,7 @@ final class ClassDiagramBuilder implements ClassDiagramBuilderInterface
 
     public function createVerticesFromCallable(callable $callback, Generator $vertices): void
     {
-        $closure = Closure::fromCallable($callback);
+        $closure = $callback(...);
         $closure = $closure->bindTo($this);
         $closure($vertices, $this->generator, $this->graph, $this->options);
     }
