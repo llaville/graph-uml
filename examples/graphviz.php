@@ -12,6 +12,8 @@ use Bartlett\GraphUml\Generator\GraphVizGenerator;
 use Graphp\Graph\Graph;
 use Graphp\GraphViz\GraphViz;
 
+use Webmozart\Assert\InvalidArgumentException;
+
 if ($_SERVER['argc'] == 1) {
     echo '=====================================================================', PHP_EOL;
     echo 'Usage: php examples/graphviz.php <example-dirname>', PHP_EOL;
@@ -61,11 +63,16 @@ $graph = new Graph();
 $builder = new ClassDiagramBuilder($generator, $graph, $options ?? []);
 
 foreach ($datasource() as $i => $source) {
-    if ('php-extensions' === $example) {
-        $attributes = ($i === 0) ? ['fillcolor' => 'burlywood3'] : [];
-        $builder->createVertexExtension($source, $attributes);
-    } else {
-        $builder->createVertexClass($source, $options ?? []);
+    try {
+        if ('php-extensions' === $example) {
+            $attributes = ($i === 0) ? ['fillcolor' => 'burlywood3'] : [];
+            $builder->createVertexExtension($source, $attributes);
+        } else {
+            $builder->createVertexClass($source, $options ?? []);
+        }
+    } catch (InvalidArgumentException $e) {
+        printf('Data source #%d: %s' . PHP_EOL, $i, $e->getMessage());
+        exit(255);
     }
 }
 

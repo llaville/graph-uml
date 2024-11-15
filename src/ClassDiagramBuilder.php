@@ -12,11 +12,18 @@ use Bartlett\GraphUml\Generator\GeneratorInterface;
 use Graphp\Graph\Graph;
 use Graphp\Graph\Vertex;
 
+use Webmozart\Assert\Assert;
+
 use Closure;
 use Generator;
 use ReflectionClass;
+use ReflectionException;
 use ReflectionExtension;
 use function array_filter;
+use function class_exists;
+use function extension_loaded;
+use function interface_exists;
+use function is_string;
 use function str_replace;
 use function str_starts_with;
 use const ARRAY_FILTER_USE_KEY;
@@ -73,15 +80,27 @@ final class ClassDiagramBuilder implements ClassDiagramBuilderInterface
     /**
      * @inheritDoc
      */
-    public function createVertexClass(string|ReflectionClass $class, array $attributes = []): Vertex
+    public function createVertexClass(object|string $source, array $attributes = []): Vertex
     {
-        if ($class instanceof ReflectionClass) {
-            $reflection = $class;
-            $class = $reflection->getName();
-        } else {
+        if (is_string($source)) {
+            $classExists = class_exists($source);
+            $interfaceExists = interface_exists($source);
+
             // Reflection works without first \ so make sure we don't inject them
-            $class = ltrim($class, '\\');
-            $reflection = new ReflectionClass($class);
+            $class = ltrim($source, '\\');
+
+            try {
+                $reflection = new ReflectionClass($class);
+            } catch (ReflectionException $e) {  // @phpstan-ignore catch.neverThrown
+                Assert::true(
+                    $classExists || $interfaceExists,
+                    'Expected an existing interface/class name. Got: ' . $source
+                );
+            }
+        } else {
+            Assert::isInstanceOf($source, ReflectionClass::class);
+            $reflection = $source;
+            $class = $reflection->getName();
         }
 
         $vertex = $this->entities[$class] ?? $this->graph->createVertex(['id' => $class]);
@@ -149,16 +168,19 @@ final class ClassDiagramBuilder implements ClassDiagramBuilderInterface
     /**
      * @inheritDoc
      */
-    public function createVertexExtension(string|ReflectionExtension $extension, array $attributes = []): Vertex
+    public function createVertexExtension(object|string $source, array $attributes = []): Vertex
     {
-        if ($extension instanceof ReflectionExtension) {
-            $reflection = $extension;
-            $extension = $reflection->getName();
+        if (is_string($source)) {
+            $extensionExists = extension_loaded($source);
+            Assert::true($extensionExists, 'Expected an existing extension name. Got: ' . $source);
+            $reflection = new ReflectionExtension($source);
         } else {
-            $reflection = new ReflectionExtension($extension);
+            Assert::isInstanceOf($source, ReflectionExtension::class);
+            $reflection = $source;
+            $extension = $reflection->getName();
         }
 
-        $vertex = $this->graph->createVertex(['id' => $extension]);
+        $vertex = $this->graph->createVertex(['id' => $source]);
 
         $generatorPrefix = $this->generator->getPrefix();
 

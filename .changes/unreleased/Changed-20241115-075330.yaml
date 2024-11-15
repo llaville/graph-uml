@@ -1,0 +1,3 @@
+kind: Changed
+body: Uses assertions to validate method input with backend `webmozarts/assert` package
+time: 2024-11-15T07:53:30.738979421Z

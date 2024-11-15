@@ -14,6 +14,8 @@ use Graphp\Graph\Graph;
 use Graphp\Graph\Vertex;
 use Graphp\GraphViz\GraphViz;
 
+use Webmozart\Assert\InvalidArgumentException;
+
 /**
  * @author Laurent Laville
  */
@@ -31,10 +33,12 @@ class ClassDiagramBuilderTest extends TestCase
 
     /**
      * Test that the ReflectionExtension class does not reports information about invalid extension.
+     *
+     * @throws ReflectionException
      */
     public function testExtensionFail()
     {
-        $this->expectException(ReflectionException::class);
+        $this->expectException(InvalidArgumentException::class);
         $this->builder->createVertexExtension('unknown');
     }
 
@@ -52,10 +56,12 @@ class ClassDiagramBuilderTest extends TestCase
 
     /**
      * Test that the ReflectionClass class does not reports information about invalid class.
+     *
+     * @throws ReflectionException
      */
     public function testClassFail()
     {
-        $this->expectException(ReflectionException::class);
+        $this->expectException(InvalidArgumentException::class);
         $this->builder->createVertexClass('unknown');
     }
 

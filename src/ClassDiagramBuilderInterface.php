@@ -9,10 +9,10 @@ namespace Bartlett\GraphUml;
 
 use Graphp\Graph\Vertex;
 
+use Webmozart\Assert\InvalidArgumentException;
+
 use Generator;
-use ReflectionClass;
 use ReflectionException;
-use ReflectionExtension;
 
 /**
  * @author Laurent Laville
@@ -41,16 +41,17 @@ interface ClassDiagramBuilderInterface
     ];
 
     /**
+     * @param object|class-string $source
      * @param array<string, mixed> $attributes
-     * @throws ReflectionException
+     * @throws InvalidArgumentException|ReflectionException
      */
-    public function createVertexClass(string|ReflectionClass $class, array $attributes = []): Vertex;
+    public function createVertexClass(object|string $source, array $attributes = []): Vertex;
 
     /**
      * @param array<string, mixed> $attributes
-     * @throws ReflectionException
+     * @throws InvalidArgumentException|ReflectionException
      */
-    public function createVertexExtension(string|ReflectionExtension $extension, array $attributes = []): Vertex;
+    public function createVertexExtension(object|string $source, array $attributes = []): Vertex;
 
     public function createVerticesFromCallable(callable $callback, Generator $vertices): void;
 }
