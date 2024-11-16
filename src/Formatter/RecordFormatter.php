@@ -135,7 +135,7 @@ final class RecordFormatter extends AbstractFormatter implements FormatterInterf
             $label .= '+ «static» '
                 . $this->escape($name)
                 . ' : '
-                . $this->escape($this->getType(gettype($value)))
+                . $this->escape($this->getType(gettype($value)) ?? '')
                 . ' = '
                 . $this->getCasted($value) . ' \\{readOnly\\}\\l'
             ;

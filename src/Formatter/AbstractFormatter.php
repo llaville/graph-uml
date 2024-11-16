@@ -84,7 +84,9 @@ abstract class AbstractFormatter
     {
         $doc = $ref->getDocComment();
         if ($doc !== false) {
-            return trim(preg_replace('/(^(?:\h*\*)\h*|\h+$)/m', '', substr($doc, 3, -2)));
+            return trim(
+                preg_replace('/(^(?:\h*\*)\h*|\h+$)/m', '', substr($doc, 3, -2)) ?? ''
+            );
         }
 
         return null;
@@ -244,6 +246,6 @@ abstract class AbstractFormatter
             '/([^\\w])/u',
             '\\\\$1',
             str_replace(["\r", "\n", "\t"], ['\\r', '\\n', '\\t'], $id)
-        );
+        ) ?? '';
     }
 }

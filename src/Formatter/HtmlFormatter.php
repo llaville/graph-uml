@@ -101,7 +101,7 @@ final class HtmlFormatter extends AbstractFormatter implements FormatterInterfac
             $label = '+ «static» '
                 . $this->escape($name)
                 . ' : '
-                . $this->escape($this->getType(gettype($value)))
+                . $this->escape($this->getType(gettype($value)) ?? '')
                 . ' = '
                 . $this->getCasted($value)
                 . ' {readOnly}'
