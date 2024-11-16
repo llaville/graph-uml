@@ -18,3 +18,4 @@ jobs:
             destination-dir: "1.6"
             hook-script: "resources/gh-pages-hook.sh"
             force-orphan: false
+            php-extensions: "lzf"  # required to write assets of example/php-extensions/
