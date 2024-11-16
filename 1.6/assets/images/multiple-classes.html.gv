@@ -66,7 +66,7 @@ digraph {
     <tr><td align="left">+ «static» CMD_TEMP_FILE : string = "\%t" {readOnly}</td></tr>
 </table></td></tr>
     <tr><td><table border="0" cellspacing="0" cellpadding="2">
-    <tr><td align="left"># options : mixed</td></tr>
+    <tr><td align="left"># options : FormatterOptions</td></tr>
     <tr><td align="left">– executable</td></tr>
     <tr><td align="left">– format</td></tr>
 </table></td></tr>

@@ -92,7 +92,7 @@
 <text text-anchor="start" x="1049" y="-584.8" font-family="Times,serif" font-size="14.00">+ «static» CMD_OUTPUT_FILE : string = &quot;\%o&quot; {readOnly}</text>
 <text text-anchor="start" x="1049" y="-565.8" font-family="Times,serif" font-size="14.00">+ «static» CMD_TEMP_FILE : string = &quot;\%t&quot; {readOnly}</text>
 <polygon fill="none" stroke="black" points="1044,-494 1044,-557 1625,-557 1625,-494 1044,-494"/>
-<text text-anchor="start" x="1049" y="-540.8" font-family="Times,serif" font-size="14.00"># options : mixed</text>
+<text text-anchor="start" x="1049" y="-540.8" font-family="Times,serif" font-size="14.00"># options : FormatterOptions</text>
 <text text-anchor="start" x="1049" y="-521.8" font-family="Times,serif" font-size="14.00">– executable</text>
 <text text-anchor="start" x="1049" y="-502.8" font-family="Times,serif" font-size="14.00">– format</text>
 <polygon fill="none" stroke="black" points="1044,-317 1044,-494 1625,-494 1625,-317 1044,-317"/>
