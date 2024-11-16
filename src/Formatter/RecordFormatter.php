@@ -15,6 +15,7 @@ use ReflectionParameter;
 use function gettype;
 
 /**
+ * @phpstan-import-type FormatterOptions from AbstractFormatter
  * @author Laurent Laville
  */
 final class RecordFormatter extends AbstractFormatter implements FormatterInterface

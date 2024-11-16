@@ -7,6 +7,7 @@
  */
 namespace Bartlett\GraphUml\Generator;
 
+use Bartlett\GraphUml\Formatter\AbstractFormatter;
 use Bartlett\GraphUml\Formatter\FormatterInterface;
 
 use Graphp\Graph\Graph;
@@ -24,6 +25,7 @@ use function tempnam;
 use function unlink;
 
 /**
+ * @phpstan-import-type FormatterOptions from AbstractFormatter
  * @author Laurent Laville
  */
 abstract class AbstractGenerator
@@ -35,7 +37,8 @@ abstract class AbstractGenerator
 
     /**
      * List of options to personalize generator and formatters
-     * @var array<string, mixed>
+     *
+     * @var FormatterOptions $options
      */
     protected array $options;
 
@@ -56,7 +59,7 @@ abstract class AbstractGenerator
     }
 
     /**
-     * @param array<string, mixed> $values
+     * @param FormatterOptions $values
      */
     public function setOptions(array $values): void
     {

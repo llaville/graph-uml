@@ -37,6 +37,19 @@ use const PHP_EOL;
 use const PREG_SET_ORDER;
 
 /**
+ * @phpstan-type FormatterOptions array{
+ *     show_constants: boolean,
+ *     show_properties: boolean,
+ *     show_methods: boolean,
+ *     show_private: boolean,
+ *     show_protected: boolean,
+ *     add_parents: boolean,
+ *     only_self: boolean,
+ *     label_format: string,
+ *     indent_string: string,
+ *     row_format: string|null
+ * }
+ *
  * @author Laurent Laville
  */
 abstract class AbstractFormatter
@@ -44,12 +57,12 @@ abstract class AbstractFormatter
     protected const EOL = PHP_EOL;
 
     /**
-     * @var array<string, mixed>
+     * @var FormatterOptions
      */
     protected array $options;
 
     /**
-     * @param array<string, mixed> $options
+     * @param FormatterOptions $options
      */
     public function __construct(array $options)
     {

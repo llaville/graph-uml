@@ -17,6 +17,7 @@ use function gettype;
 use function sprintf;
 
 /**
+ * @phpstan-import-type FormatterOptions from AbstractFormatter
  * @author Laurent Laville
  */
 final class HtmlFormatter extends AbstractFormatter implements FormatterInterface
@@ -24,13 +25,11 @@ final class HtmlFormatter extends AbstractFormatter implements FormatterInterfac
     private const DEFAULT_ROW_FORMAT = '    <tr><td align="left">%s</td></tr>';
 
     /**
-     * @param array<string, string> $options
+     * @param FormatterOptions $options
      */
     public function __construct(array $options)
     {
-        if (!isset($options['row_format'])) {
-            $options['row_format'] = self::DEFAULT_ROW_FORMAT;
-        }
+        $options['row_format'] ??= self::DEFAULT_ROW_FORMAT;
         parent::__construct($options);
     }
 
@@ -106,7 +105,7 @@ final class HtmlFormatter extends AbstractFormatter implements FormatterInterfac
                 . $this->getCasted($value)
                 . ' {readOnly}'
             ;
-            $tbody .= sprintf($this->options['row_format'], $label);
+            $tbody .= sprintf($this->options['row_format'] ?? '', $label);
             $tbody .= self::EOL;
         }
 
@@ -163,7 +162,7 @@ final class HtmlFormatter extends AbstractFormatter implements FormatterInterfac
             if (isset($defaults[$property->getName()])) {
                 $label .= ' = ' . $this->getCasted($defaults[$property->getName()]);
             }
-            $tbody .= sprintf($this->options['row_format'], $label);
+            $tbody .= sprintf($this->options['row_format'] ?? '', $label);
             $tbody .= self::EOL;
         }
 
@@ -251,7 +250,7 @@ final class HtmlFormatter extends AbstractFormatter implements FormatterInterfac
                 }
             }
 
-            $tbody .= sprintf($this->options['row_format'], $label);
+            $tbody .= sprintf($this->options['row_format'] ?? '', $label);
             $tbody .= self::EOL;
         }
 
