@@ -38,15 +38,8 @@ use const ARRAY_FILTER_USE_KEY;
  */
 final class ClassDiagramBuilder implements ClassDiagramBuilderInterface
 {
-    /**
-     * Graph instance to operate on
-     */
-    private Graph $graph;
-
     /** @var array<string, mixed>  */
     private array $options;
-
-    private GeneratorInterface $generator;
 
     /** @var array<string, Vertex> */
     private array $entities;
@@ -57,7 +50,7 @@ final class ClassDiagramBuilder implements ClassDiagramBuilderInterface
      * @param array<string, mixed> $options
      * @see ClassDiagramBuilderInterface::OPTIONS_DEFAULTS for available options
      */
-    public function __construct(GeneratorInterface $generator, Graph $graph, array $options = [])
+    public function __construct(private GeneratorInterface $generator, private Graph $graph, array $options = [])
     {
         $attributes = array_filter($options, function ($key) {
             return (str_starts_with($key, 'graph.')
@@ -67,11 +60,9 @@ final class ClassDiagramBuilder implements ClassDiagramBuilderInterface
             );
         }, ARRAY_FILTER_USE_KEY);
 
-        $this->graph = $graph;
         $this->graph->setAttributes($attributes);
 
         $this->options = array_merge(ClassDiagramBuilderInterface::OPTIONS_DEFAULTS, $options);
-        $this->generator = $generator;
         $this->generator->setOptions($this->options);
         $this->entities = [];
     }

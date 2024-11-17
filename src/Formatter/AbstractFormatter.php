@@ -57,16 +57,10 @@ abstract class AbstractFormatter
     protected const EOL = PHP_EOL;
 
     /**
-     * @var FormatterOptions
-     */
-    protected array $options;
-
-    /**
      * @param FormatterOptions $options
      */
-    public function __construct(array $options)
+    public function __construct(protected array $options)
     {
-        $this->options = $options;
     }
 
     public function getFormat(): string
