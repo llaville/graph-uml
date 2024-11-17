@@ -50,7 +50,7 @@ final class ClassDiagramBuilder implements ClassDiagramBuilderInterface
      * @param array<string, mixed> $options
      * @see ClassDiagramBuilderInterface::OPTIONS_DEFAULTS for available options
      */
-    public function __construct(private GeneratorInterface $generator, private Graph $graph, array $options = [])
+    public function __construct(private readonly GeneratorInterface $generator, private readonly Graph $graph, array $options = [])
     {
         $attributes = array_filter($options, function ($key) {
             return (str_starts_with($key, 'graph.')

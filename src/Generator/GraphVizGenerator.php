@@ -30,7 +30,7 @@ use function trim;
  */
 final class GraphVizGenerator extends AbstractGenerator implements GeneratorInterface
 {
-    public function __construct(private GraphViz $graphViz, string $executable = 'dot', string $format = 'png')
+    public function __construct(private readonly GraphViz $graphViz, string $executable = 'dot', string $format = 'png')
     {
         /**
          * Usually, your graphviz executables should be located in your $PATH
