@@ -36,7 +36,7 @@ $target = $generator->createImageFile($graph);
 echo (empty($target) ? 'no' : $target) . ' file generated' . PHP_EOL;
 ```
 
-Will output this [graph statements](../assets/images/without-elements.record.gv).
+Will output this [graph statements](../assets/images/without-elements.html.gv).
 
 And image file generated look like :
 
