@@ -11,10 +11,10 @@ digraph {
     <tr><td align="left">+ «static» OPTIONS_DEFAULTS : array = […] {readOnly}</td></tr>
 </table></td></tr>
     <tr><td><table border="0" cellspacing="0" cellpadding="2">
-    <tr><td align="left">– graph</td></tr>
     <tr><td align="left">– options : mixed</td></tr>
-    <tr><td align="left">– generator</td></tr>
     <tr><td align="left">– entities : mixed</td></tr>
+    <tr><td align="left">– generator</td></tr>
+    <tr><td align="left">– graph</td></tr>
 </table></td></tr>
     <tr><td><table border="0" cellspacing="0" cellpadding="2">
     <tr><td align="left">+ __construct(generator : Bartlett\\GraphUml\\Generator\\GeneratorInterface, graph : Graphp\\Graph\\Graph, options : array = [])</td></tr>

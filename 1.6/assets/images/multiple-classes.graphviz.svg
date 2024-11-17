@@ -28,10 +28,10 @@
 <polygon fill="none" stroke="black" points="24.5,-203 24.5,-228 941.5,-228 941.5,-203 24.5,-203"/>
 <text text-anchor="start" x="29.5" y="-211.8" font-family="Times,serif" font-size="14.00">+ «static» OPTIONS_DEFAULTS : array = […] {readOnly}</text>
 <polygon fill="none" stroke="black" points="24.5,-121 24.5,-203 941.5,-203 941.5,-121 24.5,-121"/>
-<text text-anchor="start" x="29.5" y="-186.8" font-family="Times,serif" font-size="14.00">– graph</text>
-<text text-anchor="start" x="29.5" y="-167.8" font-family="Times,serif" font-size="14.00">– options : mixed</text>
+<text text-anchor="start" x="29.5" y="-186.8" font-family="Times,serif" font-size="14.00">– options : mixed</text>
+<text text-anchor="start" x="29.5" y="-167.8" font-family="Times,serif" font-size="14.00">– entities : mixed</text>
 <text text-anchor="start" x="29.5" y="-148.8" font-family="Times,serif" font-size="14.00">– generator</text>
-<text text-anchor="start" x="29.5" y="-129.8" font-family="Times,serif" font-size="14.00">– entities : mixed</text>
+<text text-anchor="start" x="29.5" y="-129.8" font-family="Times,serif" font-size="14.00">– graph</text>
 <polygon fill="none" stroke="black" points="24.5,-20 24.5,-121 941.5,-121 941.5,-20 24.5,-20"/>
 <text text-anchor="start" x="29.5" y="-104.8" font-family="Times,serif" font-size="14.00">+ __construct(generator : Bartlett\GraphUml\Generator\GeneratorInterface, graph : Graphp\Graph\Graph, options : array = [])</text>
 <text text-anchor="start" x="29.5" y="-85.8" font-family="Times,serif" font-size="14.00">+ createVertexClass(source, attributes : array = []) : Graphp\Graph\Vertex</text>
