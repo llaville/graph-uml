@@ -5,6 +5,7 @@
 |:--------------|:-------------------------------------------:|:-------------------------------------------------------------:|:---------------------------------------------------------:|:----------------------------------------------:|:----------------------------------------------------------------:|
 | Stable v1.4.x | [![Branch 1.4][Branch_14x-img]][Branch_14x] | [![Minimum PHP Version)][PHPVersion_14x-img]][PHPVersion_14x] | [![Stable Version 1.4][Packagist_14x-img]][Packagist_14x] | [![License 1.4][License_14x-img]][License_14x] | [![Documentation 1.4][Documentation_14x-img]][Documentation_14x] |
 | Stable v1.5.x | [![Branch 1.5][Branch_15x-img]][Branch_15x] | [![Minimum PHP Version)][PHPVersion_15x-img]][PHPVersion_15x] | [![Stable Version 1.5][Packagist_15x-img]][Packagist_15x] | [![License 1.5][License_15x-img]][License_15x] | [![Documentation 1.5][Documentation_15x-img]][Documentation_15x] |
+| Stable v1.6.x | [![Branch 1.6][Branch_16x-img]][Branch_16x] | [![Minimum PHP Version)][PHPVersion_16x-img]][PHPVersion_16x] | [![Stable Version 1.6][Packagist_16x-img]][Packagist_16x] | [![License 1.6][License_16x-img]][License_16x] | [![Documentation 1.6][Documentation_16x-img]][Documentation_16x] |
 
 [Branch_14x-img]: https://img.shields.io/badge/branch-1.4-orange
 [Branch_14x]: https://github.com/llaville/graph-uml/tree/1.4
@@ -28,6 +29,17 @@
 [Documentation_15x-img]: https://img.shields.io/badge/documentation-v1.5-green
 [Documentation_15x]: https://github.com/llaville/graph-uml/tree/1.5/docs
 
+[Branch_16x-img]: https://img.shields.io/badge/branch-1.6-orange
+[Branch_16x]: https://github.com/llaville/graph-uml/tree/1.6
+[PHPVersion_16x-img]: https://img.shields.io/packagist/php-v/bartlett/graph-uml/1.6.0
+[PHPVersion_16x]: https://www.php.net/supported-versions.php
+[Packagist_16x-img]: https://img.shields.io/badge/packagist-v1.6.0-blue
+[Packagist_16x]: https://packagist.org/packages/bartlett/graph-uml
+[License_16x-img]: https://img.shields.io/packagist/l/bartlett/graph-uml
+[License_16x]: https://github.com/llaville/graph-uml/blob/1.6/LICENSE
+[Documentation_16x-img]: https://img.shields.io/badge/documentation-v1.6-green
+[Documentation_16x]: https://github.com/llaville/graph-uml/tree/1.6/docs
+
 [![GitHub Discussions](https://img.shields.io/github/discussions/llaville/graph-uml)](https://github.com/llaville/graph-uml/discussions)
 [![Unit Tests](https://github.com/llaville/graph-uml/actions/workflows/unit-tests.yaml/badge.svg)](https://github.com/llaville/graph-uml/actions/workflows/unit-tests.yaml)
 [![GitHub-Pages](https://github.com/llaville/graph-uml/actions/workflows/gh-pages.yml/badge.svg)](https://github.com/llaville/graph-uml/actions/workflows/gh-pages.yml)
@@ -36,8 +48,8 @@ Generate UML diagrams by reflection for your PHP projects.
 
 ## Documentation
 
-All the documentation is available on [website](https://llaville.github.io/graph-uml/1.5),
-generated from the [docs](https://github.com/llaville/graph-uml/tree/1.5/docs) folder.
+All the documentation is available on [website](https://llaville.github.io/graph-uml/1.6),
+generated from the [docs](https://github.com/llaville/graph-uml/tree/1.6/docs) folder.
 
 * [Getting Started](docs/getting-started.md).
 
