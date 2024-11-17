@@ -14,7 +14,6 @@ use Graphp\Graph\Vertex;
 
 use Webmozart\Assert\Assert;
 
-use Closure;
 use Generator;
 use ReflectionClass;
 use ReflectionException;
