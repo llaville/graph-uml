@@ -19,6 +19,10 @@ $options = [
     'show_methods' => false,
 ];
 
+$generator = new GraphVizGenerator(new GraphViz(), 'dot', $format);
+$graph = new Graph();
+$builder = new ClassDiagramBuilder($generator, $graph, $options ?? []);
+
 $builder->createVertexClass(ClassDiagramBuilder::class);
 
 // show UML diagram statements
