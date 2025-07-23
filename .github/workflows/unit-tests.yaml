@@ -8,7 +8,7 @@ on:
     pull_request:
         branches:
             - master
-            - "1.5"
+            - "1.7"
         paths-ignore:
             - 'docs/**'
     workflow_call:
@@ -18,7 +18,6 @@ jobs:
         uses: llaville/.github/.github/workflows/mega-linter.yml@master
         with:
             repository: ${{ github.repository }}
-            php-version: "8.1"
 
     unit_tests:
         needs: lint_files
@@ -31,7 +30,6 @@ jobs:
                 os:
                     - ubuntu-22.04
                 php:
-                    - 8.1
                     - 8.2
                     - 8.3
                     - 8.4
@@ -55,6 +53,8 @@ jobs:
                 uses: ramsey/composer-install@v3
                 with:
                     composer-options: "--prefer-dist"
+                env: # https://github.com/ramsey/composer-install?tab=readme-ov-file#fork-and-private-repositories
+                    COMPOSER_AUTH: '{"github-oauth": {"github.com": "${{ secrets.COMPOSER_AUTH }}"}}'
 
             -   # https://github.com/sebastianbergmann/phpunit/tree/10.5
                 name: Unit tests with PHPUnit 10

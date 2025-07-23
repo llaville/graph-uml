@@ -45,18 +45,20 @@ jobs:
             -   # https://getcomposer.org/doc/06-config.md#platform
                 name: Setup Composer Platform
                 run: |
-                    composer config platform.php 8.1
+                    composer config platform.php 8.2
 
             -   # https://github.com/ramsey/composer-install
                 name: Install Composer dependencies
                 uses: ramsey/composer-install@v3
                 with:
                     composer-options: "--prefer-dist"
+                env: # https://github.com/ramsey/composer-install?tab=readme-ov-file#fork-and-private-repositories
+                    COMPOSER_AUTH: '{"github-oauth": {"github.com": "${{ secrets.COMPOSER_AUTH }}"}}'
 
             -   # https://github.com/llaville/box-manifest
                 name: Download BOX Manifest Artifact
                 env:
-                    BOX_MANIFEST_VERSION: ${{ vars.BOX_MANIFEST_VERSION || '4.1.0' }}
+                    BOX_MANIFEST_VERSION: ${{ vars.BOX_MANIFEST_VERSION || '4.1.5' }}
                 run: |
                     curl -Ls "https://github.com/llaville/box-manifest/releases/download/$BOX_MANIFEST_VERSION/box-manifest.phar" -o /usr/local/bin/box-manifest
                     chmod +x /usr/local/bin/box-manifest
