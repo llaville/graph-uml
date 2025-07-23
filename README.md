@@ -5,6 +5,7 @@ Here are the links to the documentation for versions of Graph-UML that are still
 - [Graph-UML 1.4](https://llaville.github.io/graph-uml/1.4/)
 - [Graph-UML 1.5](https://llaville.github.io/graph-uml/1.5/)
 - [Graph-UML 1.6](https://llaville.github.io/graph-uml/1.6/)
+- [Graph-UML 1.7](https://llaville.github.io/graph-uml/1.7/)
 
 Full documentation may be found in `docs` folder into this repository, and may be read online without to do anything else.
 
