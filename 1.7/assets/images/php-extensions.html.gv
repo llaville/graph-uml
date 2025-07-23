@@ -1,0 +1,54 @@
+graph {
+  graph [rankdir="LR" bgcolor="transparent"]
+  node [fillcolor="#FEFECE" style="filled"]
+  subgraph cluster_0 {
+    label = "PHP"
+    "lzf" [fillcolor="burlywood3" shape="none" label=<
+<table cellspacing="0" border="0" cellborder="1">
+    <tr><td bgcolor="#eeeeee"><b>«extension»<br/>lzf</b></td></tr>
+    <tr><td><table border="0" cellspacing="0" cellpadding="2">
+    <tr><td align="left">+  lzf_compress(string : string)</td></tr>
+    <tr><td align="left">+  lzf_decompress(string : string)</td></tr>
+    <tr><td align="left">+  lzf_optimized_for()</td></tr>
+</table></td></tr>
+</table>>]
+    "yaml" [shape="none" label=<
+<table cellspacing="0" border="0" cellborder="1">
+    <tr><td bgcolor="#eeeeee"><b>«extension»<br/>yaml</b></td></tr>
+    <tr><td><table border="0" cellspacing="0" cellpadding="2">
+    <tr><td align="left">+ «static» YAML_ANY_SCALAR_STYLE : int = 0 {readOnly}</td></tr>
+    <tr><td align="left">+ «static» YAML_PLAIN_SCALAR_STYLE : int = 1 {readOnly}</td></tr>
+    <tr><td align="left">+ «static» YAML_SINGLE_QUOTED_SCALAR_STYLE : int = 2 {readOnly}</td></tr>
+    <tr><td align="left">+ «static» YAML_DOUBLE_QUOTED_SCALAR_STYLE : int = 3 {readOnly}</td></tr>
+    <tr><td align="left">+ «static» YAML_LITERAL_SCALAR_STYLE : int = 4 {readOnly}</td></tr>
+    <tr><td align="left">+ «static» YAML_FOLDED_SCALAR_STYLE : int = 5 {readOnly}</td></tr>
+    <tr><td align="left">+ «static» YAML_NULL_TAG : string = "tag\:yaml\.org\,2002\:null" {readOnly}</td></tr>
+    <tr><td align="left">+ «static» YAML_BOOL_TAG : string = "tag\:yaml\.org\,2002\:bool" {readOnly}</td></tr>
+    <tr><td align="left">+ «static» YAML_STR_TAG : string = "tag\:yaml\.org\,2002\:str" {readOnly}</td></tr>
+    <tr><td align="left">+ «static» YAML_INT_TAG : string = "tag\:yaml\.org\,2002\:int" {readOnly}</td></tr>
+    <tr><td align="left">+ «static» YAML_FLOAT_TAG : string = "tag\:yaml\.org\,2002\:float" {readOnly}</td></tr>
+    <tr><td align="left">+ «static» YAML_TIMESTAMP_TAG : string = "tag\:yaml\.org\,2002\:timestamp" {readOnly}</td></tr>
+    <tr><td align="left">+ «static» YAML_SEQ_TAG : string = "tag\:yaml\.org\,2002\:seq" {readOnly}</td></tr>
+    <tr><td align="left">+ «static» YAML_MAP_TAG : string = "tag\:yaml\.org\,2002\:map" {readOnly}</td></tr>
+    <tr><td align="left">+ «static» YAML_PHP_TAG : string = "\!php\/object" {readOnly}</td></tr>
+    <tr><td align="left">+ «static» YAML_MERGE_TAG : string = "tag\:yaml\.org\,2002\:merge" {readOnly}</td></tr>
+    <tr><td align="left">+ «static» YAML_BINARY_TAG : string = "tag\:yaml\.org\,2002\:binary" {readOnly}</td></tr>
+    <tr><td align="left">+ «static» YAML_ANY_ENCODING : int = 0 {readOnly}</td></tr>
+    <tr><td align="left">+ «static» YAML_UTF8_ENCODING : int = 1 {readOnly}</td></tr>
+    <tr><td align="left">+ «static» YAML_UTF16LE_ENCODING : int = 2 {readOnly}</td></tr>
+    <tr><td align="left">+ «static» YAML_UTF16BE_ENCODING : int = 3 {readOnly}</td></tr>
+    <tr><td align="left">+ «static» YAML_ANY_BREAK : int = 0 {readOnly}</td></tr>
+    <tr><td align="left">+ «static» YAML_CR_BREAK : int = 1 {readOnly}</td></tr>
+    <tr><td align="left">+ «static» YAML_LN_BREAK : int = 2 {readOnly}</td></tr>
+    <tr><td align="left">+ «static» YAML_CRLN_BREAK : int = 3 {readOnly}</td></tr>
+</table></td></tr>
+    <tr><td><table border="0" cellspacing="0" cellpadding="2">
+    <tr><td align="left">+  yaml_parse(input, pos = «unknown», inout ndocs = «unknown», callbacks : array = «unknown»)</td></tr>
+    <tr><td align="left">+  yaml_parse_file(filename, pos = «unknown», inout ndocs = «unknown», callbacks : array = «unknown»)</td></tr>
+    <tr><td align="left">+  yaml_parse_url(url, pos = «unknown», inout ndocs = «unknown», callbacks : array = «unknown»)</td></tr>
+    <tr><td align="left">+  yaml_emit(data, encoding = «unknown», linebreak = «unknown», callbacks : array = «unknown»)</td></tr>
+    <tr><td align="left">+  yaml_emit_file(filename, data, encoding = «unknown», linebreak = «unknown», callbacks : array = «unknown»)</td></tr>
+</table></td></tr>
+</table>>]
+  }
+}
