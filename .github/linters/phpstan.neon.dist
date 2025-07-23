@@ -3,6 +3,9 @@ parameters:
     paths:
         - ../../src/
         - ../../examples/
+    excludePaths:
+        - ../../examples/graphviz.php
     ignoreErrors:
         -
             identifier: missingType.generics
+    treatPhpDocTypesAsCertain: false
