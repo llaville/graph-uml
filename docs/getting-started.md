@@ -3,7 +3,7 @@
 
 ## Requirements
 
-* PHP 8.1 or greater
+* PHP 8.2 or greater
 * [graphp/graph](https://github.com/graphp/graph) package from master branch (considered as future stable v1.0.0)
 * [graphp/graphviz](https://github.com/graphp/graphviz) package from master branch (considered as future stable v1.0.0)
 
@@ -15,7 +15,7 @@ The recommended way to install this library is [through composer](http://getcomp
 If you don't know yet what is composer, have a look [on introduction](http://getcomposer.org/doc/00-intro.md).
 
 ```shell
-composer require bartlett/graph-uml ^1.6
+composer require bartlett/graph-uml ^1.7
 ```
 
 ### With Git
@@ -24,7 +24,7 @@ The Graph-UML can be directly used from [GitHub](https://github.com/llaville/gra
 by cloning the repository into a directory of your choice.
 
 ```shell
-git clone -b 1.6 https://github.com/llaville/graph-uml.git
+git clone -b 1.7 https://github.com/llaville/graph-uml.git
 ```
 
 Additionally, you'll have to install GraphViz (`dot` executable).
