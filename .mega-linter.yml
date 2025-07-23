@@ -11,6 +11,6 @@ DISABLE_LINTERS:
     - MARKDOWN_MARKDOWN_LINK_CHECK
     - PHP_BUILTIN
     - PHP_PHPCSFIXER
-    - PHP_PSALM # because v5.26.x is not yet PHP 8.4 compatible
+    - PHP_PSALM
     - YAML_V8R
 PRINT_ALL_FILES: false
