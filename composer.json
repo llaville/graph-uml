@@ -36,6 +36,11 @@
             "Bartlett\\GraphUml\\": "src/"
         }
     },
+    "autoload-dev": {
+        "psr-4": {
+            "Bartlett\\GraphUml\\Tests\\": "tests/"
+        }
+    },
     "extra": {
         "patches": {
             "graphp/graphviz": {

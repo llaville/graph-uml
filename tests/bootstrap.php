@@ -7,12 +7,3 @@
  */
 
 require_once dirname(__DIR__) . '/vendor/autoload.php';
-
-/**
- * TestClass to place utility functions in.
- *
- * @author Laurent Laville
- */
-class TestCase extends \PHPUnit\Framework\TestCase
-{
-}

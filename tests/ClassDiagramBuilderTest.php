@@ -5,6 +5,7 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
+namespace Bartlett\GraphUml\Tests;
 
 use Bartlett\GraphUml\ClassDiagramBuilder;
 use Bartlett\GraphUml\ClassDiagramBuilderInterface;
@@ -14,7 +15,12 @@ use Graphp\Graph\Graph;
 use Graphp\Graph\Vertex;
 use Graphp\GraphViz\GraphViz;
 
+use PHPUnit\Framework\Attributes\Depends;
+use PHPUnit\Framework\TestCase;
+
 use Webmozart\Assert\InvalidArgumentException;
+
+use ReflectionClass;
 
 /**
  * @author Laurent Laville
@@ -80,9 +86,9 @@ class ClassDiagramBuilderTest extends TestCase
     /**
      * Test that the graph will include all class parents
      *
-     * @depends testClassSuccess
      * @throws ReflectionException
      */
+    #[Depends('testClassSuccess')]
     public function testInheritanceSuccess()
     {
         $this->builder->createVertexClass(ClassDiagramBuilder::class);
@@ -93,9 +99,9 @@ class ClassDiagramBuilderTest extends TestCase
     /**
      * Test that the graph will not include class parents
      *
-     * @depends testClassSuccess
      * @throws ReflectionException
      */
+    #[Depends('testClassSuccess')]
     public function testInheritanceWithoutParent()
     {
         $generator = new GraphVizGenerator(new GraphViz());
@@ -110,9 +116,9 @@ class ClassDiagramBuilderTest extends TestCase
     /**
      * Test that a class in namespace has a group attribute attached to its corresponding vertex
      *
-     * @depends testClassSuccess
      * @throws ReflectionException
      */
+    #[Depends('testClassSuccess')]
     public function testClassInGroup()
     {
         $vertex = $this->builder->createVertexClass(ClassDiagramBuilder::class);
@@ -125,9 +131,9 @@ class ClassDiagramBuilderTest extends TestCase
     /**
      * Test that a class has a stereotype attribute attached to its corresponding vertex
      *
-     * @depends testClassSuccess
      * @throws ReflectionException
      */
+    #[Depends('testClassSuccess')]
     public function testClassHasGoodStereotype()
     {
         $vertex = $this->builder->createVertexClass(ClassDiagramBuilder::class);
@@ -138,9 +144,9 @@ class ClassDiagramBuilderTest extends TestCase
     /**
      * Test that an interface has a stereotype attribute attached to its corresponding vertex
      *
-     * @depends testClassSuccess
      * @throws ReflectionException
      */
+    #[Depends('testClassSuccess')]
     public function testInterfaceHasGoodStereotype()
     {
         $vertex = $this->builder->createVertexClass(ClassDiagramBuilderInterface::class);
@@ -151,9 +157,9 @@ class ClassDiagramBuilderTest extends TestCase
     /**
      * Test that the graph has edges
      *
-     * @depends testClassSuccess
      * @throws ReflectionException
      */
+    #[Depends('testClassSuccess')]
     public function testGraphHasEdges()
     {
         $this->builder->createVertexClass(ClassDiagramBuilder::class);
@@ -164,9 +170,9 @@ class ClassDiagramBuilderTest extends TestCase
     /**
      * Test that the graph include edges corresponding to vertices connections (class -> interface)
      *
-     * @depends testGraphHasEdges
      * @throws ReflectionException
      */
+    #[Depends('testGraphHasEdges')]
     public function testGraphHasEdgesConnection()
     {
         $vertex = $this->builder->createVertexClass(ClassDiagramBuilder::class);
