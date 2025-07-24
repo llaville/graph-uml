@@ -61,6 +61,6 @@ jobs:
                 env: # https://github.com/ramsey/composer-install?tab=readme-ov-file#fork-and-private-repositories
                     COMPOSER_AUTH: '{"github-oauth": {"github.com": "${{ secrets.personal_access_token }}"}}'
 
-            -   # https://github.com/sebastianbergmann/phpunit/tree/10.5
-                name: Unit tests with PHPUnit 10
+            -   # https://github.com/sebastianbergmann/phpunit/tree/11.5
+                name: Unit tests with PHPUnit 11
                 run: vendor/bin/phpunit --testdox --do-not-cache-result --no-progress
