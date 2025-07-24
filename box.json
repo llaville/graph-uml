@@ -6,5 +6,5 @@
         "vendor"
     ],
     "compression": "GZ",
-    "dump-autoload": true
+    "dump-autoload": false
 }
