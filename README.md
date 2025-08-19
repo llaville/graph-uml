@@ -43,9 +43,9 @@
 
 [Branch_17x-img]: https://img.shields.io/badge/branch-1.7-orange
 [Branch_17x]: https://github.com/llaville/graph-uml/tree/1.7
-[PHPVersion_17x-img]: https://img.shields.io/packagist/php-v/bartlett/graph-uml/1.7.0
+[PHPVersion_17x-img]: https://img.shields.io/packagist/php-v/bartlett/graph-uml/1.7.1
 [PHPVersion_17x]: https://www.php.net/supported-versions.php
-[Packagist_17x-img]: https://img.shields.io/badge/packagist-v1.7.0-blue
+[Packagist_17x-img]: https://img.shields.io/badge/packagist-v1.7.1-blue
 [Packagist_17x]: https://packagist.org/packages/bartlett/graph-uml
 [License_17x-img]: https://img.shields.io/packagist/l/bartlett/graph-uml
 [License_17x]: https://github.com/llaville/graph-uml/blob/1.7/LICENSE
