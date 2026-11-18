@@ -26,7 +26,7 @@ use function sprintf;
  */
 final class HtmlFormatter extends AbstractFormatter implements FormatterInterface
 {
-    private const DEFAULT_ROW_FORMAT = '    <tr><td align="left">%s</td></tr>';
+    private const string DEFAULT_ROW_FORMAT = '    <tr><td align="left">%s</td></tr>';
 
     /**
      * @param FormatterOptions $options

@@ -34,10 +34,10 @@ use function unlink;
  */
 abstract class AbstractGenerator
 {
-    protected const CMD_EXECUTABLE = '%E';
-    protected const CMD_FORMAT = '%F';
-    protected const CMD_OUTPUT_FILE = '%o';
-    protected const CMD_TEMP_FILE = '%t';
+    protected const string CMD_EXECUTABLE = '%E';
+    protected const string CMD_FORMAT = '%F';
+    protected const string CMD_OUTPUT_FILE = '%o';
+    protected const string CMD_TEMP_FILE = '%t';
 
     /**
      * List of options to personalize generator and formatters

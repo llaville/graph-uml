@@ -59,7 +59,7 @@ use const PREG_SET_ORDER;
  */
 abstract class AbstractFormatter
 {
-    protected const EOL = PHP_EOL;
+    protected const mixed EOL = PHP_EOL;
 
     /**
      * @param FormatterOptions $options
