@@ -21,4 +21,4 @@ return [
     // @link https://graphviz.gitlab.io/docs/attr-types/colorList/
     'cluster.Bartlett\\GraphUml\\Generator.graph.bgcolor' => 'burlywood1',
     'cluster.Bartlett\\GraphUml\\Generator\\GeneratorInterface.node.fillcolor' => 'burlywood3',
- ];
+];
