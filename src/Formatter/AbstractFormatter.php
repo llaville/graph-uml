@@ -18,6 +18,7 @@ use ReflectionParameter;
 use ReflectionProperty;
 use ReflectionType;
 use Reflector;
+
 use function count;
 use function get_class;
 use function htmlentities;
@@ -35,6 +36,7 @@ use function str_replace;
 use function strtolower;
 use function substr;
 use function trim;
+
 use const PHP_EOL;
 use const PREG_SET_ORDER;
 

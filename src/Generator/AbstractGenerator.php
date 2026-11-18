@@ -17,6 +17,7 @@ use Graphp\Graph\Graph;
 use ReflectionClass;
 use ReflectionExtension;
 use UnexpectedValueException;
+
 use function escapeshellcmd;
 use function file_put_contents;
 use function sprintf;

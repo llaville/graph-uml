@@ -20,6 +20,7 @@ use Generator;
 use ReflectionClass;
 use ReflectionException;
 use ReflectionExtension;
+
 use function array_filter;
 use function class_exists;
 use function extension_loaded;
@@ -27,6 +28,7 @@ use function interface_exists;
 use function is_string;
 use function str_replace;
 use function str_starts_with;
+
 use const ARRAY_FILTER_USE_KEY;
 
 /**
