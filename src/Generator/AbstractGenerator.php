@@ -101,14 +101,14 @@ abstract class AbstractGenerator
         $tmp = tempnam(sys_get_temp_dir(), $this->getName());
         if ($tmp === false) {
             throw new UnexpectedValueException(
-                sprintf('Unable to get temporary file name for %s script', $this->getName())
+                sprintf('Unable to get temporary file name for %s script', $this->getName()),
             );
         }
 
         $ret = file_put_contents($tmp, $script, LOCK_EX);
         if ($ret === false) {
             throw new UnexpectedValueException(
-                sprintf('Unable to write %s script to temporary file', $this->getName())
+                sprintf('Unable to write %s script to temporary file', $this->getName()),
             );
         }
 
@@ -127,7 +127,7 @@ abstract class AbstractGenerator
         system(escapeshellcmd($command), $ret);
         if ($ret !== 0) {
             throw new UnexpectedValueException(
-                'Unable to invoke "' . $this->executable . '" to create image file (code ' . $ret . ')'
+                'Unable to invoke "' . $this->executable . '" to create image file (code ' . $ret . ')',
             );
         }
         unlink($tmp);

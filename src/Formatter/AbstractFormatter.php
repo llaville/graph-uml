@@ -97,7 +97,7 @@ abstract class AbstractFormatter
         $doc = $ref->getDocComment();
         if ($doc !== false) {
             return trim(
-                preg_replace('/(^(?:\h*\*)\h*|\h+$)/m', '', substr($doc, 3, -2)) ?? ''
+                preg_replace('/(^(?:\h*\*)\h*|\h+$)/m', '', substr($doc, 3, -2)) ?? '',
             );
         }
 
@@ -145,7 +145,7 @@ abstract class AbstractFormatter
                 }
                 return ' = ' . $this->getCasted(
                     str_replace(['self::', 'static::'], '', $defaultValue),
-                    ''
+                    '',
                 );
             }
 
@@ -257,7 +257,7 @@ abstract class AbstractFormatter
         return preg_replace(
             '/([^\\w])/u',
             '\\\\$1',
-            str_replace(["\r", "\n", "\t"], ['\\r', '\\n', '\\t'], $id)
+            str_replace(["\r", "\n", "\t"], ['\\r', '\\n', '\\t'], $id),
         ) ?? '';
     }
 }

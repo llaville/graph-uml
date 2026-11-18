@@ -94,7 +94,7 @@ final class GraphVizGenerator extends AbstractGenerator implements GeneratorInte
                 self::CMD_EXECUTABLE,
                 self::CMD_FORMAT,
                 self::CMD_TEMP_FILE,
-                self::CMD_OUTPUT_FILE
+                self::CMD_OUTPUT_FILE,
             );
         }
 

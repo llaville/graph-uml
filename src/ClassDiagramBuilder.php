@@ -89,7 +89,7 @@ final class ClassDiagramBuilder implements ClassDiagramBuilderInterface
             } catch (ReflectionException $e) {  // @phpstan-ignore catch.neverThrown
                 Assert::true(
                     $classExists || $interfaceExists,
-                    'Expected an existing interface/class name. Got: ' . $source
+                    'Expected an existing interface/class name. Got: ' . $source,
                 );
             }
         } else {
@@ -144,11 +144,11 @@ final class ClassDiagramBuilder implements ClassDiagramBuilderInterface
 
         $vertex->setAttribute(
             $generatorPrefix . 'shape',
-            ($formatterType === 'html' ? 'none' : 'record')
+            ($formatterType === 'html' ? 'none' : 'record'),
         );
         $vertex->setAttribute(
             $generatorPrefix . 'label_' . $formatterType,
-            $this->generator->getLabelClass($reflection)
+            $this->generator->getLabelClass($reflection),
         );
 
         if ($reflection->inNamespace()) {
@@ -187,11 +187,11 @@ final class ClassDiagramBuilder implements ClassDiagramBuilderInterface
 
         $vertex->setAttribute(
             $generatorPrefix . 'shape',
-            ($formatterType === 'html' ? 'none' : 'record')
+            ($formatterType === 'html' ? 'none' : 'record'),
         );
         $vertex->setAttribute(
             $generatorPrefix . 'label_' . $formatterType,
-            $this->generator->getLabelExtension($reflection)
+            $this->generator->getLabelExtension($reflection),
         );
         $vertex->setAttribute('group', 'PHP');
         $vertex->setAttribute('stereotype', 'extension');
