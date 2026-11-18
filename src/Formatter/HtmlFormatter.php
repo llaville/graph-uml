@@ -93,7 +93,11 @@ final class HtmlFormatter extends AbstractFormatter implements FormatterInterfac
         $tbody = '';
 
         foreach ($reflection->getConstants() as $name => $value) {
-            if ($this->options['only_self'] && $parent && $parent->getConstant($name) === $value) {
+            if ($this->options['only_self']
+                && $parent
+                && $parent->hasConstant($name)
+                && $parent->getConstant($name) === $value
+            ) {
                 continue;
             }
 
