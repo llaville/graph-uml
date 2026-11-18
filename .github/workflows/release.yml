@@ -32,7 +32,7 @@ on:
                 default: "4.5.1"
                 type: string
             box-manifest-options:
-                description: "Additional options to pass to BOX Manifest (e.g. `--bootstrap bootstrap.php -r plain.txt -r sbom.json`)"
+                description: "Additional options to pass to BOX Manifest (e.g. `--bootstrap autoload.php -r plain.txt -r sbom.json`)"
                 required: false
                 default: "-r console-table.txt -r plain.txt -r sbom.json"
                 type: string

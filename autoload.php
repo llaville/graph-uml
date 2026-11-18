@@ -9,7 +9,7 @@ declare(strict_types=1);
  * file that was distributed with this source code.
  *
  * @author Laurent Laville
- * @since Release 1.8.0
+ * @since Release 1.8.0 (replaced the previous "bootstrap.php" that was removed)
  */
 
 namespace Bartlett\GraphUml;
@@ -83,8 +83,8 @@ if (class_exists(__NAMESPACE__ . '\Autoload', false) === false) {
             throw new RuntimeException(
                 sprintf(
                     'Unable to find an autoloader in "%s" paths.',
-                    implode('", "', $possibleAutoloaderPaths)
-                )
+                    implode('", "', $possibleAutoloaderPaths),
+                ),
             );
         }
     }
