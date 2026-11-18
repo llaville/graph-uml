@@ -216,9 +216,7 @@ final class RecordFormatter extends AbstractFormatter implements FormatterInterf
             $returnType = $method->getReturnType();
             if ($returnType instanceof ReflectionNamedType) {
                 $type = $returnType->getName();
-                if ($type !== null) {
-                    $label .= ' : ' . ($returnType->allowsNull() ? '?' : '') . $this->escape($type);
-                }
+                $label .= ' : ' . ($returnType->allowsNull() ? '?' : '') . $this->escape($type);
             }
 
             // align this line to the left

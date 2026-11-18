@@ -97,7 +97,8 @@ final class HtmlFormatter extends AbstractFormatter implements FormatterInterfac
         $tbody = '';
 
         foreach ($reflection->getConstants() as $name => $value) {
-            if ($this->options['only_self']
+            if (
+                $this->options['only_self']
                 && $parent
                 && $parent->hasConstant($name)
                 && $parent->getConstant($name) === $value
@@ -253,9 +254,7 @@ final class HtmlFormatter extends AbstractFormatter implements FormatterInterfac
             $returnType = $method->getReturnType();
             if ($returnType instanceof ReflectionNamedType) {
                 $type = $returnType->getName();
-                if ($type !== null) {
-                    $label .= ' : ' . ($returnType->allowsNull() ? '?' : '') . $this->escape($type);
-                }
+                $label .= ' : ' . ($returnType->allowsNull() ? '?' : '') . $this->escape($type);
             }
 
             $tbody .= sprintf($this->options['row_format'] ?? '', $label);
